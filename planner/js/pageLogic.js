@@ -1171,11 +1171,11 @@ function CharInputsGoalMax() {
         cancelButtonText: GetLanguageString("label-cancel")
     }).then((result) => {
         if (result.isConfirmed) {
-            let values = [90, 5, 10, 10, 10, 9, 9, 8];
+            let values = [90, 5, 10, 10, 10, 9, 9, 9];
             SetCharInputGoalValues(values);
         }
         else if (result.isDenied) {
-            let values = [90, 5, 10, 10, 10, 9, 9, 9];
+            let values = [90, 5, 10, 10, 10, 10, 10, 10];
             SetCharInputGoalValues(values);
         }
     })
