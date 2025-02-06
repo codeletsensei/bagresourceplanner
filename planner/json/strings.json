@@ -1805,10 +1805,10 @@
         "CN": "太快了，请稍后再试: "
     },
     "text-exporteddata": {
-        "EN": "Exported data",
+        "EN": "Exported data - copy the shit below to a txt and save it somewhere. To load (Import) it later on another fork or if you change devices. No idea if it'll work on another fork. No refunds.",
         "KR": "데이터 내보내기",
         "TH": "ข้อมูลที่ส่งออก",
-        "ID": "Exported data",
+        "ID": "Exported data - copy the shit below to a txt and save it somewhere. To load (Import) it later on another fork or if you change devices. No idea if it'll work on another fork. No guarantee it'll work. No refunds.",
         "JP": "エクスポートデータ",
         "CN": "已导出数据"
     },

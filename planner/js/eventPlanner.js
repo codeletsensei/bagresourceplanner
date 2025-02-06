@@ -1993,7 +1993,7 @@ function CreateDropsDiv(drops) {
             if (parseInt(matId) < 1000) {
                 dropImg.src = "icons/Artifact/" + drop + ".webp";
             }
-            else if (["T1_", "T2_", "T3_", "T4_", "T5_", "T6_", "T7_", "T8_", "T9_"].includes(drop.substring(0, 3))) {
+            else if (["T1_", "T2_", "T3_", "T4_", "T5_", "T6_", "T7_", "T8_", "T9_", "T10_"].includes(drop.substring(0, 3))) {
                 dropImg.src = "icons/Gear/" + drop + ".webp";
             }
             else {
@@ -2022,7 +2022,7 @@ function CreateDropsDiv(drops) {
 
             dropP.innerText = drops[drop];
         }
-        else if (["T1_", "T2_", "T3_", "T4_", "T5_", "T6_", "T7_", "T8_", "T9_"].includes(drop.substring(0, 3))) {
+        else if (["T1_", "T2_", "T3_", "T4_", "T5_", "T6_", "T7_", "T8_", "T9_", "T10_"].includes(drop.substring(0, 3))) {
             dropImg.src = "icons/Gear/" + drop + "_small.webp";
 
             if (Number.isInteger(drops[drop])) {
@@ -2305,7 +2305,7 @@ function GenerateMaterialSelections() {
             dropSliced = drop.slice(0, -2);
             dropRarity = drop.slice(-1);
         }
-        else if (["T1_", "T2_", "T3_", "T4_", "T5_", "T6_", "T7_", "T8_", "T9_"].includes(drop.substring(0, 3))) {
+        else if (["T1_", "T2_", "T3_", "T4_", "T5_", "T6_", "T7_", "T8_", "T9_", "T10_"].includes(drop.substring(0, 3))) {
             matImg.src = "icons/Gear/" + drop + "_small.webp";
             dropSliced = drop.slice(0, 2);
         }
@@ -2529,7 +2529,7 @@ function CalculateStageDrops(result, ignoreRequirement) {
 
                 totalSchoolMats[drop] += runs * drops[drop];
             }
-            else if (["T1_", "T2_", "T3_", "T4_", "T5_", "T6_", "T7_", "T8_", "T9_"].includes(drop.substring(0, 3))) {
+            else if (["T1_", "T2_", "T3_", "T4_", "T5_", "T6_", "T7_", "T8_", "T9_", "T10_"].includes(drop.substring(0, 3))) {
                 if (!totalGear[drop]) {
                     totalGear[drop] = 0;
                 }

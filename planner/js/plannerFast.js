@@ -78,13 +78,6 @@ $(document).ready(function () {
     }
     else {
 
-        if (fastAprilFools) {
-            document.getElementById('image-style-button').src = "icons/UI/ShirokoIcon.png";
-        }
-        else {
-            document.getElementById('image-style-button').src = "icons/UI/ShirokoScribble.png";
-        }
-
         if (data?.language) {
             fastLanguage = data.language;
             if (fastLanguage == "EN") {
@@ -299,7 +292,7 @@ function createCharBox(charId, container, location, lazy) {
     }
 
     const newImg = document.createElement("img");
-    newImg.src = "icons/Portrait/Icon_" + charId + ".webp";
+    newImg.src = "icons/Portrait/Icon_" + charId + ".png";
     if (fastAprilFools) {
         newImg.src = "icons/Portrait/April/Icon_" + charId + ".png";
     }

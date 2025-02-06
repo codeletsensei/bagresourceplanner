@@ -97505,5 +97505,3385 @@
                 10
             ]
         ]
+    },
+    "20041": {
+        "Name": "Rio",
+        "Id": 20041,
+        "School": "Millennium",
+        "StarGrade": 3,
+        "SquadType": "Support",
+        "TacticRole": "Supporter",
+        "Position": "Back",
+        "BulletType": "Mystic",
+        "ArmorType": "ElasticArmor",
+        "StreetBattleAdaptation": 3,
+        "OutdoorBattleAdaptation": 0,
+        "IndoorBattleAdaptation": 4,
+        "WeaponType": "HG",
+        "Equipment": [
+            "Shoes",
+            "Hairpin",
+            "Watch"
+        ],
+
+        "SkillExMaterial": [
+            [
+                3050,
+                240
+            ],
+            [
+                3051,
+                3050,
+                241,
+                190
+            ],
+            [
+                3052,
+                3051,
+                242,
+                191
+            ],
+            [
+                3053,
+                3052,
+                243,
+                192
+            ]
+        ],
+        "SkillExMaterialAmount": [
+            [
+                12,
+                13
+            ],
+            [
+                12,
+                18,
+                15,
+                33
+            ],
+            [
+                12,
+                18,
+                13,
+                24
+            ],
+            [
+                8,
+                18,
+                11,
+                13
+            ]
+        ],
+        "SkillMaterial": [
+            [
+                4050
+            ],
+            [
+                4050
+            ],
+            [
+                4051,
+                4050,
+                240
+            ],
+            [
+                4051,
+                241,
+                190
+            ],
+            [
+                4052,
+                4051,
+                241,
+                190
+            ],
+            [
+                4052,
+                242,
+                191
+            ],
+            [
+                4053,
+                4052,
+                243,
+                192
+            ],
+            [
+                4053,
+                243,
+                192
+            ]
+        ],
+        "SkillMaterialAmount": [
+            [
+                5
+            ],
+            [
+                8
+            ],
+            [
+                5,
+                12,
+                5
+            ],
+            [
+                8,
+                5,
+                14
+            ],
+            [
+                5,
+                12,
+                7,
+                15
+            ],
+            [
+                8,
+                3,
+                19
+            ],
+            [
+                8,
+                12,
+                5,
+                11
+            ],
+            [
+                12,
+                6,
+                13
+            ]
+        ],
+        "Skills": {
+            "Normal": {
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Hits": [
+                            0
+                        ],
+                        "Scale": [
+                            0
+                        ],
+                        "Block": 0
+                    }
+                ],
+                "Frames": {
+                    "AttackEnterDuration": 0,
+                    "AttackStartDuration": 0,
+                    "AttackEndDuration": 0,
+                    "AttackBurstRoundOverDelay": 0,
+                    "AttackIngDuration": 0,
+                    "AttackReloadDuration": 0
+                }
+            },
+            "Ex": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Cost": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Public": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "GearPublic": {
+                "Name": "Dummy",
+                "Desc": "EDummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Passive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Coefficient",
+                        "Channel": 11,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "WeaponPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ],
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Base",
+                        "Channel": 1711,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "ExtraPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ],
+                        "Stat": "CriticalPoint_Coefficient",
+                        "Channel": 9
+                    }
+                ]
+            }
+        },
+        "Weapon": {
+            "Name": "Dummy",
+            "Desc": "Dummy",
+            "AdaptationType": "Street",
+            "AdaptationValue": 1,
+            "AttackPower1": 0,
+            "AttackPower100": 0,
+            "MaxHP1": 0,
+            "MaxHP100": 0,
+            "HealPower1": 0,
+            "HealPower100": 0,
+            "StatLevelUpType": "Standard"
+        }
+    },
+    "10111": {
+        "Name": "Neru (School Uniform)",
+        "Id": 10111,
+        "School": "Millennium",
+        "StarGrade": 3,
+        "SquadType": "Main",
+        "TacticRole": "DamageDealer",
+        "Position": "Front",
+        "BulletType": "Pierce",
+        "ArmorType": "ElasticArmor",
+        "StreetBattleAdaptation": 4,
+        "OutdoorBattleAdaptation": 3,
+        "IndoorBattleAdaptation": 0,
+        "WeaponType": "SMG",
+        "Equipment": [
+            "Hat",
+            "Bag",
+            "Watch"
+        ],
+        "SkillExMaterial": [
+            [
+                3050,
+                270
+            ],
+            [
+                3051,
+                3050,
+                271,
+                140
+            ],
+            [
+                3052,
+                3051,
+                272,
+                141
+            ],
+            [
+                3053,
+                3052,
+                273,
+                142
+            ]
+        ],
+        "SkillExMaterialAmount": [
+            [
+                12,
+                14
+            ],
+            [
+                12,
+                18,
+                10,
+                31
+            ],
+            [
+                12,
+                18,
+                8,
+                28
+            ],
+            [
+                8,
+                18,
+                12,
+                17
+            ]
+        ],
+        "SkillMaterial": [
+            [
+                4050
+            ],
+            [
+                4050
+            ],
+            [
+                4051,
+                4050,
+                270
+            ],
+            [
+                4051,
+                271,
+                140
+            ],
+            [
+                4052,
+                4051,
+                271,
+                140
+            ],
+            [
+                4052,
+                272,
+                141
+            ],
+            [
+                4053,
+                4052,
+                273,
+                142
+            ],
+            [
+                4053,
+                273,
+                142
+            ]
+        ],
+        "SkillMaterialAmount": [
+            [
+                5
+            ],
+            [
+                8
+            ],
+            [
+                5,
+                12,
+                7
+            ],
+            [
+                8,
+                6,
+                12
+            ],
+            [
+                5,
+                12,
+                8,
+                16
+            ],
+            [
+                8,
+                4,
+                14
+            ],
+            [
+                8,
+                12,
+                5,
+                12
+            ],
+            [
+                12,
+                6,
+                12
+            ]
+        ],
+        "Skills": {
+            "Normal": {
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Hits": [
+                            0
+                        ],
+                        "Scale": [
+                            0
+                        ],
+                        "Block": 0
+                    }
+                ],
+                "Frames": {
+                    "AttackEnterDuration": 0,
+                    "AttackStartDuration": 0,
+                    "AttackEndDuration": 0,
+                    "AttackBurstRoundOverDelay": 0,
+                    "AttackIngDuration": 0,
+                    "AttackReloadDuration": 0
+                }
+            },
+            "Ex": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Cost": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Public": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "GearPublic": {
+                "Name": "Dummy",
+                "Desc": "EDummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Passive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Coefficient",
+                        "Channel": 11,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "WeaponPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ],
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Base",
+                        "Channel": 1711,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "ExtraPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ],
+                        "Stat": "CriticalPoint_Coefficient",
+                        "Channel": 9
+                    }
+                ]
+            }
+        },
+        "Weapon": {
+            "Name": "Dummy",
+            "Desc": "Dummy",
+            "AdaptationType": "Street",
+            "AdaptationValue": 1,
+            "AttackPower1": 0,
+            "AttackPower100": 0,
+            "MaxHP1": 0,
+            "MaxHP100": 0,
+            "HealPower1": 0,
+            "HealPower100": 0,
+            "StatLevelUpType": "Standard"
+        }
+    },
+    "10112": {
+        "Name": "Asuna (School Uniform)",
+        "Id": 10112,
+        "School": "Millennium",
+        "StarGrade": 3,
+        "SquadType": "Main",
+        "TacticRole": "Supporter",
+        "Position": "Middle",
+        "BulletType": "Explosion",
+        "ArmorType": "HeavyArmor",
+        "StreetBattleAdaptation": 2,
+        "OutdoorBattleAdaptation": 4,
+        "IndoorBattleAdaptation": 0,
+        "WeaponType": "AR",
+        "Equipment": [
+            "Gloves",
+            "Hairpin",
+            "Necklace"
+        ],
+        "SkillExMaterial": [
+            [
+                3050,
+                290
+            ],
+            [
+                3051,
+                3050,
+                291,
+                170
+            ],
+            [
+                3052,
+                3051,
+                292,
+                171
+            ],
+            [
+                3053,
+                3052,
+                293,
+                172
+            ]
+        ],
+        "SkillExMaterialAmount": [
+            [
+                12,
+                13
+            ],
+            [
+                12,
+                18,
+                11,
+                32
+            ],
+            [
+                12,
+                18,
+                10,
+                25
+            ],
+            [
+                8,
+                18,
+                13,
+                11
+            ]
+        ],
+        "SkillMaterial": [
+            [
+                4050
+            ],
+            [
+                4050
+            ],
+            [
+                4051,
+                4050,
+                290
+            ],
+            [
+                4051,
+                291,
+                170
+            ],
+            [
+                4052,
+                4051,
+                291,
+                170
+            ],
+            [
+                4052,
+                292,
+                171
+            ],
+            [
+                4053,
+                4052,
+                293,
+                172
+            ],
+            [
+                4053,
+                293,
+                172
+            ]
+        ],
+        "SkillMaterialAmount": [
+            [
+                5
+            ],
+            [
+                8
+            ],
+            [
+                5,
+                12,
+                6
+            ],
+            [
+                8,
+                7,
+                13
+            ],
+            [
+                5,
+                12,
+                7,
+                17
+            ],
+            [
+                8,
+                3,
+                16
+            ],
+            [
+                8,
+                12,
+                5,
+                12
+            ],
+            [
+                12,
+                6,
+                13
+            ]
+        ],
+        "Skills": {
+            "Normal": {
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Hits": [
+                            0
+                        ],
+                        "Scale": [
+                            0
+                        ],
+                        "Block": 0
+                    }
+                ],
+                "Frames": {
+                    "AttackEnterDuration": 0,
+                    "AttackStartDuration": 0,
+                    "AttackEndDuration": 0,
+                    "AttackBurstRoundOverDelay": 0,
+                    "AttackIngDuration": 0,
+                    "AttackReloadDuration": 0
+                }
+            },
+            "Ex": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Cost": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Public": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "GearPublic": {
+                "Name": "Dummy",
+                "Desc": "EDummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Passive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Coefficient",
+                        "Channel": 11,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "WeaponPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ],
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Base",
+                        "Channel": 1711,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "ExtraPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ],
+                        "Stat": "CriticalPoint_Coefficient",
+                        "Channel": 9
+                    }
+                ]
+            }
+        },
+        "Weapon": {
+            "Name": "Dummy",
+            "Desc": "Dummy",
+            "AdaptationType": "Street",
+            "AdaptationValue": 1,
+            "AttackPower1": 0,
+            "AttackPower100": 0,
+            "MaxHP1": 0,
+            "MaxHP100": 0,
+            "HealPower1": 0,
+            "HealPower100": 0,
+            "StatLevelUpType": "Standard"
+        }
+    },
+    "26014": {
+        "Name": "Karin (School Uniform)",
+        "Id": 26014,
+        "School": "Millennium",
+        "StarGrade": 3,
+        "SquadType": "Support",
+        "TacticRole": "DamageDealer",
+        "Position": "Back",
+        "BulletType": "Explosion",
+        "ArmorType": "HeavyArmor",
+        "StreetBattleAdaptation": 2,
+        "OutdoorBattleAdaptation": 3,
+        "IndoorBattleAdaptation": 1,
+        "WeaponType": "SR",
+        "Equipment": [
+            "Hat",
+            "Hairpin",
+            "Watch"
+        ],
+        "SkillExMaterial": [
+            [
+                3050,
+                280
+            ],
+            [
+                3051,
+                3050,
+                281,
+                120
+            ],
+            [
+                3052,
+                3051,
+                282,
+                121
+            ],
+            [
+                3053,
+                3052,
+                283,
+                122
+            ]
+        ],
+        "SkillExMaterialAmount": [
+            [
+                12,
+                15
+            ],
+            [
+                12,
+                18,
+                16,
+                34
+            ],
+            [
+                12,
+                18,
+                11,
+                24
+            ],
+            [
+                8,
+                18,
+                12,
+                14
+            ]
+        ],
+        "SkillMaterial": [
+            [
+                4050
+            ],
+            [
+                4050
+            ],
+            [
+                4051,
+                4050,
+                280
+            ],
+            [
+                4051,
+                281,
+                120
+            ],
+            [
+                4052,
+                4051,
+                281,
+                120
+            ],
+            [
+                4052,
+                282,
+                121
+            ],
+            [
+                4053,
+                4052,
+                283,
+                122
+            ],
+            [
+                4053,
+                283,
+                122
+            ]
+        ],
+        "SkillMaterialAmount": [
+            [
+                5
+            ],
+            [
+                8
+            ],
+            [
+                5,
+                12,
+                5
+            ],
+            [
+                8,
+                5,
+                16
+            ],
+            [
+                5,
+                12,
+                7,
+                16
+            ],
+            [
+                8,
+                3,
+                17
+            ],
+            [
+                8,
+                12,
+                5,
+                12
+            ],
+            [
+                12,
+                6,
+                14
+            ]
+        ],
+        "Skills": {
+            "Normal": {
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Hits": [
+                            0
+                        ],
+                        "Scale": [
+                            0
+                        ],
+                        "Block": 0
+                    }
+                ],
+                "Frames": {
+                    "AttackEnterDuration": 0,
+                    "AttackStartDuration": 0,
+                    "AttackEndDuration": 0,
+                    "AttackBurstRoundOverDelay": 0,
+                    "AttackIngDuration": 0,
+                    "AttackReloadDuration": 0
+                }
+            },
+            "Ex": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Cost": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Public": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "GearPublic": {
+                "Name": "Dummy",
+                "Desc": "EDummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Passive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Coefficient",
+                        "Channel": 11,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "WeaponPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ],
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Base",
+                        "Channel": 1711,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "ExtraPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ],
+                        "Stat": "CriticalPoint_Coefficient",
+                        "Channel": 9
+                    }
+                ]
+            }
+        },
+        "Weapon": {
+            "Name": "Dummy",
+            "Desc": "Dummy",
+            "AdaptationType": "Street",
+            "AdaptationValue": 1,
+            "AttackPower1": 0,
+            "AttackPower100": 0,
+            "MaxHP1": 0,
+            "MaxHP100": 0,
+            "HealPower1": 0,
+            "HealPower100": 0,
+            "StatLevelUpType": "Standard"
+        }
+    },
+    "10110": {
+        "Name": "Seia",
+        "Id": 10110,
+        "School": "Trinity",
+        "StarGrade": 3,
+        "SquadType": "Main",
+        "TacticRole": "Supporter",
+        "Position": "Middle",
+        "BulletType": "Pierce",
+        "ArmorType": "ElasticArmor",
+        "StreetBattleAdaptation": 2,
+        "OutdoorBattleAdaptation": 0,
+        "IndoorBattleAdaptation": 4,
+        "WeaponType": "HG",
+        "Equipment": [
+            "Shoes",
+            "Hairpin",
+            "Necklace"
+        ],
+        "SkillExMaterial": [
+            [
+                3020,
+                260
+            ],
+            [
+                3021,
+                3020,
+                261,
+                100
+            ],
+            [
+                3022,
+                3021,
+                262,
+                101
+            ],
+            [
+                3023,
+                3022,
+                263,
+                102
+            ]
+        ],
+        "SkillExMaterialAmount": [
+            [
+                12,
+                13
+            ],
+            [
+                12,
+                18,
+                11,
+                31
+            ],
+            [
+                12,
+                18,
+                10,
+                32
+            ],
+            [
+                8,
+                18,
+                12,
+                15
+            ]
+        ],
+        "SkillMaterial": [
+            [
+                4020
+            ],
+            [
+                4020
+            ],
+            [
+                4021,
+                4020,
+                260
+            ],
+            [
+                4021,
+                261,
+                100
+            ],
+            [
+                4022,
+                4021,
+                261,
+                100
+            ],
+            [
+                4022,
+                262,
+                101
+            ],
+            [
+                4023,
+                4022,
+                263,
+                102
+            ],
+            [
+                4023,
+                263,
+                102
+            ]
+        ],
+        "SkillMaterialAmount": [
+            [
+                5
+            ],
+            [
+                8
+            ],
+            [
+                5,
+                12,
+                5
+            ],
+            [
+                8,
+                7,
+                15
+            ],
+            [
+                5,
+                12,
+                8,
+                16
+            ],
+            [
+                8,
+                5,
+                16
+            ],
+            [
+                8,
+                12,
+                5,
+                11
+            ],
+            [
+                12,
+                6,
+                12
+            ]
+        ],
+        "Skills": {
+            "Normal": {
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Hits": [
+                            0
+                        ],
+                        "Scale": [
+                            0
+                        ],
+                        "Block": 0
+                    }
+                ],
+                "Frames": {
+                    "AttackEnterDuration": 0,
+                    "AttackStartDuration": 0,
+                    "AttackEndDuration": 0,
+                    "AttackBurstRoundOverDelay": 0,
+                    "AttackIngDuration": 0,
+                    "AttackReloadDuration": 0
+                }
+            },
+            "Ex": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Cost": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Public": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "GearPublic": {
+                "Name": "Dummy",
+                "Desc": "EDummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Passive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Coefficient",
+                        "Channel": 11,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "WeaponPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ],
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Base",
+                        "Channel": 1711,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "ExtraPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ],
+                        "Stat": "CriticalPoint_Coefficient",
+                        "Channel": 9
+                    }
+                ]
+            }
+        },
+        "Weapon": {
+            "Name": "Dummy",
+            "Desc": "Dummy",
+            "AdaptationType": "Street",
+            "AdaptationValue": 1,
+            "AttackPower1": 0,
+            "AttackPower100": 0,
+            "MaxHP1": 0,
+            "MaxHP100": 0,
+            "HealPower1": 0,
+            "HealPower100": 0,
+            "StatLevelUpType": "Standard"
+        }
+    },
+    "20042": {
+        "Name": "Maki (Camping)",
+        "Id": 20042,
+        "School": "Millennium",
+        "StarGrade": 3,
+        "SquadType": "Support",
+        "TacticRole": "DamageDealer",
+        "Position": "Back",
+        "BulletType": "Explosion",
+        "ArmorType": "HeavyArmor",
+        "StreetBattleAdaptation": 0,
+        "OutdoorBattleAdaptation": 4,
+        "IndoorBattleAdaptation": 2,
+        "WeaponType": "MG",
+        "Equipment": [
+            "Hat",
+            "Hairpin",
+            "Watch"
+        ],
+        "SkillExMaterial": [
+            [
+                3050,
+                250
+            ],
+            [
+                3051,
+                3050,
+                251,
+                150
+            ],
+            [
+                3052,
+                3051,
+                252,
+                151
+            ],
+            [
+                3053,
+                3052,
+                253,
+                152
+            ]
+        ],
+        "SkillExMaterialAmount": [
+            [
+                12,
+                14
+            ],
+            [
+                12,
+                18,
+                13,
+                32
+            ],
+            [
+                12,
+                18,
+                9,
+                26
+            ],
+            [
+                8,
+                18,
+                10,
+                13
+            ]
+        ],
+        "SkillMaterial": [
+            [
+                4050
+            ],
+            [
+                4050
+            ],
+            [
+                4051,
+                4050,
+                250
+            ],
+            [
+                4051,
+                291,
+                150
+            ],
+            [
+                4052,
+                4051,
+                251,
+                150
+            ],
+            [
+                4052,
+                252,
+                151
+            ],
+            [
+                4053,
+                4052,
+                253,
+                152
+            ],
+            [
+                4053,
+                253,
+                152
+            ]
+        ],
+        "SkillMaterialAmount": [
+            [
+                5
+            ],
+            [
+                8
+            ],
+            [
+                5,
+                12,
+                6
+            ],
+            [
+                8,
+                7,
+                13
+            ],
+            [
+                5,
+                12,
+                7,
+                17
+            ],
+            [
+                8,
+                3,
+                18
+            ],
+            [
+                8,
+                12,
+                5,
+                12
+            ],
+            [
+                12,
+                6,
+                13
+            ]
+        ],
+        "Skills": {
+            "Normal": {
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Hits": [
+                            0
+                        ],
+                        "Scale": [
+                            0
+                        ],
+                        "Block": 0
+                    }
+                ],
+                "Frames": {
+                    "AttackEnterDuration": 0,
+                    "AttackStartDuration": 0,
+                    "AttackEndDuration": 0,
+                    "AttackBurstRoundOverDelay": 0,
+                    "AttackIngDuration": 0,
+                    "AttackReloadDuration": 0
+                }
+            },
+            "Ex": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Cost": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Public": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "GearPublic": {
+                "Name": "Dummy",
+                "Desc": "EDummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Duration": 0,
+                "Range": 0,
+                "Radius": [
+                    {
+                        "Type": "Circle",
+                        "Radius": 0
+                    }
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Damage",
+                        "Block": 1,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 1,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "Type": "Damage",
+                        "Block": 0,
+                        "CriticalCheck": "Check",
+                        "Hits": [
+                            0
+                        ],
+                        "DescParamId": 2,
+                        "Scale": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "Passive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%",
+                        "0%"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Coefficient",
+                        "Channel": 11,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "WeaponPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ],
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Stat": "CriticalDamageRate_Base",
+                        "Channel": 1711,
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "ExtraPassive": {
+                "Name": "Dummy",
+                "Desc": "Dummy",
+                "Parameters": [
+                    [
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0",
+                        "0"
+                    ]
+                ],
+                "Icon": "NOICON",
+                "Effects": [
+                    {
+                        "Type": "Buff",
+                        "Target": [
+                            "Self"
+                        ],
+                        "Value": [
+                            [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        ],
+                        "Stat": "CriticalPoint_Coefficient",
+                        "Channel": 9
+                    }
+                ]
+            }
+        },
+        "Weapon": {
+            "Name": "Dummy",
+            "Desc": "Dummy",
+            "AdaptationType": "Street",
+            "AdaptationValue": 1,
+            "AttackPower1": 0,
+            "AttackPower100": 0,
+            "MaxHP1": 0,
+            "MaxHP100": 0,
+            "HealPower1": 0,
+            "HealPower100": 0,
+            "StatLevelUpType": "Standard"
+        }
     }
+
+
+
+
+
+
+
 }

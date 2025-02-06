@@ -4,7 +4,7 @@ var curID = 0;
 var modalCharID = 0;
 var modalStars = { "star": 0, "star_target": 0, "ue": 0, "ue_target": 0 };
 const ueStarCap = 3;
-const globalMaxWorld = 26;
+const globalMaxWorld = 28;
 const cnMaxWorld = 17;
 
 var requiredMatDict = {};
@@ -390,11 +390,11 @@ function init() {
         ["Nebra", "Phaistos", "Wolfsegg", "Nimrud", "Mandragora", "Rohonc", "Aether", "Antikythera", "Voynich", "Haniwa"], 9,
         tableNavigation, document.getElementById("table-parent-2"), true, "resource", "icons/Artifact/", [], "artifact-");
     createTable("artifact-table-2", ["4", "3", "2", "1"], 4,
-        ["Totem", "Baghdad", "Colgante", "Mystery", "Okiku", "Atlantis", "RomanDice", "Fleece", "Rocket", "Quimbaya"], 9,
+        ["Totem", "Baghdad", "Fleece", "Okiku", "Colgante", "Atlantis", "RomanDice", "Quimbaya", "Rocket", "Mystery"], 9,
         tableNavigation, document.getElementById("table-parent-3"), true, "resource", "icons/Artifact/", [], "artifact-");
 
     let gearNavigation = [];
-    createTable("gear-table", ["T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2"], 0, ["Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"],
+    createTable("gear-table", ["T10", "T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2"], 0, ["Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"],
         0, gearNavigation, document.getElementById('table-parent-4'), false, "gear", "icons/Gear/", [], "gear-");
 
     let navObj = {};
@@ -1502,7 +1502,7 @@ function openModal(e) {
         }
 
         var displayImg = document.getElementById("displayImg");
-        displayImg.src = "icons/Portrait/Icon_" + charId + ".webp";
+        displayImg.src = "icons/Portrait/Icon_" + charId + ".png";
         if (aprilFools) {
             displayImg.src = "icons/Portrait/April/Icon_" + charId + ".png";
         }
@@ -1775,7 +1775,7 @@ function createMultiSelectChar(charId, container, mode) {
     newCharDiv.id = "multi_" + charId;
 
     const newImg = document.createElement("img");
-    newImg.src = "icons/Portrait/Icon_" + charId + ".webp";
+    newImg.src = "icons/Portrait/Icon_" + charId + ".png";
     if (aprilFools) {
         newImg.src = "icons/Portrait/April/Icon_" + charId + ".png";
     }
@@ -3544,7 +3544,7 @@ function populateCharModal(charId) {
         document.getElementById("option-eligma").checked = charData.eleph?.use_eligma;
         document.getElementById("option-shop").checked = charData.eleph?.use_shop;
 
-        gtag('event', 'character_viewed', {
+        /*gtag('event', 'character_viewed', {
             'event_label': charName,
             'character_name': charName,
             'character_id': charId,
@@ -3554,7 +3554,7 @@ function populateCharModal(charId) {
             'character_ex': charData.current?.basic,
             'character_ex': charData.current?.passive,
             'character_ex': charData.current?.sub
-        })
+        })*/
     }
 
     updateStarDisplays(charId, true);
@@ -4452,10 +4452,10 @@ function openResourceModal() {
             }
         };
 
-        gtag('event', 'modal_view', {
+        /*gtag('event', 'modal_view', {
             'event_label': 'resource',
             'modal_name': 'resource'
-        })
+        })*/
 
         hideEmpty();
         hideResourceDisplays();
@@ -4563,10 +4563,10 @@ function openGearModal() {
             }
         };
 
-        gtag('event', 'modal_view', {
+        /*gtag('event', 'modal_view', {
             'event_label': 'gear',
             'modal_name': 'gear'
-        })
+        })*/
 
         hideEmptyGear();
     }, openDelay);
@@ -4589,7 +4589,7 @@ function openTransferModal() {
 
     let modal = document.getElementById("transferModal");
 
-    updateLoginButtons();
+    //updateLoginButtons();
 
     modal.style.visibility = "visible";
 
@@ -5177,7 +5177,7 @@ function DisplayMatUsers(mat) {
         charDiv.className = "char-row-mats";
 
         let charImg = document.createElement('img');
-        charImg.src = "icons/Portrait/Icon_" + matUsers[i].charId + ".webp";
+        charImg.src = "icons/Portrait/Icon_" + matUsers[i].charId + ".png";
         if (aprilFools) {
             charImg.src = "icons/Portrait/April/Icon_" + matUsers[i].charId + ".png";
         }
@@ -5546,9 +5546,7 @@ function calculateCharResources(charData, output) {
     calcSkillCost(charObj, "normal", charData.current?.basic, charData.target?.basic, charMatDict);
     calcSkillCost(charObj, "passive", charData.current?.passive, charData.target?.passive, charMatDict);
     calcSkillCost(charObj, "sub", charData.current?.sub, charData.target?.sub, charMatDict);
-
     calcXpCost(charData.current?.level, charData.target?.level, charMatDict);
-
     calcGearCost(charObj, charData.current?.gear1, charData.target?.gear1, 1, charMatDict);
     calcGearCost(charObj, charData.current?.gear2, charData.target?.gear2, 2, charMatDict);
     calcGearCost(charObj, charData.current?.gear3, charData.target?.gear3, 3, charMatDict);
@@ -5739,7 +5737,7 @@ function calcGearCost(charObj, gear, gearTarget, slotNum, matDict) {
             if (charObj?.Equipment) {
                 let gearName = charObj.Equipment[slotNum - 1];
 
-                for (let i = 2; i <= 9; i++) {
+                for (let i = 2; i <= 10; i++) {
 
                     let currentBP = gearObj["T" + i] ?? 0;
                     let targetBP = targetGearObj["T" + i];
@@ -6216,7 +6214,7 @@ function switchGearDisplay(displayType) {
 //         if (result.isConfirmed) {
 //             Swal.fire({
 //                 title: 'Exported data',
-//                 html: '<textarea style="width: 400px; height: 250px; resize: none;" readonly>' + localStorage.getItem('save-data') + '</textarea>'
+//                 html: '<textarea style="width: 600px; height: 350px; resize: none;" readonly>' + localStorage.getItem('save-data') + '</textarea>'
 //             })
 //         }
 //         else if (result.isDenied) {
@@ -6258,7 +6256,7 @@ async function getImportData() {
 
         localStorage.setItem("save-data", JSON.stringify(tempData));
 
-        gtag('event', 'action_import');
+        /*gtag('event', 'action_import');*/
 
         location.reload();
     }
@@ -7258,7 +7256,7 @@ function RollClicked(num) {
 
     for (let i = 0; i < 10; i++) {
         if (charsPulled[i]) {
-            document.getElementById("char-pull-" + (i + 1)).src = "icons/Portrait/Icon_" + charsPulled[i] + ".webp";
+            document.getElementById("char-pull-" + (i + 1)).src = "icons/Portrait/Icon_" + charsPulled[i] + ".png";
         }
         else {
             document.getElementById("char-pull-" + (i + 1)).src = "";

@@ -2,15 +2,6 @@
 <html>
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XZ18739WF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-3XZ18739WF');
-    </script>
     <script>
         function hamburgToggle() {
             let linkWrapper = document.getElementById('mobile-links-wrapper');
@@ -26,16 +17,16 @@
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="css/styles.css?44">
     <title>Blue Archive Resource Planner</title>
-    <meta property="og:type" content="website">
+    <!--<meta property="og:type" content="website">
     <meta property="og:url" content="https://justin163.com/planner">
     <meta property="og:image" itemprop="image primaryImageOfPage"
-        content="https://justin163.com/planner/icons/Misc/EmbedIcon.png">
+        content="Misc/EmbedIcon.png">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:domain" content="justin163.com">
     <meta name="twitter:title" property="og:title" itemprop="name" content="Blue Archive Resource Planner">
     <meta name="twitter:description" property="og:description" itemprop="description"
         content="A tool to help easily keep track of resources needed to level students, or keep track of teams for various content.">
-    <meta name="theme-color" content="#ff00bb">
+    <meta name="theme-color" content="#ff00bb">-->
     <style id="toggleViewStyle" class="modifyable"></style>
     <script src="packages/jquery/jquery.min.js"></script>
     <script src="js/plannerFast.js?17"></script>
@@ -53,24 +44,24 @@
     <script src="js/pageLogic.js?150" defer></script>
     <script src="js/filters.js?7" defer></script>
     <script src="js/lzma_worker.js?1" defer></script>
-    <script src="js/cloudAPI.js?6" defer></script>
+    <!--<script src="js/cloudAPI.js?6" defer></script>-->
     <style id="toggleViewStyle" class="modifyable"></style>
 </head>
 
 <body class="background dark-theme">
     <nav class="navbar navbground">
-        <span class="logo">Justin163</span>
+        <span class="logo">Justin163-let</span>
         <img src="icons/UI/hamburger.svg" id="hamburger" onclick="hamburgToggle()">
         <ul class="nav-list">
             <li><a class="active display-string" data-id="page-resource-planner"></a></li>
-            <li><a href="events.html" class="display-string" data-id="page-event-planner"></a></li>
-            <li><a href="raids.html" class="display-string" data-id="page-raids"></a></li>
+            <li><a href="https://arona.ai/calc/eventfarming" target="_blank" class="display-string" data-id="page-event-planner"></a></li>
+            <!--<li><a href="raids.html" class="display-string" data-id="page-raids"></a></li>-->
             <li><a href="changelog.html" class="display-string" data-id="page-changelog"></a></li>
             <li><a href="privacy.html" class="display-string" data-id="page-privacy"></a></li>
             <li><a href="credit.html" class="display-string" data-id="page-credit"></a></li>
         </ul>
         <div class="nav-right">
-            <img id="image-style-button" src="icons/UI/ShirokoIcon.png" onclick="ToggleImageStyle()">
+            <!--<img id="image-style-button" src="icons/UI/ShirokoIcon.png" onclick="ToggleImageStyle()">-->
             <select name="languages" id="languages" onchange="languageChanged()"></select>
             <img src="icons/UI/sun.svg" id="theme-button" onclick="switchTheme()">
         </div>
@@ -78,8 +69,8 @@
     <div id="mobile-links-wrapper">
         <ul class="mobile-links">
             <li><a class="active display-string" data-id="page-resource-planner"></a></li>
-            <li><a href="events.html" class="display-string" data-id="page-event-planner"></a></li>
-            <li><a href="raids.html" class="display-string" data-id="page-raids"></a></li>
+            <li><a href="https://arona.ai/calc/eventfarming" target="_blank" class="display-string" data-id="page-event-planner"></a></li>
+            <!--<li><a href="raids.html" class="display-string" data-id="page-raids"></a></li>-->
             <li><a href="changelog.html" class="display-string" data-id="page-changelog"></a></li>
             <li><a href="privacy.html" class="display-string" data-id="page-privacy"></a></li>
             <li><a href="credit.html" class="display-string" data-id="page-credit"></a></li>
@@ -886,11 +877,11 @@
         </div>
     </div>
     <div class="modal" id="gearModal">
-        <div class="modal-content-wrapper" style="max-height: 80%; overflow-y: auto;">
+        <div class="modal-content-wrapper" style="position:relative; max-height: 80%; overflow-y: auto;">
             <div class="modal-section-wrapper gear-section">
                 <div id="table-parent-4" style="width: 100%;"></div>
             </div>
-            <div id="other-resource-wrapper">
+            <div id="other-resource-wrapper" style="position:absolute;right:0px">
                 <div id="gear-xp-input-wrapper" class="resource-box" style="align-items: center; display: none;">
                     <div class="xp-wrapper editable">
                         <img draggable="false" class="xp-icon" src="icons/LevelPart/GXP_4.png">
@@ -1265,7 +1256,7 @@
     </div>
     <div class="modal" id="transferModal">
         <div class="modal-content-wrapper" style="max-height: 80%; overflow-y: auto; max-width: 400px;">
-            <div class="transfer-modal-input-wrapper">
+            <!--<div class="transfer-modal-input-wrapper">
                 <p class="display-string" data-id="saving-username"></p>
                 <input id="input-transfer-username" class="transfer-modal-input" oninput="updateLoginButtons()">
             </div>
@@ -1288,7 +1279,7 @@
                 <button id="transfer-load-button" class="transfer-modal-button display-string"
                     style="right: 20px; background-color: #dc415e94;" onclick="loadClick()"
                     data-id="saving-loadbutton"></button>
-            </div>
+            </div>-->
             <div class="transfer-modal-button-wrapper" style="border-top: 2px solid gainsboro; padding-top: 10px;">
                 <button class="transfer-modal-button display-string" onclick="displayExportData()"
                     style="left: 20px; background-color: #2778c494;" data-id="saving-exportbutton"></button>
@@ -1425,7 +1416,7 @@
                 <div id="button-teamstoggle" class="footer-button" onclick="teamsToggle()">
                     <p id="teamsEditorButton" class="display-string" data-id="footer-teamseditor"></p>
                 </div>
-                <div id="button-transfer" class="footer-button" onclick="openTransferModal()">
+                <div id="button-transfer" class="footer-button" onclick="openTransferModal();displayExportData()">
                     <p class="display-string" data-id="footer-transfer"></p>
                 </div>
             </div>
