@@ -1147,11 +1147,11 @@ function CharInputsMax() {
         cancelButtonText: GetLanguageString("label-cancel")
     }).then((result) => {
         if (result.isConfirmed) {
-            let values = [90, 90, 5, 5, 10, 10, 10, 10, 10, 10, 9, 9, 9, 9, 8, 8];
+            let values = [90, 90, 5, 5, 10, 10, 10, 10, 10, 10, 9, 9, 9, 9, 9, 9];
             SetCharInputValues(values);
         }
         else if (result.isDenied) {
-            let values = [90, 90, 5, 5, 10, 10, 10, 10, 10, 10, 9, 9, 9, 9, 9, 9];
+            let values = [90, 90, 5, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10];
             SetCharInputValues(values);
         }
     })
