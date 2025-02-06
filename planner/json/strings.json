@@ -1597,12 +1597,12 @@
         "CN": "网站已更新完成 版本号"
     },
     "text-updatemessage": {
-        "EN": "If you find any issues, contact me on Discord (justin163)",
-        "KR": "사용 중 오류를 발견했다면, 디스코드 justin163로 연락 바랍니다.",
-        "TH": "หากประสบปัญหาในการใช้งาน, สามารถติดต่อได้ทาง Discord (justin163)",
-        "ID": "Jika anda menemukan masalah, hubungi saya melalui Discord (justin163)",
-        "JP": "何か問題がありましたら、ディスコード経由でご連絡ください（Justin163#4337）。",
-        "CN": "若发现任何问题，请在Discord上联系(justin163)"
+        "EN": "If you find any issues, contact me on /bag/",
+        "KR": "",
+        "TH": "",
+        "ID": "",
+        "JP": "",
+        "CN": ""
     },
     "text-teamslimit": {
         "EN": "Can't add more than 25 teams",

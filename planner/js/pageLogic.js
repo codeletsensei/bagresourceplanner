@@ -422,9 +422,11 @@ function init() {
 
     colourTableRows("gear-table");
 
-    if ("1.4.11".localeCompare(data.site_version ?? "0.0.0", undefined, { numeric: true, sensitivity: 'base' }) == 1) {
+/*
+    let currentVer = "25.02.06"
+    if (currentVer.localeCompare(data.site_version ?? "0.0.0", undefined, { numeric: true, sensitivity: 'base' }) == 1) {
         Swal.fire({
-            title: GetLanguageString("text-updatedversionprefix") + "1.4.11",
+            title: GetLanguageString("text-updatedversionprefix") + currentVer,
             color: alertColour,
             html: GetLanguageString("text-updatemessage")
         })
@@ -432,6 +434,7 @@ function init() {
         data.site_version = "1.4.11";
         // saveToLocalStorage(false);
     }
+*/
 
     document.body.addEventListener('click', (event) => {
         if (closableAfter != 0 && Date.now() > closableAfter) {
