@@ -221,7 +221,7 @@ class Student {
         });
         student.enabled = version1.enabled;
 
-        const props = ['level', 'bond', 'star', 'ue', 'ue_level', 'ex', 'basic', 'passive', 'sub', 'gear1', 'gear2', 'gear3']
+        const props = ['level', 'bond', 'star', 'ue', 'ue_level', 'ex', 'basic', 'passive', 'sub', 'gear1', 'gear2', 'gear3', "bondgear"]
         var cur = [];
         var tar = [];
         for (var prop of props) {
@@ -267,7 +267,7 @@ class ElephInfo {
 
 class StudentInvestment {
 
-    constructor(level, bond, star, ue, ue_level, ex, basic, passive, sub, gear1, gear2, gear3) {
+    constructor(level, bond, star, ue, ue_level, ex, basic, passive, sub, gear1, gear2, gear3, bondgear) {
         this.level = level;
         this.bond = bond;
         this.star = star;
@@ -280,6 +280,7 @@ class StudentInvestment {
         this.gear1 = gear1;
         this.gear2 = gear2;
         this.gear3 = gear3;
+        this.bondgear = bondgear;
     }
 
     static Default(characterInfo) {
@@ -297,7 +298,8 @@ class StudentInvestment {
 
             0,
             0,
-            0
+            0,
+            1
         ];
 
         return new StudentInvestment(...data);
@@ -319,6 +321,8 @@ class StudentInvestment {
         defaultTarget.gear1 = inputValidation.gear1_target.default;
         defaultTarget.gear2 = inputValidation.gear2_target.default;
         defaultTarget.gear2 = inputValidation.gear2_target.default;
+
+        defaultTarget.bondgear = inputValidation.bondgear_target.default;
 
         return defaultTarget
     }
@@ -543,6 +547,41 @@ const inputValidation = {
         "navigation": "direct",
         "Up": "input_bond_current",
         "Left": "input_bond_current",
+        "Down": "input_bondgear_current",
+        "Right": "input_ue_level_current"
+    },
+    "bondgear": {
+        id: "input_bondgear_current",
+        location: "characterModal",
+        min: "1",
+        max: "2",
+        default: "1",
+        name: "Bondgear",
+        requisite: {},
+        "navigation": "direct",
+        "Up": "input_bond_target",
+        "Left": "input_bond_target",
+        "Down": "input_bondgear_target",
+        "Right": "input_bondgear_target"
+    },
+    "bondgear_target": {
+        id: "input_bondgear_target",
+        location: "characterModal",
+        min: "1",
+        max: "2",
+        default: "1",
+        name: "Bondgear Target",
+        requisite: {
+            "bondgear": {
+                type: "input",
+                compare: "equal_greater",
+                mode: "direct",
+                sanitise: true
+            }
+        },
+        "navigation": "direct",
+        "Up": "input_bondgear_current",
+        "Left": "input_bondgear_current",
         "Down": "input_ex_current",
         "Right": "input_ue_level_current"
     },

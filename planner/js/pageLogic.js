@@ -285,6 +285,10 @@ function init() {
             data.language = "EN";
         }
 
+        for (let i in data.characters) {
+            if (!data.characters[i].current.bondgear) data.characters[i].current.bondgear = 1
+            if (!data.characters[i].target.bondgear) data.characters[i].target.bondgear = 1
+        }
         // if (!data.level_cap) {
         //     data.level_cap = 90;
         // }
@@ -3355,6 +3359,8 @@ function saveCharChanges() {
 
         charData.current.bond = document.getElementById("input_bond_current").value;
         charData.target.bond = document.getElementById("input_bond_target").value;
+        charData.current.bondgear = document.getElementById("input_bondgear_current").value;
+        charData.target.bondgear = document.getElementById("input_bondgear_target").value;
 
         charData.current.ex = document.getElementById("input_ex_current").value;
         charData.target.ex = document.getElementById("input_ex_target").value;
@@ -3482,7 +3488,6 @@ function populateCharModal(charId) {
 
             document.getElementById('mood-' + GetOldTerrain(terrain)).src = "icons/Mood/Mood_" + boostedMood(GetMoodFromAdaptation(charInfo[terrain + "BattleAdaptation"]), boostAmt) + ".png";
         }
-
         document.getElementById("input_level_current").value = charData.current?.level;
         document.getElementById("input_level_target").value = charData.target?.level;
 
@@ -3491,6 +3496,17 @@ function populateCharModal(charId) {
 
         document.getElementById("input_bond_current").value = charData.current?.bond;
         document.getElementById("input_bond_target").value = charData.target?.bond;
+
+        document.getElementById("input_bondgear_current").value = charData.current?.bondgear;
+        document.getElementById("input_bondgear_target").value = charData.target?.bondgear;
+        if (misc_data.bondgear_characters.includes(parseInt(charId))) {
+            document.getElementById("bondgear_tablecell_header").style.display = ""
+            document.getElementById("bondgear_tablecell_inputs").style.display = ""
+        }
+        else {
+            document.getElementById("bondgear_tablecell_header").style.display = "none"
+            document.getElementById("bondgear_tablecell_inputs").style.display = "none"
+        }
 
         document.getElementById("input_ex_current").value = charData.current?.ex;
         document.getElementById("input_ex_target").value = charData.target?.ex;
@@ -3903,6 +3919,8 @@ function charDataFromModal(charId) {
 
     charData.current.bond = document.getElementById("input_bond_current").value;
     charData.target.bond = document.getElementById("input_bond_target").value;
+    charData.current.bondgear = document.getElementById("input_bondgear_current").value;
+    charData.target.bondgear = document.getElementById("input_bondgear_target").value;
 
     charData.current.ex = document.getElementById("input_ex_current").value;
     charData.target.ex = document.getElementById("input_ex_target").value;
@@ -3939,7 +3957,6 @@ function charDataFromModal(charId) {
 }
 
 function isCharModalDirty() {
-
     let charData = data.characters.find(obj => { return obj.id == modalCharID });
     let modalData = charDataFromModal();
 
@@ -5549,6 +5566,7 @@ function calculateCharResources(charData, output) {
     calcSkillCost(charObj, "normal", charData.current?.basic, charData.target?.basic, charMatDict);
     calcSkillCost(charObj, "passive", charData.current?.passive, charData.target?.passive, charMatDict);
     calcSkillCost(charObj, "sub", charData.current?.sub, charData.target?.sub, charMatDict);
+    calcSkillCost(charObj, "bondgear", charData.current?.bondgear, charData.target?.bondgear, charMatDict);
     calcXpCost(charData.current?.level, charData.target?.level, charMatDict);
     calcGearCost(charObj, charData.current?.gear1, charData.target?.gear1, 1, charMatDict);
     calcGearCost(charObj, charData.current?.gear2, charData.target?.gear2, 2, charMatDict);
@@ -5632,6 +5650,11 @@ function calcSkillCost(characterObj, skill, current, target, matDict) {
         skillMaterials = characterObj.SkillExMaterial;
         skillMaterialAmounts = characterObj.SkillExMaterialAmount;
         skillType = "ex";
+    }
+    else if (skill == "bondgear") {
+        skillMaterials = characterObj.SkillBondGearMaterial;
+        skillMaterialAmounts = characterObj.SkillBondGearMaterialAmount;
+        skillType = "bondgear";
     }
     else {
         skillMaterials = characterObj.SkillMaterial;
