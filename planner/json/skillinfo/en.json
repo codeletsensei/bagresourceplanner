@@ -560,18 +560,14 @@
                 16
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                150,
-                151
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    150,
+                    151
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10001": {
         "Name": "Eimi",
@@ -1077,18 +1073,14 @@
                 15
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                130,
-                131
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    130,
+                    131
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10002": {
         "Name": "Haruna",
@@ -2461,18 +2453,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                180,
-                181
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    180,
+                    181
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10005": {
         "Name": "Hoshino",
@@ -2995,18 +2983,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                100,
-                101
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    100,
+                    101
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10006": {
         "Name": "Iori",
@@ -4553,18 +4537,14 @@
                 13
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                170,
-                171
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    170,
+                    171
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10009": {
         "Name": "Izumi",
@@ -5100,18 +5080,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                140,
-                141
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    140,
+                    141
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10010": {
         "Name": "Shiroko",
@@ -5591,18 +5567,14 @@
                 16
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                110,
-                111
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    110,
+                    111
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10011": {
         "Name": "Shun",
@@ -6591,18 +6563,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                170,
-                171
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    170,
+                    171
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10013": {
         "Name": "Tsurugi",
@@ -7148,18 +7116,14 @@
                 13
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                140,
-                141
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    140,
+                    141
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10014": {
         "Name": "Izuna",
@@ -11334,18 +11298,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                180,
-                181
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    180,
+                    181
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10023": {
         "Name": "Iori (Swimsuit)",
@@ -11903,18 +11863,14 @@
                 13
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                130,
-                131
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    130,
+                    131
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10024": {
         "Name": "Shiroko (Cycling)",
@@ -12879,18 +12835,14 @@
                 12
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                180,
-                181
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    180,
+                    181
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10026": {
         "Name": "Neru (Bunny)",
@@ -14361,18 +14313,14 @@
                 13
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                100,
-                101
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    100,
+                    101
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10029": {
         "Name": "Natsu",
@@ -16626,18 +16574,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                210,
-                211
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    210,
+                    211
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10034": {
         "Name": "Mimori",
@@ -17164,18 +17108,14 @@
                 13
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                150,
-                151
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    150,
+                    151
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10035": {
         "Name": "Ui",
@@ -18122,18 +18062,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                150,
-                151
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    150,
+                    151
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10037": {
         "Name": "Marina",
@@ -19112,18 +19048,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                170,
-                171
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    170,
+                    171
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10039": {
         "Name": "Miyu",
@@ -19605,18 +19537,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                200,
-                201
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    200,
+                    201
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10040": {
         "Name": "Tsukuyo",
@@ -20762,18 +20690,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                100,
-                101
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    100,
+                    101
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10042": {
         "Name": "Atsuko",
@@ -23960,18 +23884,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                130,
-                131
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    130,
+                    131
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10048": {
         "Name": "Saori",
@@ -32254,18 +32174,14 @@
                 15
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                290,
-                291
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    290,
+                    291
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10063": {
         "Name": "Koyuki",
@@ -33790,18 +33706,14 @@
                 5
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                110,
-                111
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    110,
+                    111
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10066": {
         "Name": "Aris (Maid)",
@@ -34392,18 +34304,14 @@
                 4
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                130,
-                131
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    130,
+                    131
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "10067": {
         "Name": "Toki (Bunny)",
@@ -55791,18 +55699,14 @@
                 12
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                190,
-                191
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    190,
+                    191
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "13002": {
         "Name": "Akari",
@@ -57150,18 +57054,14 @@
                 13
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                100,
-                101
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    100,
+                    101
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "13005": {
         "Name": "Kayoko",
@@ -58511,18 +58411,14 @@
                 16
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                140,
-                141
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    140,
+                    141
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "13008": {
         "Name": "Serika",
@@ -59003,18 +58899,14 @@
                 13
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                110,
-                111
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    110,
+                    111
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "13009": {
         "Name": "Tsubaki",
@@ -59956,18 +59848,14 @@
                 13
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                170,
-                171
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    170,
+                    171
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "13011": {
         "Name": "Momoi",
@@ -62701,18 +62589,14 @@
                 16
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                170,
-                171
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    170,
+                    171
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "16003": {
         "Name": "Suzumi",
@@ -63230,18 +63114,14 @@
                 15
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                160,
-                161
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    160,
+                    161
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "16004": {
         "Name": "Pina",
@@ -64633,18 +64513,14 @@
                 15
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                140,
-                141
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    140,
+                    141
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "16007": {
         "Name": "Tomoe",
@@ -69985,18 +69861,14 @@
                 12
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                120,
-                121
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    120,
+                    121
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "20001": {
         "Name": "Karin",
@@ -71327,18 +71199,14 @@
                 13
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                100,
-                101
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    100,
+                    101
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "20004": {
         "Name": "Mashiro (Swimsuit)",
@@ -72239,18 +72107,14 @@
                 16
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                120,
-                121
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    120,
+                    121
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "20006": {
         "Name": "Saya (Casual)",
@@ -72757,18 +72621,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                160,
-                161
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    160,
+                    161
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "20007": {
         "Name": "Hatsune Miku",
@@ -74146,18 +74006,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                120,
-                121
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    120,
+                    121
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "20010": {
         "Name": "Nodoka (Hot Spring)",
@@ -76727,18 +76583,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                190,
-                191
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    190,
+                    191
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "20016": {
         "Name": "Iroha",
@@ -79668,18 +79520,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                110,
-                111
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    110,
+                    111
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "20022": {
         "Name": "Fuuka (New Year)",
@@ -89717,18 +89565,14 @@
                 12
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                120,
-                121
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    120,
+                    121
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "23004": {
         "Name": "Utaha",
@@ -90165,18 +90009,14 @@
                 15
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                140,
-                141
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    140,
+                    141
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "23005": {
         "Name": "Ayane",
@@ -91117,18 +90957,14 @@
                 15
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                140,
-                141
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    140,
+                    141
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "23007": {
         "Name": "Hanako",
@@ -91608,18 +91444,14 @@
                 17
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                170,
-                171
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    170,
+                    171
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "23008": {
         "Name": "Mari",
@@ -92102,18 +91934,14 @@
                 13
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                150,
-                151
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    150,
+                    151
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "26000": {
         "Name": "Chinatsu",
@@ -94665,18 +94493,14 @@
                 14
             ]
         ],
-        "SkillBondGearMaterial": [
-            [
-                130,
-                131
+        "Gear": {
+            "TierUpMaterial": [
+                [
+                    130,
+                    131
+                ]
             ]
-        ],
-        "SkillBondGearMaterialAmount": [
-            [
-                80,
-                25
-            ]
-        ]
+        }
     },
     "26006": {
         "Name": "Nodoka",
@@ -100687,7 +100511,8 @@
             "HealPower1": 0,
             "HealPower100": 0,
             "StatLevelUpType": "Standard"
-        }
+        },
+        "PotentialMaterial": 250
     }
 
 

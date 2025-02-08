@@ -25,7 +25,7 @@ if (data == null) {
 
 let charBoxSize = localStorage.getItem("character_box_size") ?? "5";
 
-fetch('json/skillinfo/en.json?9').then((response) => response.json()).then((json) => {
+fetch('json/students.min.json?9').then((response) => response.json()).then((json) => {
     charlist = json;
     if (nameReady && (data.language == "EN" || data.language == "Id")) {
         ShowNames(charlist);

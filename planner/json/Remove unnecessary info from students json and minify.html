@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<input type="file" id="upload" onchange="getFile(this)"></input>
+
+
+</html>
+
+<script>
+function getFile (elm) {
+	new Blob(['1']).text().then(JSON.parse).then(console.log)
+	// handles emptying file input with ?.
+	elm.files[0]?.text().then(JSON.parse).then((a)=> {main(a)} )
+}
+
+function main(data){
+	let keepProperties = [
+		"Id",
+		"Name",
+		"School",
+		"StarGrade",
+		"SquadType",
+		"TacticRole",
+		"Position",
+		"BulletType",
+		"ArmorType",
+		"StreetBattleAdaptation",
+		"OutdoorBattleAdaptation",
+		"IndoorBattleAdaptation",
+        "WeaponType",
+        "Equipment",
+        "Skills",
+        "Weapon",
+        "SkillExMaterial",
+        "SkillExMaterialAmount",
+        "SkillMaterial",
+        "SkillMaterialAmount",
+        "Gear",
+        "PotentialMaterial"
+    ]
+    students = {}
+    for (let i in data) { 
+    	students[i] = {}
+    	for (let j in keepProperties) {
+    		students[i][keepProperties[j]] = data[i][keepProperties[j]]
+    	} 
+    }
+    console.log(students)
+    console.log(JSON.stringify(students))
+
+	function downloadObjectAsJson(exportObj, exportName){
+		var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+		var downloadAnchorNode = document.createElement('a');
+		downloadAnchorNode.setAttribute("href",     dataStr);
+		downloadAnchorNode.setAttribute("download", exportName + ".json");
+		document.body.appendChild(downloadAnchorNode); // required for firefox
+		downloadAnchorNode.click();
+		downloadAnchorNode.remove();
+	}
+	downloadObjectAsJson(students,"students.min")
+
+}
+
+</script>
+<head>

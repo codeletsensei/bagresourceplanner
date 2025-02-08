@@ -95,6 +95,10 @@ const matLookup = new TwoWayMap({
     292: "Mystery_3",
     293: "Mystery_4",
 
+    2000: "WB_3_potentialmaxhp",
+    2001: "WB_3_potentialattack",
+    2002: "WB_3_potentialhealpower",
+
     3000: "BD_1_Hyakkiyako",
     3001: "BD_2_Hyakkiyako",
     3002: "BD_3_Hyakkiyako",
@@ -221,7 +225,7 @@ class Student {
         });
         student.enabled = version1.enabled;
 
-        const props = ['level', 'bond', 'star', 'ue', 'ue_level', 'ex', 'basic', 'passive', 'sub', 'gear1', 'gear2', 'gear3', "bondgear"]
+        const props = ['level', 'bond', 'star', 'ue', 'ue_level', 'ex', 'basic', 'passive', 'sub', 'gear1', 'gear2', 'gear3', "bondgear", "potentialmaxhp", "potentialattack", "potentialhealpower"]
         var cur = [];
         var tar = [];
         for (var prop of props) {
@@ -267,7 +271,7 @@ class ElephInfo {
 
 class StudentInvestment {
 
-    constructor(level, bond, star, ue, ue_level, ex, basic, passive, sub, gear1, gear2, gear3, bondgear) {
+    constructor(level, bond, star, ue, ue_level, ex, basic, passive, sub, gear1, gear2, gear3, bondgear, potentialmaxhp, potentialattack, potentialhealpower) {
         this.level = level;
         this.bond = bond;
         this.star = star;
@@ -281,6 +285,9 @@ class StudentInvestment {
         this.gear2 = gear2;
         this.gear3 = gear3;
         this.bondgear = bondgear;
+        this.potentialmaxhp = potentialmaxhp;
+        this.potentialattack = potentialattack;
+        this.potentialhealpower = potentialhealpower;
     }
 
     static Default(characterInfo) {
@@ -299,7 +306,10 @@ class StudentInvestment {
             0,
             0,
             0,
-            1
+            1,
+            0,
+            0,
+            0
         ];
 
         return new StudentInvestment(...data);
@@ -323,6 +333,9 @@ class StudentInvestment {
         defaultTarget.gear2 = inputValidation.gear2_target.default;
 
         defaultTarget.bondgear = inputValidation.bondgear_target.default;
+        defaultTarget.potentialmaxhp = inputValidation.potentialmaxhp_target.default;
+        defaultTarget.potentialattack = inputValidation.potentialattack_target.default;
+        defaultTarget.potentialhealpower = inputValidation.potentialhealpower_target.default;
 
         return defaultTarget
     }
@@ -582,6 +595,111 @@ const inputValidation = {
         "navigation": "direct",
         "Up": "input_bondgear_current",
         "Left": "input_bondgear_current",
+        "Down": "input_potentialmaxhp_current",
+        "Right": "input_potentialmaxhp_current"
+    },
+    "potentialmaxhp": {
+        id: "input_potentialmaxhp_current",
+        location: "characterModal",
+        min: "0",
+        max: "25",
+        default: "0",
+        name: "Potentialattack",
+        requisite: {},
+        "navigation": "direct",
+        "Up": "input_bondgear_target",
+        "Left": "input_bondgear_target",
+        "Down": "input_potentialmaxhp_target",
+        "Right": "input_potentialmaxhp_target"
+    },
+    "potentialmaxhp_target": {
+        id: "input_potentialmaxhp_target",
+        location: "characterModal",
+        min: "0",
+        max: "25",
+        default: "0",
+        name: "Potentialmaxhp Target",
+        requisite: {
+            "potentialmaxhp": {
+                type: "input",
+                compare: "equal_greater",
+                mode: "direct",
+                sanitise: true
+            }
+        },
+        "navigation": "direct",
+        "Up": "input_potentialmaxhp_current",
+        "Left": "input_potentialmaxhp_current",
+        "Down": "input_potentialattack_current",
+        "Right": "input_potentialattack_current"
+    },
+    "potentialattack": {
+        id: "input_potentialattack_current",
+        location: "characterModal",
+        min: "0",
+        max: "25",
+        default: "0",
+        name: "Potentialattack",
+        requisite: {},
+        "navigation": "direct",
+        "Up": "input_potentialmaxhp_target",
+        "Left": "input_potentialmaxhp_target",
+        "Down": "input_potentialattack_target",
+        "Right": "input_potentialattack_target"
+    },
+    "potentialattack_target": {
+        id: "input_potentialattack_target",
+        location: "characterModal",
+        min: "0",
+        max: "25",
+        default: "0",
+        name: "Potentialattack Target",
+        requisite: {
+            "potentialattack": {
+                type: "input",
+                compare: "equal_greater",
+                mode: "direct",
+                sanitise: true
+            }
+        },
+        "navigation": "direct",
+        "Up": "input_potentialattack_current",
+        "Left": "input_potentialattack_current",
+        "Down": "input_potentialhealpower_current",
+        "Right": "input_potentialhealpower_current"
+    },
+    "potentialhealpower": {
+        id: "input_potentialhealpower_current",
+        location: "characterModal",
+        min: "0",
+        max: "25",
+        default: "0",
+        name: "Potentialhealpower",
+        requisite: {},
+        "navigation": "direct",
+        "Up": "input_potentialattack_target",
+        "Left": "input_potentialattack_target",
+        "Down": "input_potentialhealpower_target",
+        "Right": "input_potentialhealpower_target"
+    },
+    "potentialhealpower_target": {
+        id: "input_potentialhealpower_target",
+        location: "characterModal",
+        min: "0",
+        max: "25",
+        default: "0",
+        name: "Potentialhealpower Target",
+        requisite: {
+            "potentialhealpower": {
+                type: "input",
+                compare: "equal_greater",
+                mode: "direct",
+                sanitise: true
+            }
+        },
+        "navigation": "direct",
+        "Up": "input_potentialhealpower_current",
+        "Left": "input_potentialhealpower_current",
         "Down": "input_ex_current",
         "Right": "input_ue_level_current"
     },
