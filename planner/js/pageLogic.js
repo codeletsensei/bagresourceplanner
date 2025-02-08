@@ -398,6 +398,9 @@ function init() {
     createTable("artifact-table-2", ["4", "3", "2", "1"], 4,
         ["Totem", "Baghdad", "Fleece", "Okiku", "Colgante", "Atlantis", "RomanDice", "Quimbaya", "Rocket", "Mystery"], 9,
         tableNavigation, document.getElementById("table-parent-3"), true, "resource", "icons/Artifact/", [], "artifact-");
+    
+    createTable("workbook-table", ["potentialhealpower_3","potentialattack_3","potentialmaxhp_3"] , 0,
+        ["Workbook"], 10, tableNavigation, document.getElementById("table-parent-7"), true, "resource", "icons/LimitBreak/", [], "workbook-");
 
     let gearNavigation = [];
     createTable("gear-table", ["T10", "T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2"], 0, ["Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"],
@@ -425,6 +428,7 @@ function init() {
     colourTableRows("school-mat-table");
     colourTableRows("artifact-table-1");
     colourTableRows("artifact-table-2");
+    colourTableRows("workbook-table");
 
     colourTableRows("gear-table");
 
@@ -4073,6 +4077,9 @@ function populateCharResources(charId) {
                 if (matName.includes("BD") || matName.includes("TN")) {
                     resourceImg.src = "icons/SchoolMat/" + matName + ".webp";
                 }
+                else if (matName.includes("Workbook")) {
+                    resourceImg.src = "icons/LimitBreak/" + matName + ".webp";
+                }
                 else {
                     resourceImg.src = "icons/Artifact/" + matName + ".webp";
                 }
@@ -4437,6 +4444,7 @@ function openResourceModal() {
         document.getElementById("table-parent-1").style.display = "none";
         document.getElementById("table-parent-2").style.display = "none";
         document.getElementById("table-parent-3").style.display = "none";
+        document.getElementById("table-parent-7").style.display = "none";
         document.getElementById("other-resource-wrapper").style.display = "none";
 
         openDelay = 2500;
@@ -4465,6 +4473,9 @@ function openResourceModal() {
                 document.getElementById("other-resource-wrapper").style.display = "";
                 hideEmpty();
             }, 4000);
+            setTimeout(() => {
+                document.getElementById("table-parent-7").style.display = "";
+            }, 5000);
         }
 
         updateAggregateCount();
@@ -4927,10 +4938,12 @@ function hideEmpty() {
     var resourceTable = document.getElementById("school-mat-table");
     var artifactTable1 = document.getElementById("artifact-table-1");
     var artifactTable2 = document.getElementById("artifact-table-2");
+    var workbookTable = document.getElementById("workbook-table");
 
     hideEmptyCells(resourceTable);
     hideEmptyCells(artifactTable1);
     hideEmptyCells(artifactTable2);
+    hideEmptyCells(workbookTable);
 
     hideEmptyCell("XP_1");
     hideEmptyCell("XP_2");
@@ -5769,8 +5782,6 @@ function calcPotentialCost(characterObj, skill, current, target, matDict) {
     if (skillMaterials == undefined || skillMaterialAmounts == undefined) { return null; }
 
     for (let s = curLevel; s < tarLevel; s++) {
-        console.log(skillMaterials[s],skillMaterialAmounts[s],misc_data.potentialCost[s])
-
         if (!matDict["Credit"]) {
             matDict["Credit"] = 0;
         }

@@ -95,9 +95,9 @@ const matLookup = new TwoWayMap({
     292: "Mystery_3",
     293: "Mystery_4",
 
-    2000: "WB_3_potentialmaxhp",
-    2001: "WB_3_potentialattack",
-    2002: "WB_3_potentialhealpower",
+    2000: "Workbook_potentialmaxhp_3",
+    2001: "Workbook_potentialattack_3",
+    2002: "Workbook_potentialhealpower_3",
 
     3000: "BD_1_Hyakkiyako",
     3001: "BD_2_Hyakkiyako",
@@ -191,7 +191,7 @@ var rowColours = {
     "Shanhaijing": "#b4feca66", "Red Winter": "#d98c9e66", "Valkyrie": "#a1a9e166", "Nebra": "#99919466", "Phaistos": "#fdf7e766", "Wolfsegg": "#93a5f266",
     "Nimrud": "#67e4ef66", "Mandragora": "#a1ede566", "Rohonc": "#c9ab9366", "Aether": "#ca96e066", "Antikythera": "#f7e28866",
     "Voynich": "#84b28066", "Haniwa": "#e7bef466", "Baghdad": "#d179a066", "Totem": "#b77e6166", "Fleece": "#fdf76966", "Okiku": "#ff88294a", "Atlantis": "#ecff2933",
-    "Colgante": "#c2cdfe70", "Mystery": "#305c894a", "RomanDice": "#71bec566", "Quimbaya": "#e3df7466", "Rocket": "#c0f2f366",
+    "Colgante": "#c2cdfe70", "Mystery": "#305c894a", "RomanDice": "#71bec566", "Quimbaya": "#e3df7466", "Rocket": "#c0f2f366", "Workbook": "#c2cdfe70",
     "Gloves": "#84848436", "Bag": "#84848436", "Hairpin": "#84848436", "Watch": "#84848436"
 };
 
