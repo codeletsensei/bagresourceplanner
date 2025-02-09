@@ -826,6 +826,11 @@ div.resource-box.editable.focused p {
     justify-content: center;
 }
 
+.char-miscMats-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .char-miscresource-wrapper {
     display: flex;
     justify-content: center;

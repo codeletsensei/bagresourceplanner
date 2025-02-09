@@ -4045,6 +4045,7 @@ function populateCharResources(charId) {
     let subartisWrapper = document.getElementById('char-subartis-wrapper');
     let bdWrapper = document.getElementById('char-bds-wrapper');
     let tnWrapper = document.getElementById('char-tns-wrapper');
+    let miscMatsWrapper = document.getElementById('char-miscMats-wrapper'); // For favor/Gifts and Potential/Limit Break
 
     while (mainartisWrapper.children.length > 0) {
         mainartisWrapper.children[0]._tippy.destroy();
@@ -4061,6 +4062,10 @@ function populateCharResources(charId) {
     while (tnWrapper.children.length > 0) {
         tnWrapper.children[0]._tippy.destroy();
         tnWrapper.children[0].remove();
+    }
+    while (miscMatsWrapper.children.length > 0) {
+        miscMatsWrapper.children[0]._tippy.destroy();
+        miscMatsWrapper.children[0].remove();
     }
 
     let resources = calculateCharResources(charDataFromModal(charId), true);
@@ -4127,6 +4132,9 @@ function populateCharResources(charId) {
                 }
                 else if (matName.includes(mainMat)) {
                     mainartisWrapper.appendChild(wrapDiv);
+                }
+                else if (matName.includes("favor") || matName.includes("Workbook")) {
+                    miscMatsWrapper.appendChild(wrapDiv)
                 }
                 else {
                     subartisWrapper.appendChild(wrapDiv);
@@ -4575,11 +4583,6 @@ function hideResourceDisplays() {
 }
 
 function openGearModal() {
-    // APRIL FOOLS
-    // if (document.getElementById("button-gear").classList.contains("april-fools-button")) {
-    //     return;
-    // }
-
     if (!loaded) {
         return;
     }
@@ -4650,11 +4653,6 @@ function openGearModal() {
 }
 
 function openTransferModal() {
-    // APRIL FOOLS
-    // if (document.getElementById("button-transfer").classList.contains("april-fools-button")) {
-    //     return;
-    // }
-
     if (document.getElementById("characterMultiSelectContainer").style.display != "none") {
         return;
     }
@@ -6379,6 +6377,18 @@ function displayExportData() {
         title: GetLanguageString("text-exporteddata"),
         html: '<textarea style="width: 400px; height: 250px; resize: none;" readonly>' + localStorage.getItem('save-data') + '</textarea>'
     })
+    function downloadObjectAsJson(exportObj, exportName){
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+        var downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href",     dataStr);
+        downloadAnchorNode.setAttribute("download", exportName + ".json");
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    }
+    let date = new Date().getFullYear() + "." + ("0"+(parseInt(new Date().getMonth())+1)).slice(-2) + "." + ("0" + new Date().getDate()).slice(-2) + "." + ("0" + new Date().getHours()).slice(-2) + "" + ("0" + new Date().getMinutes()).slice(-2)
+    downloadObjectAsJson(JSON.parse(localStorage.getItem('save-data')),"bag_planner_saveFile_" + date)
+
 }
 
 async function getImportData() {
