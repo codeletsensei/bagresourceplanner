@@ -275,6 +275,14 @@ label {
     text-shadow: -1px -1px 0 #000, 0px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0px 1px 0 #000, 1px 1px 0 #000;
 }
 
+.limitbreak-bar {
+    top: 0%;
+    width: fit-content;
+    right: 12%;
+    padding-right: 2%;
+    padding-left: 1%;
+}
+
 .skill-bar {
     bottom: 22%;
     width: fit-content;
@@ -927,7 +935,7 @@ div.char-resource-wrapper .resource-display-text {
 
 .char-heart-container {
     position: absolute;
-    top: 20%;
+    top: 10%;
     left: -6%;
     width: 30%;
 }
@@ -949,6 +957,32 @@ div.char-resource-wrapper .resource-display-text {
         0px 1px 0 #fff,
         1px 1px 0 #fff;
 }
+
+.char-heart-container2 {
+    position: absolute;
+    top: 32%;
+    left: -6%;
+    width: 30%;
+}
+
+.char-heart-container2 img {
+    width: 100%;
+}
+
+.char-heart-container2 p {
+    position: absolute;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    top: 50%;
+    left: 50%;
+    text-shadow: -1px -1px 0 #ffffff,
+        0px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        0px 1px 0 #fff,
+        1px 1px 0 #fff;
+}
+
 
 #charsContainerActions {
     min-height: 6vh;
@@ -1243,7 +1277,7 @@ label.char-action-label.toggle-closed::before {
 .transfer-modal-button-wrapper {
     width: 100%; 
     position: relative; 
-    min-height: 70px;
+    min-height: 300px;
 }
 
 .transfer-modal-input-wrapper {

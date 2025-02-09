@@ -8,6 +8,7 @@ let charlist, chartranslate, language_strings, skillbuffnames = {};
 let nameReady = false;
 let uiReady = false;
 let loaded = false;
+let bondgear_characters = [ 10066, 10000, 10028, 20009, 13001, 10047, 10001, 20021, 23007, 23003, 20000, 20005, 10004, 10022, 10036, 10005, 10023, 10009, 16006, 13007, 20015, 10065, 16002, 23008, 20003, 10034, 10041, 10038, 10039, 10008, 13004, 20006, 13008, 10010, 23006, 10025, 10012, 16003, 10062, 10013, 23004, 10033, 26005, 13010 ]
 
 try {
     let tryJSON = JSON.parse(localStorage.getItem('save-data'));
@@ -220,6 +221,7 @@ function createCharBox(charId, container, location, lazy) {
     let newStarContainer;
     let newUEContainer;
     let newBondContainer;
+    let newBondContainerBG;
 
     let char = data.characters[dataCharIndex[charId]]; //.find(obj => { return obj.id == charId });
 
@@ -244,9 +246,31 @@ function createCharBox(charId, container, location, lazy) {
         newBondP2.id = charId + idInject + "-bond-target";
         newBondP2.style = "transform: translate(-50%, -25%)";
 
+
         newBondContainer.appendChild(newBondImg);
         newBondContainer.appendChild(newBondP);
         newBondContainer.appendChild(newBondP2);
+
+        const newBondgearImg = document.createElement("img");
+        newBondgearImg.src = "icons/Misc/bondheart.png";
+        newBondgearImg.id = "bondgearPortraitHeart" + charId;
+        newBondgearImg.draggable = false;
+
+        newBondContainerBG = document.createElement("div");
+        newBondContainerBG.className = "char-heart-container2";
+        const newBondgearP = document.createElement("p");
+        newBondgearP.id = charId + idInject + "-bondgear-current";
+        newBondgearP.style = "transform: translate(-50%, -95%)";
+
+        const newBondgearP2 = document.createElement("p");
+        newBondgearP2.id = charId + idInject + "-bondgear-target";
+        newBondgearP2.style = "transform: translate(-50%, -25%)";
+
+        newBondContainerBG.appendChild(newBondgearImg);
+        newBondContainerBG.appendChild(newBondgearP);
+        newBondContainerBG.appendChild(newBondgearP2);
+
+
 
         for (i = 0; i < 5; i++) {
             const newStar = document.createElement("img");
@@ -270,9 +294,9 @@ function createCharBox(charId, container, location, lazy) {
             newUEContainer.appendChild(newStar);
         }
 
-        var classes = ["skill-bar", "gear-bar", "level-bar"];
+        var classes = ["skill-bar", "gear-bar", "level-bar", "limitbreak-bar"];
 
-        for (i = 0; i < 3; i++) {
+        for (i = 0; i < classes.length; i++) {
             const newBar = document.createElement("div");
             newBar.className = classes[i] + " info-bar";
 
@@ -350,6 +374,7 @@ function createCharBox(charId, container, location, lazy) {
         newDiv.appendChild(newStarContainer);
         newDiv.appendChild(newUEContainer);
         newDiv.appendChild(newBondContainer);
+        newDiv.appendChild(newBondContainerBG);
     }
     if (location == "main") {
         newDiv.onclick = openModal
@@ -418,6 +443,33 @@ function updateInfoDisplay(charId, idInject, charData) {
     else {
         document.getElementById(charId + idInject + "-bond-target").innerText = "";
     }
+    
+    if ( bondgear_characters.includes(parseInt(charId)) ) {
+        document.getElementById("bondgearPortraitHeart"+ charId).style.display = ""
+        document.getElementById(charId + idInject + "-bondgear-current").innerText = "T"+ charData.current?.bondgear;
+        if (charData.current?.bondgear != charData.target?.bondgear) {
+            document.getElementById(charId + idInject + "-bondgear-target").innerText = "T"+ charData.target?.bondgear;
+        }
+        else {
+            document.getElementById(charId + idInject + "-bondgear-target").innerText = "";
+        }
+    }
+    else {
+        document.getElementById("bondgearPortraitHeart"+ charId).style.display = "none"
+    }
+
+    var limitbreakCurrent = formatLevel("LB", charData.current?.potentialmaxhp) + " " + formatLevel("LB", charData.current?.potentialattack) + " " + formatLevel("LB", charData.current?.potentialhealpower);
+    var limitbreakTarget = formatLevel("LB", charData.target?.potentialmaxhp) + " " + formatLevel("LB", charData.target?.potentialattack) + " " + formatLevel("LB", charData.target?.potentialhealpower);
+    document.getElementById(charId + idInject + "-limitbreak-current").innerText = limitbreakCurrent;
+    if (limitbreakCurrent != limitbreakTarget) {
+        document.getElementById(charId + idInject + "-limitbreak-target").innerText = limitbreakTarget;
+    }
+    else {
+        document.getElementById(charId + idInject + "-limitbreak-target").innerText = "";
+    }
+
+
+    
 }
 
 function updateStarDisplay(id, charId, type, fromTemp, charData) {

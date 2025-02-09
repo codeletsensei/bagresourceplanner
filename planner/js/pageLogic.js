@@ -282,8 +282,8 @@ function init() {
         }
 
         for (let i in data.characters) {
-            if (!data.characters[i].current.bondgear) data.characters[i].current.bondgear = 1
-            if (!data.characters[i].target.bondgear) data.characters[i].target.bondgear = 1
+            if (!data.characters[i].current.bondgear || !charlist[data.characters[i].id].Gear.TierUpMaterial) data.characters[i].current.bondgear = 0
+            if (!data.characters[i].target.bondgear || !charlist[data.characters[i].id].Gear.TierUpMaterial) data.characters[i].target.bondgear = 0
             if (!data.characters[i].current.potentialmaxhp) data.characters[i].current.potentialmaxhp = 0
             if (!data.characters[i].target.potentialmaxhp) data.characters[i].target.potentialmaxhp = 0
             if (!data.characters[i].current.potentialattack) data.characters[i].current.potentialattack = 0
@@ -457,8 +457,8 @@ function init() {
 
     for (let i = 0 ; i <= giftsRows ; i++) colourTableRows("gifts-table"+i);
 
-/*
-    let currentVer = "25.02.06"
+
+    let currentVer = "1.4.11.25.2.10.1"
     if (currentVer.localeCompare(data.site_version ?? "0.0.0", undefined, { numeric: true, sensitivity: 'base' }) == 1) {
         Swal.fire({
             title: GetLanguageString("text-updatedversionprefix") + currentVer,
@@ -466,10 +466,10 @@ function init() {
             html: GetLanguageString("text-updatemessage")
         })
 
-        data.site_version = "1.4.11";
-        // saveToLocalStorage(false);
+        data.site_version = "1.4.11.25.2.10.1";
+        saveToLocalStorage(false);
     }
-*/
+
 
     document.body.addEventListener('click', (event) => {
         if (closableAfter != 0 && Date.now() > closableAfter) {
@@ -4458,11 +4458,6 @@ function ReloadStudentImgs() {
 
 function openResourceModal() {
 
-    // APRIL FOOLS
-    // if (document.getElementById("button-resources").classList.contains("april-fools-button")) {
-    //     return;
-    // }
-
     if (!loaded) {
         return;
     }
@@ -4652,7 +4647,38 @@ function openGearModal() {
 
 }
 
+function ignoreDrag(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
+function dropImportFile(e,method) {
+    function data2Import(data){
+        getImportData();
+        document.getElementById("swal2-textarea").value = JSON.stringify(data)
+    }
+    e.preventDefault()
+    let files = null;
+    if (method == "selected") files = e.target.files;
+    else files = e.dataTransfer.files;
+    console.log(files)
+    if (files.length > 0) {
+        var reader = new FileReader();
+        reader.addEventListener('load', function() {
+          var result = JSON.parse(reader.result);
+          data2Import(result);
+        });
+        reader.readAsText(files[0]);
+    }
+}
+document.getElementById('inputImportFile').addEventListener("change", e=>{
+    dropImportFile(e,"selected");
+})
+
 function openTransferModal() {
+    document.addEventListener('dragover', ignoreDrag );
+    document.addEventListener('dragenter', ignoreDrag );
+    document.addEventListener('drop', function(e){ dropImportFile(e,"dropped") });
+
     if (document.getElementById("characterMultiSelectContainer").style.display != "none") {
         return;
     }
@@ -4791,6 +4817,10 @@ function closeGearModal() {
 }
 
 function closeTransferModal() {
+
+    document.removeEventListener('dragover', ignoreDrag );
+    document.removeEventListener('dragenter', ignoreDrag );
+    document.removeEventListener('drop', function(e){ dropImportFile(e,"dropped") });
 
     freezeBody(false);
 
@@ -5798,11 +5828,11 @@ function calcPotentialCost(characterObj, skill, current, target, matDict) {
     let skillType = "potential"
     let skillMaterials = [];
     let skillMaterialAmounts = [];
-    for (let s = 0; s <= 15 ; s++) {
+    for (let s = 0; s < 15 ; s++) {
         skillMaterials.push([ workbookType, characterObj.PotentialMaterial ]);
         skillMaterialAmounts.push(misc_data.potentialMaterialAmount[s]);
     }
-    for (let s = 16; s <= 25 ; s++) {
+    for (let s = 16; s < 25 ; s++) {
         skillMaterials.push([ workbookType, parseInt(characterObj.PotentialMaterial) + 1 ]);
         skillMaterialAmounts.push(misc_data.potentialMaterialAmount[s]);
     }
@@ -5812,18 +5842,18 @@ function calcPotentialCost(characterObj, skill, current, target, matDict) {
         if (!matDict["Credit"]) {
             matDict["Credit"] = 0;
         }
-        matDict["Credit"] += misc_data.potentialCost[s+1];
+        matDict["Credit"] += misc_data.potentialCost[s];
 
-        let costObj = skillMaterials[s+1];
+        let costObj = skillMaterials[s];
         if (costObj == undefined) { return null; }
 
         for (let i = 0; i < costObj.length; i++) {
             let item = costObj[i];
-            if (item != undefined && skillMaterialAmounts[s+1][i] != undefined) {
+            if (item != undefined && skillMaterialAmounts[s][i] != undefined) {
                 if (!matDict[item]) {
                     matDict[item] = 0;
                 }
-                matDict[item] += skillMaterialAmounts[s+1][i];
+                matDict[item] += skillMaterialAmounts[s][i];
             }
         }
     }
@@ -6372,13 +6402,32 @@ function switchGearDisplay(displayType) {
 
 // }
 
-function displayExportData() {
+function displayExportData(option) {
+    var saveData = localStorage.getItem('save-data')
+    if (option == "justin") {
+        let extraChars = ["20042"]
+        let extraProps = ["bondgear", "potentialmaxhp", "potentialattack", "potentialhealpower"]
+        saveData = JSON.parse(saveData)
+        for (let i in extraChars) {
+            saveData.characters = saveData.characters.filter((a)=>{ return a.id != extraChars[i] })
+            saveData.disabled_characters = saveData.disabled_characters.filter((a)=>{ return a != extraChars[i] })
+        }
+        for (let i in saveData.characters) {
+            for (let j in saveData.characters[i].current) {
+                if (extraProps.includes(j)) {
+                    saveData.characters[i].current = Object.fromEntries(Object.entries(saveData.characters[i].current).filter(([k, v]) => k != j));
+                    saveData.characters[i].target = Object.fromEntries(Object.entries(saveData.characters[i].target).filter(([k, v]) => k != j));
+                }
+            }
+        }
+        saveData = JSON.stringify(saveData)
+    }
     Swal.fire({
         title: GetLanguageString("text-exporteddata"),
-        html: '<textarea style="width: 400px; height: 250px; resize: none;" readonly>' + localStorage.getItem('save-data') + '</textarea>'
+        html: '<textarea style="width: 400px; height: 250px; resize: none;" readonly>' + saveData + '</textarea>'
     })
     function downloadObjectAsJson(exportObj, exportName){
-        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
         var downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href",     dataStr);
         downloadAnchorNode.setAttribute("download", exportName + ".json");
@@ -6387,11 +6436,14 @@ function displayExportData() {
         downloadAnchorNode.remove();
     }
     let date = new Date().getFullYear() + "." + ("0"+(parseInt(new Date().getMonth())+1)).slice(-2) + "." + ("0" + new Date().getDate()).slice(-2) + "." + ("0" + new Date().getHours()).slice(-2) + "" + ("0" + new Date().getMinutes()).slice(-2)
-    downloadObjectAsJson(JSON.parse(localStorage.getItem('save-data')),"bag_planner_saveFile_" + date)
-
+    let filename = "bag_planner"
+    if (option == "justin") filename += "2justin"
+    filename += "_saveFile_" + date
+    downloadObjectAsJson( saveData , filename )
 }
 
 async function getImportData() {
+
     const { value: importData } = await Swal.fire({
         input: 'textarea',
         inputLabel: GetLanguageString("text-importdata"),
@@ -6401,24 +6453,32 @@ async function getImportData() {
     })
 
     if (importData) {
-        let tempData = tryParseJSON(importData);
+        const { value: confirmation } = await Swal.fire({
+            title: "Are you sure you want to IMPORT this?<br>It will replace your current data!",
+            color: alertColour,
+            showCancelButton: true
+        })
 
-        if (!!!tempData) {
-            Swal.fire({
-                icon: 'error',
-                title: GetLanguageString("text-oops"),
-                text: GetLanguageString("text-invalidjson"),
-                color: alertColour
-            })
+        if (confirmation) {
+            let tempData = tryParseJSON(importData);
 
-            return false;
+            if (!!!tempData) {
+                Swal.fire({
+                    icon: 'error',
+                    title: GetLanguageString("text-oops"),
+                    text: GetLanguageString("text-invalidjson"),
+                    color: alertColour
+                })
+
+                return false;
+            }
+
+            localStorage.setItem("save-data", JSON.stringify(tempData));
+
+            /*gtag('event', 'action_import');*/
+
+            location.reload();
         }
-
-        localStorage.setItem("save-data", JSON.stringify(tempData));
-
-        /*gtag('event', 'action_import');*/
-
-        location.reload();
     }
 }
 
@@ -7403,7 +7463,6 @@ function HELP() {
 }
 
 function SortStudents(students, sortType) {
-
     let academyOrder = {
         "Hyakkiyako": 11, "RedWinter": 10, "Trinity": 9, "Gehenna": 8, "Abydos": 7,
         "Millennium": 6, "Arius": 5, "Shanhaijing": 4, "Valkyrie": 3, "SRT": 2, "ETC": 1, "Tokiwadai": 0
@@ -7465,10 +7524,13 @@ function SortStudents(students, sortType) {
         else if (sortType == "weapon") {
             sortparam = weaponOrder[charlist[students[i].id].WeaponType];
         }
+        else if (sortType == "bondgear") {
+            if (charlist[students[i].id].Gear) if (charlist[students[i].id].Gear.TierUpMaterial) sortparam = 1;
+            else sortparam = 0
+        }
         else {
             sortparam = students[i].current[sortType];
         }
-
         if (!sorting[sortparam]) {
             sorting[sortparam] = [students[i]];
         }
@@ -7501,7 +7563,6 @@ function SortStudents(students, sortType) {
 function FullSort(order) {
 
     let operations = sortingOperations[order];
-
 
     let sorted = SortStudents(data.characters, operations[0]);
 
@@ -7559,6 +7620,11 @@ function AddOrderDisplay(order) {
                 orderDiv.innerText = GetLanguageString("label-skillex");
             }
 
+            orderDisplay.appendChild(orderDiv);
+        }
+        else if (["bondgear"].includes(sortingOperations[order][i])) {
+            let orderDiv = document.createElement("div");
+            orderDiv.innerText = "Bond Gear";
             orderDisplay.appendChild(orderDiv);
         }
         else {
@@ -7623,6 +7689,7 @@ function InitSortingOrder() {
     sortingOperations["armour"] = ["armour", "star", "level", "bond", "academy", "name"]; // armour type
     sortingOperations["role"] = ["role", "star", "level", "bond", "academy", "name"]; // role
     sortingOperations["weapon"] = ["weapon", "star", "level", "bond", "academy", "name"]; // weapon
+    sortingOperations["bondgear"] = ["bondgear","name"];
 
     let orderKeys = Object.keys(sortingOperations);
 

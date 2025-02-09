@@ -235,6 +235,9 @@
         "JP": "非選択",
         "CN": "未启用学生"
     },
+    "label-bondgear": {
+        "EN": "Bond Gear"
+    },
     "label-basestars": {
         "EN": "Base Stars",
         "KR": "기본 성급",
@@ -668,12 +671,18 @@
         "CN": "加载"
     },
     "saving-exportbutton": {
-        "EN": "Export",
+        "EN": "Export/Download",
         "KR": "내보내기",
         "TH": "ส่งออก",
         "ID": "Export",
         "JP": "エキスポート",
         "CN": "导出"
+    },
+    "saving-exportbutton-justin": {
+        "EN": "Export file compatible with Justin.\nNo bondgear/LB/datamined data."
+    },
+    "saving-importFileInput": {
+        "EN": "Click to select the Import file...\nOr Drag & Drop the json file to import."
     },
     "saving-importbutton": {
         "EN": "Import",
@@ -1603,7 +1612,7 @@
         "CN": "网站已更新完成 版本号"
     },
     "text-updatemessage": {
-        "EN": "If you find any issues, contact me on /bag/",
+        "EN": "- Added bondgear/LB to portraits.<br>- Sort students by bondgear<br>- Export/Import save options<br><br>BUT I fucked up last time and the default bondgear tier was set to 1 instead of 0, so if you used this tool before this patch, all of your students with unchanged BG will have theirs at T1 until you manually change them",
         "KR": "",
         "TH": "",
         "ID": "",
@@ -1811,10 +1820,10 @@
         "CN": "太快了，请稍后再试: "
     },
     "text-exporteddata": {
-        "EN": "Exported data - copy the shit below to a txt and save it somewhere. To load (Import) it later on another fork or if you change devices. No idea if it'll work on another fork. No refunds.",
+        "EN": "Exported data - copy the shit below to a txt and save it somewhere, to load (Import) it later on another fork or if you change devices.\nNo idea if it'll work on another fork. No refunds.",
         "KR": "데이터 내보내기",
         "TH": "ข้อมูลที่ส่งออก",
-        "ID": "Exported data - copy the shit below to a txt and save it somewhere. To load (Import) it later on another fork or if you change devices. No idea if it'll work on another fork. No guarantee it'll work. No refunds.",
+        "ID": "Exported data",
         "JP": "エクスポートデータ",
         "CN": "已导出数据"
     },

@@ -531,7 +531,7 @@
                     </div>
                 </div>
                 <div id="char-resource-section" style="width: 100%; padding-bottom: 10px;">
-                    <div class="modal-content-section" style="overflow-y: auto; max-height: 200px;">
+                    <div class="modal-content-section" style="overflow-y: auto; max-height: 500px;">
                         <div class="char-schoolmats-wrapper">
                             <div class="char-mats-wrapper" id="char-bds-wrapper"></div>
                             <div class="char-mats-wrapper" id="char-tns-wrapper"></div>
@@ -1326,10 +1326,15 @@
                     data-id="saving-loadbutton"></button>
             </div>-->
             <div class="transfer-modal-button-wrapper" style="border-top: 2px solid gainsboro; padding-top: 10px;">
-                <button class="transfer-modal-button display-string" onclick="displayExportData()"
-                    style="left: 20px; background-color: #2778c494;" data-id="saving-exportbutton"></button>
-                <button class="transfer-modal-button display-string" onclick="getImportData()"
-                    style="right: 20px; background-color: #dc964194;" data-id="saving-importbutton"></button>
+                <button class="transfer-modal-button display-string" onclick="displayExportData('justin')" style="left: 20px; background-color: #2778c494;" data-id="saving-exportbutton-justin"></button>
+                <label for="inputImportFile" class="transfer-modal-button" style="right: 20px; background-color: #dc964194; text-align:center">
+                    Click to select the Import file...
+                    <br>
+                    Or Drag & Drop the json file.
+                    <input id="inputImportFile" type="file" style="display:none" />
+                </label>
+                <button class="transfer-modal-button display-string" onclick="displayExportData()" style="left: 20px; bottom:10px; background-color: #2778c494;" data-id="saving-exportbutton"></button>
+                <button class="transfer-modal-button display-string" onclick="getImportData()" style="right: 20px; bottom:10px; background-color: #dc964194;" data-id="saving-importbutton"></button>
             </div>
         </div>
     </div>
@@ -1399,6 +1404,10 @@
             <div class="order-display-container" onclick="SortType('weapon')">
                 <label class="display-string" data-id="label-weapontype"></label>
                 <div id="weapon-order-display" class="order-display"></div>
+            </div>
+            <div class="order-display-container" onclick="SortType('bondgear')">
+                <label class="display-string" data-id="label-bondgear"></label>
+                <div id="bondgear-order-display" class="order-display"></div>
             </div>
         </div>
     </div>

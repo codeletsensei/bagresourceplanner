@@ -602,9 +602,9 @@ const inputValidation = {
     "bondgear": {
         id: "input_bondgear_current",
         location: "characterModal",
-        min: "1",
+        min: "0",
         max: "2",
-        default: "1",
+        default: "0",
         name: "Bondgear",
         requisite: {},
         "navigation": "direct",
@@ -616,9 +616,9 @@ const inputValidation = {
     "bondgear_target": {
         id: "input_bondgear_target",
         location: "characterModal",
-        min: "1",
+        min: "0",
         max: "2",
-        default: "1",
+        default: "0",
         name: "Bondgear Target",
         requisite: {
             "bondgear": {
