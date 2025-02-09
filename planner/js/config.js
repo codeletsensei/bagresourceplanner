@@ -173,6 +173,42 @@ const matLookup = new TwoWayMap({
     4082: "TN_3_Valkyrie",
     4083: "TN_4_Valkyrie",
 
+    5000: "favor_0_3",
+    5001: "favor_1_3",
+    5002: "favor_2_3",
+    5003: "favor_3_3",
+    5004: "favor_4_3",
+    5005: "favor_5_3",
+    5006: "favor_6_3",
+    5007: "favor_7_3",
+    5008: "favor_8_3",
+    5009: "favor_9_3",
+    5010: "favor_10_3",
+    5011: "favor_11_3",
+    5012: "favor_12_3",
+    5013: "favor_13_3",
+    5014: "favor_14_3",
+    5015: "favor_15_3",
+    5016: "favor_16_3",
+    5017: "favor_17_3",
+    5018: "favor_18_3",
+    5019: "favor_19_3",
+    5020: "favor_20_3",
+    5021: "favor_21_3",
+    5022: "favor_22_3",
+    5023: "favor_23_3",
+    5024: "favor_24_3",
+    5025: "favor_25_3",
+    5026: "favor_26_3",
+    5027: "favor_27_3",
+    5028: "favor_28_3",
+    5029: "favor_29_3",
+    5030: "favor_30_3",
+    5031: "favor_31_3",
+    5032: "favor_32_3",
+    5033: "favor_33_3",
+    5034: "favor_34_3",
+
     9999: "Secret"
 });
 
@@ -191,7 +227,7 @@ var rowColours = {
     "Shanhaijing": "#b4feca66", "Red Winter": "#d98c9e66", "Valkyrie": "#a1a9e166", "Nebra": "#99919466", "Phaistos": "#fdf7e766", "Wolfsegg": "#93a5f266",
     "Nimrud": "#67e4ef66", "Mandragora": "#a1ede566", "Rohonc": "#c9ab9366", "Aether": "#ca96e066", "Antikythera": "#f7e28866",
     "Voynich": "#84b28066", "Haniwa": "#e7bef466", "Baghdad": "#d179a066", "Totem": "#b77e6166", "Fleece": "#fdf76966", "Okiku": "#ff88294a", "Atlantis": "#ecff2933",
-    "Colgante": "#c2cdfe70", "Mystery": "#305c894a", "RomanDice": "#71bec566", "Quimbaya": "#e3df7466", "Rocket": "#c0f2f366", "Workbook": "#c2cdfe70",
+    "Colgante": "#c2cdfe70", "Mystery": "#305c894a", "RomanDice": "#71bec566", "Quimbaya": "#e3df7466", "Rocket": "#c0f2f366", "Workbook": "#c2cdfe70", "favor": "#fdf7e766",
     "Gloves": "#84848436", "Bag": "#84848436", "Hairpin": "#84848436", "Watch": "#84848436"
 };
 

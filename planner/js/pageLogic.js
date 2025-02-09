@@ -401,7 +401,31 @@ function init() {
     
     createTable("workbook-table", ["potentialhealpower_3","potentialattack_3","potentialmaxhp_3"] , 0,
         ["Workbook"], 10, tableNavigation, document.getElementById("table-parent-7"), true, "resource", "icons/LimitBreak/", [], "workbook-");
-
+    
+    let usedGifts = []
+    for (let i in charlist) {
+        if (charlist[i].Gear) {
+            if (charlist[i].Gear.TierUpMaterial) {
+                for (let j in charlist[i].Gear.TierUpMaterial) {
+                    usedGifts.push(charlist[i].Gear.TierUpMaterial[j][0])
+                }
+            }
+        }
+    }
+    usedGifts = [...new Set(usedGifts)].sort((a,b)=>{return parseInt(a)-parseInt(b)})
+    let giftsList = []
+    giftsRows = 0
+    giftsList[0] = []
+    for (let i = 1 ; i < usedGifts.length ; i++) {
+        giftsList[giftsRows].push(matLookup.get(usedGifts[i-1]).replace("favor_","")) //If it works, it works desu...
+        if ( i != 0 && i%10 == 0) {
+            giftsRows += 1
+            giftsList[giftsRows] = []
+        }
+    }
+    for (let i = 0 ; i < giftsList.length ; i++) { 
+        createTable( ("gifts-table"+i), giftsList[i] , 50, ["favor"] , 0, tableNavigation, document.getElementById("table-parent-8"), true, "resource", "icons/Gifts/", [], "gifts-");
+    }
     let gearNavigation = [];
     createTable("gear-table", ["T10", "T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2"], 0, ["Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"],
         0, gearNavigation, document.getElementById('table-parent-4'), false, "gear", "icons/Gear/", [], "gear-");
@@ -429,8 +453,9 @@ function init() {
     colourTableRows("artifact-table-1");
     colourTableRows("artifact-table-2");
     colourTableRows("workbook-table");
-
     colourTableRows("gear-table");
+
+    for (let i = 0 ; i <= giftsRows ; i++) colourTableRows("gifts-table"+i);
 
 /*
     let currentVer = "25.02.06"
@@ -3506,7 +3531,7 @@ function populateCharModal(charId) {
 
         document.getElementById("input_bondgear_current").value = charData.current?.bondgear;
         document.getElementById("input_bondgear_target").value = charData.target?.bondgear;
-        if (charInfo.Gear) {
+        if (charInfo.Gear.TierUpMaterial) {
             document.getElementById("bondgear_tablecell_header").style.display = ""
             document.getElementById("bondgear_tablecell_inputs").style.display = ""
         }
@@ -4079,6 +4104,9 @@ function populateCharResources(charId) {
                 }
                 else if (matName.includes("Workbook")) {
                     resourceImg.src = "icons/LimitBreak/" + matName + ".webp";
+                }
+                else if (matName.includes("favor")) {
+                    resourceImg.src = "icons/Gifts/" + matName + ".webp";
                 }
                 else {
                     resourceImg.src = "icons/Artifact/" + matName + ".webp";
@@ -4945,6 +4973,8 @@ function hideEmpty() {
     hideEmptyCells(artifactTable2);
     hideEmptyCells(workbookTable);
 
+    for (let i = 0 ; i <= giftsRows ; i++) hideEmptyCells(document.getElementById("gifts-table"+i));
+
     hideEmptyCell("XP_1");
     hideEmptyCell("XP_2");
     hideEmptyCell("XP_3");
@@ -5000,7 +5030,6 @@ function hideEmptyCell(id) {
 }
 
 function createTable(id, columns, colOffset, rows, rowOffset, tableNavigation, parent, reorder, type, imgLoc, skip, stringLangPrefix) {
-
     const newTable = document.createElement("table");
     newTable.className = "resource-table";
     newTable.id = id;
