@@ -94,11 +94,11 @@ const isIOS = /iPad|iPhone|iPod/.test(platform)
 
 function loadResources() {
 
-    $.getJSON('json/misc_data.json?20').done(function (json) {
+    $.getJSON('json/misc_data.json?q='+dummy).done(function (json) {
         misc_data = json;
     });
 
-    $.getJSON('json/manualLocalisations.json?3').done(function (json) {
+    $.getJSON('json/manualLocalisations.json?q='+dummy).done(function (json) {
         mLocalisations = json;
     });
 
@@ -3582,10 +3582,10 @@ function populateCharModal(charId) {
             document.getElementById("gear3-img").src = "icons/Gear/T1_" + charInfo.Equipment[2] + "_small.webp";
         }
 
-        document.getElementById("ex-img").src = "https://schaledb.com/images/skill/" + GetSkillObject(charId, "Ex").Icon + ".webp"; //"icons/SkillIcon/" + GetSkillObject(charId, "Ex").Icon + ".png";
-        document.getElementById("basic-img").src = "https://schaledb.com/images/skill/" + GetSkillObject(charId, "Public").Icon + ".webp"; //"icons/SkillIcon/" + GetSkillObject(charId, "Public").Icon + ".png";
-        document.getElementById("enhanced-img").src = "https://schaledb.com/images/skill/" + GetSkillObject(charId, "Passive").Icon + ".webp"; //"icons/SkillIcon/" + GetSkillObject(charId, "Passive").Icon + ".png";
-        document.getElementById("sub-img").src = "https://schaledb.com/images/skill/" + GetSkillObject(charId, "ExtraPassive").Icon + ".webp"; //"icons/SkillIcon/" + GetSkillObject(charId, "ExtraPassive").Icon + ".png";
+        document.getElementById("ex-img").src = "icons/SkillIcon/" + GetSkillObject(charId, "Ex").Icon + ".png";
+        document.getElementById("basic-img").src = "icons/SkillIcon/" + GetSkillObject(charId, "Public").Icon + ".png";
+        document.getElementById("enhanced-img").src = "icons/SkillIcon/" + GetSkillObject(charId, "Passive").Icon + ".png";
+        document.getElementById("sub-img").src = "icons/SkillIcon/" + GetSkillObject(charId, "ExtraPassive").Icon + ".png";
 
 
         modalStars.star = charData.current?.star;
@@ -4660,7 +4660,6 @@ function dropImportFile(e,method) {
     let files = null;
     if (method == "selected") files = e.target.files;
     else files = e.dataTransfer.files;
-    console.log(files)
     if (files.length > 0) {
         var reader = new FileReader();
         reader.addEventListener('load', function() {
