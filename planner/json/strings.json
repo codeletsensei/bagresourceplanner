@@ -238,6 +238,12 @@
     "label-bondgear": {
         "EN": "Bond Gear"
     },
+    "label-potentialCurrent": {
+        "EN": "Current LB"
+    },
+    "label-potentialTarget": {
+        "EN": "Target LB"
+    },
     "label-basestars": {
         "EN": "Base Stars",
         "KR": "기본 성급",
@@ -1612,7 +1618,7 @@
         "CN": "网站已更新完成 版本号"
     },
     "text-updatemessage": {
-        "EN": "- Added bondgear/LB to portraits.<br>- Sort students by bondgear<br>- Export/Import save options<br><br>BUT I fucked up last time and the default bondgear tier was set to 1 instead of 0, so if you used this tool before this patch, all of your students with unchanged BG will have theirs at T1 until you manually change them",
+        "EN": "- Added bondgear/LB to portraits.<br>- Sort students by bondgear or sum of LB levels<br>- Export/Import save options<br><br>BUT I fucked up last time and the default bondgear tier was set to 1 instead of 0, so if you used this tool before this patch, all of your students with unchanged BG will have theirs at T1 until you manually change them",
         "KR": "",
         "TH": "",
         "ID": "",

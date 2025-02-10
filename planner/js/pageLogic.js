@@ -458,7 +458,7 @@ function init() {
     for (let i = 0 ; i <= giftsRows ; i++) colourTableRows("gifts-table"+i);
 
 
-    let currentVer = "1.4.11.25.2.10.1"
+    let currentVer = "1.4.11.25.2.10.2"
     if (currentVer.localeCompare(data.site_version ?? "0.0.0", undefined, { numeric: true, sensitivity: 'base' }) == 1) {
         Swal.fire({
             title: GetLanguageString("text-updatedversionprefix") + currentVer,
@@ -466,7 +466,7 @@ function init() {
             html: GetLanguageString("text-updatemessage")
         })
 
-        data.site_version = "1.4.11.25.2.10.1";
+        data.site_version = "1.4.11.25.2.10.2";
         saveToLocalStorage(false);
     }
 
@@ -7528,6 +7528,12 @@ function SortStudents(students, sortType) {
             if (charlist[students[i].id].Gear) if (charlist[students[i].id].Gear.TierUpMaterial) sortparam = 1;
             else sortparam = 0
         }
+        else if (sortType == "potentialCurrent") {
+            sortparam = (students[i].current.potentialattack + students[i].current.potentialmaxhp + students[i].current.potentialhealpower);
+        }
+        else if (sortType == "potentialTarget") {
+            sortparam = (students[i].target.potentialattack + students[i].target.potentialmaxhp + students[i].target.potentialhealpower);
+        }
         else {
             sortparam = students[i].current[sortType];
         }
@@ -7624,11 +7630,20 @@ function AddOrderDisplay(order) {
         }
         else if (["bondgear"].includes(sortingOperations[order][i])) {
             let orderDiv = document.createElement("div");
-            orderDiv.innerText = "Bond Gear";
+            orderDiv.innerText = "Has Bond Gear";
+            orderDisplay.appendChild(orderDiv);
+        }
+        else if (sortingOperations[order][i] == "potentialCurrent") {
+            let orderDiv = document.createElement("div");
+            orderDiv.innerText = "LB atm"
+            orderDisplay.appendChild(orderDiv);
+        }
+        else if (sortingOperations[order][i] == "potentialTarget") {
+            let orderDiv = document.createElement("div");
+            orderDiv.innerText = "LB tgt"
             orderDisplay.appendChild(orderDiv);
         }
         else {
-
             let orderImg = document.createElement("img");
             orderImg.draggable = false;
 
@@ -7689,7 +7704,9 @@ function InitSortingOrder() {
     sortingOperations["armour"] = ["armour", "star", "level", "bond", "academy", "name"]; // armour type
     sortingOperations["role"] = ["role", "star", "level", "bond", "academy", "name"]; // role
     sortingOperations["weapon"] = ["weapon", "star", "level", "bond", "academy", "name"]; // weapon
-    sortingOperations["bondgear"] = ["bondgear","name"];
+    sortingOperations["bondgear"] = ["bondgear","bond","name"];
+    sortingOperations["potentialCurrent"] = ["potentialCurrent","potentialTarget","name"];
+    sortingOperations["potentialTarget"] = ["potentialTarget","potentialCurrent","name"];
 
     let orderKeys = Object.keys(sortingOperations);
 
