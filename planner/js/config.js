@@ -1905,14 +1905,16 @@ const inputValidation = {
         "location": "resourceModal",
         "min": "0",
         "max": "9999",
-        "navigation": "resourceTable"
+        "navigation": "resourceTable",
+        "Right": "input-Phaistos_1"
     },
     "Phaistos_3": {
         "id": "input-Phaistos_3",
         "location": "resourceModal",
         "min": "0",
         "max": "9999",
-        "navigation": "resourceTable"
+        "navigation": "resourceTable",
+        "Right": "input-Phaistos_2"
     },
     "Phaistos_4": {
         "id": "input-Phaistos_4",
@@ -1920,7 +1922,8 @@ const inputValidation = {
         "min": "0",
         "max": "9999",
         "navigation": "resourceTable",
-        "Left": "input-Nebra_1"
+        "Left": "input-Nebra_1",
+        "Right": "input-Phaistos_3"
     },
     "Wolfsegg_1": {
         "id": "input-Wolfsegg_1",
@@ -2166,128 +2169,7 @@ const inputValidation = {
         "Down": "input-Nebra_3",
         "Left": "input-Voynich_1"
     },
-    "Baghdad_1": {
-        "id": "input-Baghdad_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Right": "input-Colgante_4"
-    },
-    "Baghdad_2": {
-        "id": "input-Baghdad_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable"
-    },
-    "Baghdad_3": {
-        "id": "input-Baghdad_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable"
-    },
-    "Baghdad_4": {
-        "id": "input-Baghdad_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Left": "input-Totem_1"
-    },
-    "Fleece_1": {
-        "id": "input-Fleece_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Right": "input-Rocket_4"
-    },
-    "Fleece_2": {
-        "id": "input-Fleece_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable"
-    },
-    "Fleece_3": {
-        "id": "input-Fleece_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable"
-    },
-    "Fleece_4": {
-        "id": "input-Fleece_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Left": "input-RomanDice_1"
-    },
-    "Rocket_1": {
-        "id": "input-Rocket_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Right": "input-Quimbaya_4"
-    },
-    "Rocket_2": {
-        "id": "input-Rocket_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable"
-    },
-    "Rocket_3": {
-        "id": "input-Rocket_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable"
-    },
-    "Rocket_4": {
-        "id": "input-Rocket_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Left": "input-Fleece_1"
-    },
-    "Quimbaya_1": {
-        "id": "input-Quimbaya_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable"
-    },
-    "Quimbaya_2": {
-        "id": "input-Quimbaya_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Down": "input-Totem_1"
-    },
-    "Quimbaya_3": {
-        "id": "input-Quimbaya_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Down": "input-Totem_2"
-    },
-    "Quimbaya_4": {
-        "id": "input-Quimbaya_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Down": "input-Totem_3",
-        "Left": "input-Rocket_1"
-    },
+
     "Totem_1": {
         "id": "input-Totem_1",
         "location": "resourceModal",
@@ -2322,13 +2204,73 @@ const inputValidation = {
         "Left": "input-Haniwa_1",
         "Up": "input-Haniwa_1"
     },
+    "Baghdad_1": {
+        "id": "input-Baghdad_1",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-Fleece_4"
+    },
+    "Baghdad_2": {
+        "id": "input-Baghdad_2",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable"
+    },
+    "Baghdad_3": {
+        "id": "input-Baghdad_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable"
+    },
+    "Baghdad_4": {
+        "id": "input-Baghdad_4",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Left": "input-Totem_1"
+    },
+    "Fleece_1": {
+        "id": "input-Fleece_1",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-Okiku_4"
+    },
+    "Fleece_2": {
+        "id": "input-Fleece_2",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable"
+    },
+    "Fleece_3": {
+        "id": "input-Fleece_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable"
+    },
+    "Fleece_4": {
+        "id": "input-Fleece_4",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Left": "input-RomanDice_1"
+    },
     "Okiku_1": {
         "id": "input-Okiku_1",
         "location": "resourceModal",
         "min": "0",
         "max": "9999",
         "navigation": "resourceTable",
-        "Right": "input-Atlantis_4"
+        "Right": "input-Colgante_4"
     },
     "Okiku_2": {
         "id": "input-Okiku_2",
@@ -2351,6 +2293,36 @@ const inputValidation = {
         "max": "9999",
         "navigation": "resourceTable",
         "Left": "input-Mystery_1"
+    },
+    "Colgante_1": {
+        "id": "input-Colgante_1",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-Atlantis_4"
+    },
+    "Colgante_2": {
+        "id": "input-Colgante_2",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable"
+    },
+    "Colgante_3": {
+        "id": "input-Colgante_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable"
+    },
+    "Colgante_4": {
+        "id": "input-Colgante_4",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Left": "input-Baghdad_1"
     },
     "Atlantis_1": {
         "id": "input-Atlantis_1",
@@ -2382,43 +2354,13 @@ const inputValidation = {
         "navigation": "resourceTable",
         "Left": "input-Okiku_1"
     },
-    "Colgante_1": {
-        "id": "input-Colgante_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Right": "input-Mystery_4"
-    },
-    "Colgante_2": {
-        "id": "input-Colgante_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable"
-    },
-    "Colgante_3": {
-        "id": "input-Colgante_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable"
-    },
-    "Colgante_4": {
-        "id": "input-Colgante_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "9999",
-        "navigation": "resourceTable",
-        "Left": "input-Baghdad_1"
-    },
     "RomanDice_1": {
         "id": "input-RomanDice_1",
         "location": "resourceModal",
         "min": "0",
         "max": "9999",
         "navigation": "resourceTable",
-        "Right": "input-Fleece_4"
+        "Right": "input-Quimbaya_4"
     },
     "RomanDice_2": {
         "id": "input-RomanDice_2",
@@ -2442,13 +2384,76 @@ const inputValidation = {
         "navigation": "resourceTable",
         "Left": "input-Atlantis_1"
     },
+    "Quimbaya_1": {
+        "id": "input-Quimbaya_1",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-Rocket_4"
+    },
+    "Quimbaya_2": {
+        "id": "input-Quimbaya_2",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Down": "input-Totem_1"
+    },
+    "Quimbaya_3": {
+        "id": "input-Quimbaya_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Down": "input-Totem_2"
+    },
+    "Quimbaya_4": {
+        "id": "input-Quimbaya_4",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Down": "input-Totem_3",
+        "Left": "input-Rocket_1"
+    },
+    "Rocket_1": {
+        "id": "input-Rocket_1",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-Mystery_4"
+    },
+    "Rocket_2": {
+        "id": "input-Rocket_2",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable"
+    },
+    "Rocket_3": {
+        "id": "input-Rocket_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable"
+    },
+    "Rocket_4": {
+        "id": "input-Rocket_4",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Left": "input-Fleece_1"
+    },
     "Mystery_1": {
         "id": "input-Mystery_1",
         "location": "resourceModal",
         "min": "0",
         "max": "9999",
         "navigation": "resourceTable",
-        "Right": "input-Okiku_4"
+        "Right": "input-Workbook_potentialhealpower_3"
     },
     "Mystery_2": {
         "id": "input-Mystery_2",
@@ -2471,6 +2476,348 @@ const inputValidation = {
         "max": "9999",
         "navigation": "resourceTable",
         "Left": "input-Colgante_1"
+    },
+    "Workbook_potentialhealpower_3": {
+        "id": "input-Workbook_potentialhealpower_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Left": "input-Mystery_4",
+        "Right": "input-Workbook_potentialattack_3"
+    },
+    "Workbook_potentialattack_3": {
+        "id": "input-Workbook_potentialattack_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Left": "input-Workbook_potentialhealpower_3",
+        "Right": "input-Workbook_potentialmaxhp_3"
+    },
+    "Workbook_potentialmaxhp_3": {
+        "id": "input-Workbook_potentialmaxhp_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Left": "input-Workbook_potentialattack_3",
+        "Right": "input-favor_0_3"
+    },
+    "favor_0_3": {
+        "id": "input-favor_0_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_1_3",
+        "Left": "input-Mystery_4"
+    },
+    "favor_1_3": {
+        "id": "input-favor_1_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_2_3",
+        "Left": "input-favor_0_3"
+    },
+    "favor_2_3": {
+        "id": "input-favor_2_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_3_3",
+        "Left": "input-favor_1_3"
+    },
+    "favor_3_3": {
+        "id": "input-favor_3_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_4_3",
+        "Left": "input-favor_2_3"
+    },
+    "favor_4_3": {
+        "id": "input-favor_4_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_5_3",
+        "Left": "input-favor_3_3"
+    },
+    "favor_5_3": {
+        "id": "input-favor_5_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_6_3",
+        "Left": "input-favor_4_3"
+    },
+    "favor_6_3": {
+        "id": "input-favor_6_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_7_3",
+        "Left": "input-favor_5_3"
+    },
+    "favor_7_3": {
+        "id": "input-favor_7_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_8_3",
+        "Left": "input-favor_6_3"
+    },
+    "favor_8_3": {
+        "id": "input-favor_8_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_9_3",
+        "Left": "input-favor_7_3"
+    },
+    "favor_9_3": {
+        "id": "input-favor_9_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_10_3",
+        "Left": "input-favor_8_3"
+    },
+    "favor_10_3": {
+        "id": "input-favor_10_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_11_3",
+        "Left": "input-favor_9_3"
+    },
+    "favor_11_3": {
+        "id": "input-favor_11_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_12_3",
+        "Left": "input-favor_10_3"
+    },
+    "favor_12_3": {
+        "id": "input-favor_12_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_13_3",
+        "Left": "input-favor_11_3"
+    },
+    "favor_13_3": {
+        "id": "input-favor_13_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_14_3",
+        "Left": "input-favor_12_3"
+    },
+    "favor_14_3": {
+        "id": "input-favor_14_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_15_3",
+        "Left": "input-favor_13_3"
+    },
+    "favor_15_3": {
+        "id": "input-favor_15_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_16_3",
+        "Left": "input-favor_14_3"
+    },
+    "favor_16_3": {
+        "id": "input-favor_16_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_17_3",
+        "Left": "input-favor_15_3"
+    },
+    "favor_17_3": {
+        "id": "input-favor_17_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_18_3",
+        "Left": "input-favor_16_3"
+    },
+    "favor_18_3": {
+        "id": "input-favor_18_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_19_3",
+        "Left": "input-favor_17_3"
+    },
+    "favor_19_3": {
+        "id": "input-favor_19_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_20_3",
+        "Left": "input-favor_18_3"
+    },
+    "favor_20_3": {
+        "id": "input-favor_20_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_21_3",
+        "Left": "input-favor_19_3"
+    },
+    "favor_21_3": {
+        "id": "input-favor_21_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_22_3",
+        "Left": "input-favor_20_3"
+    },
+    "favor_22_3": {
+        "id": "input-favor_22_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_23_3",
+        "Left": "input-favor_21_3"
+    },
+    "favor_23_3": {
+        "id": "input-favor_23_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_24_3",
+        "Left": "input-favor_22_3"
+    },
+    "favor_24_3": {
+        "id": "input-favor_24_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_25_3",
+        "Left": "input-favor_23_3"
+    },
+    "favor_25_3": {
+        "id": "input-favor_25_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_26_3",
+        "Left": "input-favor_24_3"
+    },
+    "favor_26_3": {
+        "id": "input-favor_26_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_27_3",
+        "Left": "input-favor_25_3"
+    },
+    "favor_27_3": {
+        "id": "input-favor_27_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_28_3",
+        "Left": "input-favor_26_3"
+    },
+    "favor_28_3": {
+        "id": "input-favor_28_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_29_3",
+        "Left": "input-favor_27_3"
+    },
+    "favor_29_3": {
+        "id": "input-favor_29_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_30_3",
+        "Left": "input-favor_28_3"
+    },
+    "favor_30_3": {
+        "id": "input-favor_30_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_31_3",
+        "Left": "input-favor_29_3"
+    },
+    "favor_31_3": {
+        "id": "input-favor_31_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_32_3",
+        "Left": "input-favor_30_3"
+    },
+    "favor_32_3": {
+        "id": "input-favor_32_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_33_3",
+        "Left": "input-favor_31_3"
+    },
+    "favor_33_3": {
+        "id": "input-favor_33_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-favor_34_3",
+        "Left": "input-favor_32_3"
+    },
+    "favor_34_3": {
+        "id": "input-favor_34_3",
+        "location": "resourceModal",
+        "min": "0",
+        "max": "9999",
+        "navigation": "resourceTable",
+        "Right": "input-BD_4_Hyakkiyako",
+        "Left": "input-favor_33_3"
     },
     "Credit": {
         "id": "input-Credit",

@@ -316,10 +316,7 @@ function createCharBox(charId, container, location, lazy) {
     }
 
     const newImg = document.createElement("img");
-    newImg.src = "icons/Portrait/Icon_" + charId + ".png";
-    if (fastAprilFools) {
-        newImg.src = "icons/Portrait/April/Icon_" + charId + ".png";
-    }
+    newImg.src = "icons/Portrait/Icon_" + charId + ".webp";
     newImg.draggable = false;
     newImg.className = "char-img";
     if (location == "main" && lazy) {
@@ -467,9 +464,6 @@ function updateInfoDisplay(charId, idInject, charData) {
     else {
         document.getElementById(charId + idInject + "-limitbreak-target").innerText = "";
     }
-
-
-    
 }
 
 function updateStarDisplay(id, charId, type, fromTemp, charData) {

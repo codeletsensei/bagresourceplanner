@@ -163,6 +163,9 @@
         "JP": "選択した生徒を追加",
         "CN": "添加已选择学生"
     },
+    "button-selectAll": {
+        "EN": "Select All"
+    },
     "button-borrow": {
         "EN": "Borrow",
         "KR": "조력자",
@@ -236,6 +239,9 @@
         "CN": "未启用学生"
     },
     "label-bondgear": {
+        "EN": "Bond Gear"
+    },
+    "label-bondgearT": {
         "EN": "Bond Gear"
     },
     "label-potentialCurrent": {

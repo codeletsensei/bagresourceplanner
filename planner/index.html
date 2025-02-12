@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="packages/tippyjs/light.css" />
     <script src="js/config.js?q=25" defer></script>
     <script src="js/common.js?q=19" defer></script>
-    <script src="js/pageLogic.js?q=151" defer></script>
+    <script src="js/pageLogic.js?q=152" defer></script>
     <script src="js/filters.js?q=7" defer></script>
     <script src="js/lzma_worker.js?q=1" defer></script>
     <!--<script src="js/cloudAPI.js?q=6" defer></script>-->
@@ -132,6 +132,8 @@
                 oninput="filterMultiChars()">
             <button id="multi-char-add" class="multiCharButton display-string" onclick="multiCharAdd()"
                 data-id="button-addselected"></button>
+            <button id="multi-char-selectAll" class="multiCharButton display-string" onclick="multiCharSelectAll()"
+                data-id="button-selectAll"></button>
             <button id="multi-char-cancel" class="multiCharButton display-string" onclick="multiCharCancel()"
                 data-id="label-cancel"></button>
             <button id="multi-char-borrow" class="multiCharButton display-string" onclick="multiCharBorrow()"
@@ -208,6 +210,40 @@
                         <img src="icons/Mood/Terrain_Indoor.png" class="terrain-icon"></img>
                         <img id="mood-Indoors" class="mood-icon"></img>
                     </div>
+                </div>
+                <div class="modal-content-section" id="content-16" style="width: 15%; min-width: 150px; display: flex; margin-top: 35px; margin-bottom:35px; justify-content: left;">
+                    <table class="content-section-wrapper" style="padding: 1% 10% 1% 1em;">
+                        <tr>
+                            <td colspan=3 align="center"><b>Limit Break</b></td>
+                            <td rowspan=6 align="center" style="border:1px solid black">
+                                <label for="checkboxIgnoreLB">
+                                    <input type="checkbox" id="checkboxIgnoreLB" onclick="toggleIgnoreLB()"></input>
+                                    <br>Ignore All LB Mats
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=3 align="center"><p class="label-current display-string" data-id="label-current"></p></td>
+                        </tr>
+                        <tr>
+                            <td><input id="input_potentialmaxhp_current" type="number" class="two_digit_input"></td>
+                            <td><input id="input_potentialattack_current" type="number" class="two_digit_input"></td>
+                            <td><input id="input_potentialhealpower_current" type="number" class="two_digit_input"></td>
+                        </tr>
+                        <tr>
+                            <td align="center">HP</td>
+                            <td align="center">ATK</td>
+                            <td align="center">Heal</td>
+                        </tr>
+                        <tr>
+                            <td><input id="input_potentialmaxhp_target" type="number" class="two_digit_input"></td>
+                            <td><input id="input_potentialattack_target" type="number" class="two_digit_input"></td>
+                            <td><input id="input_potentialhealpower_target" type="number" class="two_digit_input"></td>
+                        </tr>
+                        <tr>
+                            <td colspan=3 align="center"><p class="label-current display-string" data-id="label-target"></p></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <div style="overflow-y: auto; overflow-x: clip; max-height: 45vh; height: 45vh;" class="scrollbar-styling">
@@ -416,40 +452,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="modal-content-section" id="content-16"
-                        style="width: 45%; min-width: 400px; display: flex; margin-top: 10px; justify-content: left;">
-                        <div class="content-section-wrapper" style="padding: 1% 10% 1% 1em;">
-                            <div>
-                                <p class="label-current display-string" data-id="label-current"></p>
-                                <b>LimitBreak</b>
-                                <br>
-                                <p class="label-target display-string" data-id="label-target"></p>
-                            </div>
-                            <div>
-                                <input id="input_potentialmaxhp_current" type="number" class="two_digit_input">
-                                <br>
-                                HP
-                                <br>
-                                <input id="input_potentialmaxhp_target" type="number" class="two_digit_input">
-                            </div>
-                            <div>
-                                <input id="input_potentialattack_current" type="number" class="two_digit_input">
-                                <br>
-                                ATK
-                                <br>
-                                <input id="input_potentialattack_target" type="number" class="two_digit_input">
-                            </div>
-                            <div>
-                                <input id="input_potentialhealpower_current" type="number" class="two_digit_input">
-                                <br>
-                                Heal
-                                <br>
-                                <input id="input_potentialhealpower_target" type="number" class="two_digit_input">
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
                 <div id="eleph-section" style="width: 100%; display: flex; flex-wrap: wrap;">
                     <div class="modal-content-section" id="content-11" style="width: 14%; min-width: 165px;">

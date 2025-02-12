@@ -86,6 +86,8 @@ let cancelHidingOverlay = false;
 
 let bodyFrozen = false;
 
+let ignoreLB = false
+
 const strNullImage = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
 
 const platform = navigator.userAgentData?.platform || navigator.platform;
@@ -402,30 +404,19 @@ function init() {
     createTable("workbook-table", ["potentialhealpower_3","potentialattack_3","potentialmaxhp_3"] , 0,
         ["Workbook"], 10, tableNavigation, document.getElementById("table-parent-7"), true, "resource", "icons/LimitBreak/", [], "workbook-");
     
-    let usedGifts = []
-    for (let i in charlist) {
-        if (charlist[i].Gear) {
-            if (charlist[i].Gear.TierUpMaterial) {
-                for (let j in charlist[i].Gear.TierUpMaterial) {
-                    usedGifts.push(charlist[i].Gear.TierUpMaterial[j][0])
-                }
-            }
-        }
-    }
-    usedGifts = [...new Set(usedGifts)].sort((a,b)=>{return parseInt(a)-parseInt(b)})
-    let giftsList = []
-    giftsRows = 0
-    giftsList[0] = []
-    for (let i = 1 ; i < usedGifts.length ; i++) {
-        giftsList[giftsRows].push(matLookup.get(usedGifts[i-1]).replace("favor_","")) //If it works, it works desu...
-        if ( i != 0 && i%10 == 0) {
+    let giftsList = [[]]
+    giftsRows = -1
+    for (let i = 0 ; i <= 34 ; i++ ) {
+        if ( i%10 == 0) {
             giftsRows += 1
             giftsList[giftsRows] = []
         }
+        giftsList[giftsRows].push(i+"_3")
     }
     for (let i = 0 ; i < giftsList.length ; i++) { 
         createTable( ("gifts-table"+i), giftsList[i] , 50, ["favor"] , 0, tableNavigation, document.getElementById("table-parent-8"), true, "resource", "icons/Gifts/", [], "gifts-");
     }
+
     let gearNavigation = [];
     createTable("gear-table", ["T10", "T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2"], 0, ["Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"],
         0, gearNavigation, document.getElementById('table-parent-4'), false, "gear", "icons/Gear/", [], "gear-");
@@ -1540,7 +1531,7 @@ function openModal(e) {
 
         var displayImg = document.getElementById("displayImg");
 
-        displayImg.src = "icons/Portrait/Icon_" + charId + ".png"; 
+        displayImg.src = "icons/Portrait/Icon_" + charId + ".webp"; 
 
         var displayName = document.getElementById("displayName");
         displayName.innerText = charSelected
@@ -1729,6 +1720,7 @@ function showMultiSelect(source) {
     let editorContainer = document.getElementById('teamsEditorContainer');
     let multiSelectContainer = document.getElementById('characterMultiSelectContainer');
     let multiCharAdd = document.getElementById('multi-char-add');
+    let multiCharSelectAll = document.getElementById('multi-char-selectAll');
     let multiCharCancel = document.getElementById('multi-char-cancel');
     let multiCharBorrow = document.getElementById('multi-char-borrow');
 
@@ -1782,9 +1774,11 @@ function showMultiSelect(source) {
 
     if (mode == "Multi") {
         multiCharAdd.style.display = "";
+        multiCharSelectAll.style.display = "";
     }
     else if (mode == "Single") {
         multiCharAdd.style.display = "none";
+        multiCharSelectAll.style.display = "none";
     }
 
     generateMultiSelectChars(visualCharOptions, mode);
@@ -1809,7 +1803,7 @@ function createMultiSelectChar(charId, container, mode) {
     newCharDiv.id = "multi_" + charId;
 
     const newImg = document.createElement("img");
-    newImg.src = "icons/Portrait/Icon_" + charId + ".png"; 
+    newImg.src = "icons/Portrait/Icon_" + charId + ".webp"; 
     
     newImg.draggable = false;
     newImg.className = "multi-char-img";
@@ -1962,11 +1956,19 @@ function multiCharAdd() {
         data.characters.push(newCharObj);
 
     }
-
+    if (currentSort == "custom") {
+        data.character_order = getOrder();
+    }
     saveToLocalStorage(false);
 
     location.reload();
 
+}
+function multiCharSelectAll(){
+    multiCharCancel();
+    showMultiSelect('AddNewChars');
+    let charSelectionBox = document.getElementsByClassName("multiSelectChar");
+    for (let i = 0; i < charSelectionBox.length ; i++) toggleMultiSelection(charSelectionBox[i].id)
 }
 
 function teamsToggle() {
@@ -3370,6 +3372,11 @@ function saveCharChanges() {
 
     var charData = data.characters.find(obj => { return obj.id == charId });
 
+    if (!charData) {
+        closeModal(true)
+        return false
+    }
+
     if (charData != undefined) {
 
         charData.current = {};
@@ -4005,7 +4012,15 @@ function charDataFromModal(charId) {
 function isCharModalDirty() {
     let charData = data.characters.find(obj => { return obj.id == modalCharID });
     let modalData = charDataFromModal();
-
+    if (!charData) {
+        Swal.fire({
+            icon: 'error',
+            title: GetLanguageString("text-oops"),
+            html: "There's something wrong with that student's data and resources won't be computed. Please, delete <b>" + charlist[modalCharID].Name.toUpperCase() + "</b> (X button near her portrait) and add her again... Sorry.",
+            color: alertColour
+        })
+        return false
+    }
     if (compareObjects(charData.current, modalData.current) != true) {
         return true;
     }
@@ -5284,7 +5299,7 @@ function DisplayMatUsers(mat) {
 
         let charImg = document.createElement('img');
 
-        charImg.src = "icons/Portrait/Icon_" + matUsers[i].charId + ".png"; 
+        charImg.src = "icons/Portrait/Icon_" + matUsers[i].charId + ".webp"; 
 
         let matAmount = document.createElement('p');
         matAmount.innerText = commafy(matUsers[i].matCount);
@@ -5652,10 +5667,11 @@ function calculateCharResources(charData, output) {
     calcSkillCost(charObj, "sub", charData.current?.sub, charData.target?.sub, charMatDict);
 
     calcSkillCost(charObj, "bondgear", charData.current?.bondgear, charData.target?.bondgear, charMatDict);
-    calcPotentialCost(charObj, "potentialmaxhp", charData.current?.potentialmaxhp, charData.target?.potentialmaxhp, charMatDict);
-    calcPotentialCost(charObj, "potentialattack", charData.current?.potentialattack, charData.target?.potentialattack, charMatDict);
-    calcPotentialCost(charObj, "potentialhealpower", charData.current?.potentialhealpower, charData.target?.potentialhealpower, charMatDict);
-
+    if (ignoreLB == 0) {
+        calcPotentialCost(charObj, "potentialmaxhp", charData.current?.potentialmaxhp, charData.target?.potentialmaxhp, charMatDict);
+        calcPotentialCost(charObj, "potentialattack", charData.current?.potentialattack, charData.target?.potentialattack, charMatDict);
+        calcPotentialCost(charObj, "potentialhealpower", charData.current?.potentialhealpower, charData.target?.potentialhealpower, charMatDict);
+    }
     calcXpCost(charData.current?.level, charData.target?.level, charMatDict);
     calcGearCost(charObj, charData.current?.gear1, charData.target?.gear1, 1, charMatDict);
     calcGearCost(charObj, charData.current?.gear2, charData.target?.gear2, 2, charMatDict);
@@ -5858,11 +5874,28 @@ function calcPotentialCost(characterObj, skill, current, target, matDict) {
     }
 }
 
-
-
-
-
-
+function toggleIgnoreLB(){
+    ignoreLB = document.getElementById("checkboxIgnoreLB").checked;
+    for (var i = 0; i < data.characters.length; i++) {
+        calculateCharResources(data.characters[i], false);
+    }
+    populateCharResources(modalCharID);
+    let imgEl = document.getElementById("row-Workbook").getElementsByTagName("img");
+    console.log("ignore = " + ignoreLB)
+    console.log("imgEl")
+    console.log(imgEl)
+    for (let i = 0 ; i < imgEl.length ; i++) {
+        console.log(imgEl[i])
+        if (ignoreLB == 1) {
+            imgEl[i].src = "icons/Misc/Koharu_censor_small.webp";
+        }
+        else {
+            let id = imgEl[i].parentElement.id.replace(/\D/g, "");
+            console.log(id)
+            imgEl[i].src = "icons/LimitBreak/" + matLookup.get(id) + ".webp";
+        }
+    }
+}
 
 function calcXpCost(level, levelTarget, matDict) {
 
@@ -6161,29 +6194,6 @@ function calculateRaidCoins() {
 }
 
 function switchResourceDisplay(displayType) {
-
-    // APRIL FOOLS
-    // if (displayType == "Owned") {
-    //     if (document.getElementById("switch-resource-owned").classList.contains("april-fools-button")) {
-    //         return;
-    //     }
-    // }
-    // else if (displayType == "Total") {
-    //     if (document.getElementById("switch-resource-total").classList.contains("april-fools-button")) {
-    //         return;
-    //     }
-    // }
-    // else if (displayType == "Remaining") {
-    //     if (document.getElementById("switch-resource-remaining").classList.contains("april-fools-button")) {
-    //         return;
-    //     }
-    // }
-    // else if (displayType == "Leftover") {
-    //     if (document.getElementById("switch-resource-leftover").classList.contains("april-fools-button")) {
-    //         return;
-    //     }
-    // }
-
 
     let btnOwned = document.getElementById("switch-resource-owned");
     let btnTotal = document.getElementById("switch-resource-total");
@@ -7359,7 +7369,7 @@ function RollClicked(num) {
 
     for (let i = 0; i < 10; i++) {
         if (charsPulled[i]) {
-            document.getElementById("char-pull-" + (i + 1)).src = "icons/Portrait/Icon_" + charsPulled[i] + ".png";
+            document.getElementById("char-pull-" + (i + 1)).src = "icons/Portrait/Icon_" + charsPulled[i] + ".webp";
         }
         else {
             document.getElementById("char-pull-" + (i + 1)).src = "";
@@ -7485,7 +7495,6 @@ function SortStudents(students, sortType) {
 
     for (let i = 0; i < students.length; i++) {
         let sortparam;
-
         if (sortType == "academy") {
             sortparam = academyOrder[charlist[students[i].id].School];
         }
@@ -7526,6 +7535,10 @@ function SortStudents(students, sortType) {
         else if (sortType == "bondgear") {
             if (charlist[students[i].id].Gear) if (charlist[students[i].id].Gear.TierUpMaterial) sortparam = 1;
             else sortparam = 0
+        }
+        else if (sortType == "bondgearT") {
+            if (charlist[students[i].id].Gear) if (charlist[students[i].id].Gear.TierUpMaterial) sortparam = students[i].current.bondgear;
+            else sortparam = -1
         }
         else if (sortType == "potentialCurrent") {
             sortparam = (students[i].current.potentialattack + students[i].current.potentialmaxhp + students[i].current.potentialhealpower);
@@ -7632,6 +7645,11 @@ function AddOrderDisplay(order) {
             orderDiv.innerText = "Has Bond Gear";
             orderDisplay.appendChild(orderDiv);
         }
+        else if (["bondgearT"].includes(sortingOperations[order][i])) {
+            let orderDiv = document.createElement("div");
+            orderDiv.innerText = "Tier";
+            orderDisplay.appendChild(orderDiv);
+        }
         else if (sortingOperations[order][i] == "potentialCurrent") {
             let orderDiv = document.createElement("div");
             orderDiv.innerText = "LB atm"
@@ -7703,9 +7721,9 @@ function InitSortingOrder() {
     sortingOperations["armour"] = ["armour", "star", "level", "bond", "academy", "name"]; // armour type
     sortingOperations["role"] = ["role", "star", "level", "bond", "academy", "name"]; // role
     sortingOperations["weapon"] = ["weapon", "star", "level", "bond", "academy", "name"]; // weapon
-    sortingOperations["bondgear"] = ["bondgear","bond","name"];
-    sortingOperations["potentialCurrent"] = ["potentialCurrent","potentialTarget","name"];
-    sortingOperations["potentialTarget"] = ["potentialTarget","potentialCurrent","name"];
+    sortingOperations["bondgear"] = ["bondgear", "bondgearT", "bond", "name"];
+    sortingOperations["potentialCurrent"] = ["potentialCurrent", "potentialTarget", "name"];
+    sortingOperations["potentialTarget"] = ["potentialTarget", "potentialCurrent", "name"];
 
     let orderKeys = Object.keys(sortingOperations);
 
