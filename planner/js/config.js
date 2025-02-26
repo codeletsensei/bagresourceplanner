@@ -2453,7 +2453,7 @@ const inputValidation = {
         "min": "0",
         "max": "9999",
         "navigation": "resourceTable",
-        "Right": "input-Workbook_potentialhealpower_3"
+        "Right": "input-Workbook_potentialmaxhp_3"
     },
     "Mystery_2": {
         "id": "input-Mystery_2",
@@ -2483,8 +2483,8 @@ const inputValidation = {
         "min": "0",
         "max": "9999",
         "navigation": "resourceTable",
-        "Left": "input-Mystery_4",
-        "Right": "input-Workbook_potentialattack_3"
+        "Left": "input-Workbook_potentialattack_3",
+        "Right": "input-favor_0_3"
     },
     "Workbook_potentialattack_3": {
         "id": "input-Workbook_potentialattack_3",
@@ -2492,8 +2492,8 @@ const inputValidation = {
         "min": "0",
         "max": "9999",
         "navigation": "resourceTable",
-        "Left": "input-Workbook_potentialhealpower_3",
-        "Right": "input-Workbook_potentialmaxhp_3"
+        "Left": "input-Workbook_potentialmaxhp_3",
+        "Right": "input-Workbook_potentialhealpower_3"
     },
     "Workbook_potentialmaxhp_3": {
         "id": "input-Workbook_potentialmaxhp_3",
@@ -2501,8 +2501,8 @@ const inputValidation = {
         "min": "0",
         "max": "9999",
         "navigation": "resourceTable",
-        "Left": "input-Workbook_potentialattack_3",
-        "Right": "input-favor_0_3"
+        "Left": "input-Mystery_4",
+        "Right": "input-Workbook_potentialattack_3"
     },
     "favor_0_3": {
         "id": "input-favor_0_3",

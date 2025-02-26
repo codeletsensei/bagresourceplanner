@@ -401,7 +401,7 @@ function init() {
         ["Totem", "Baghdad", "Fleece", "Okiku", "Colgante", "Atlantis", "RomanDice", "Quimbaya", "Rocket", "Mystery"], 9,
         tableNavigation, document.getElementById("table-parent-3"), true, "resource", "icons/Artifact/", [], "artifact-");
     
-    createTable("workbook-table", ["potentialhealpower_3","potentialattack_3","potentialmaxhp_3"] , 0,
+    createTable("workbook-table", ["potentialmaxhp_3", "potentialattack_3", "potentialhealpower_3",] , 0,
         ["Workbook"], 10, tableNavigation, document.getElementById("table-parent-7"), true, "resource", "icons/LimitBreak/", [], "workbook-");
     
     let giftsList = [[]]
@@ -418,7 +418,7 @@ function init() {
     }
 
     let gearNavigation = [];
-    createTable("gear-table", ["T10", "T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2"], 0, ["Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"],
+    createTable("gear-table", ["T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10"], 0, ["Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"],
         0, gearNavigation, document.getElementById('table-parent-4'), false, "gear", "icons/Gear/", [], "gear-");
 
     let navObj = {};
@@ -448,8 +448,7 @@ function init() {
 
     for (let i = 0 ; i <= giftsRows ; i++) colourTableRows("gifts-table"+i);
 
-
-    let currentVer = "1.4.11.25.2.10.2"
+    let currentVer = GetLanguageString("text-currentversion");
     if (currentVer.localeCompare(data.site_version ?? "0.0.0", undefined, { numeric: true, sensitivity: 'base' }) == 1) {
         Swal.fire({
             title: GetLanguageString("text-updatedversionprefix") + currentVer,
@@ -457,7 +456,7 @@ function init() {
             html: GetLanguageString("text-updatemessage")
         })
 
-        data.site_version = "1.4.11.25.2.10.2";
+        data.site_version = GetLanguageString("text-currentversion");
         saveToLocalStorage(false);
     }
 
@@ -5881,17 +5880,12 @@ function toggleIgnoreLB(){
     }
     populateCharResources(modalCharID);
     let imgEl = document.getElementById("row-Workbook").getElementsByTagName("img");
-    console.log("ignore = " + ignoreLB)
-    console.log("imgEl")
-    console.log(imgEl)
     for (let i = 0 ; i < imgEl.length ; i++) {
-        console.log(imgEl[i])
         if (ignoreLB == 1) {
             imgEl[i].src = "icons/Misc/Koharu_censor_small.webp";
         }
         else {
             let id = imgEl[i].parentElement.id.replace(/\D/g, "");
-            console.log(id)
             imgEl[i].src = "icons/LimitBreak/" + matLookup.get(id) + ".webp";
         }
     }
@@ -6427,6 +6421,10 @@ function displayExportData(option) {
                     saveData.characters[i].current = Object.fromEntries(Object.entries(saveData.characters[i].current).filter(([k, v]) => k != j));
                     saveData.characters[i].target = Object.fromEntries(Object.entries(saveData.characters[i].target).filter(([k, v]) => k != j));
                 }
+                else if (j.includes("gear") && parseInt(saveData.characters[i].current[j]) > 9) {
+                    saveData.characters[i].current[j] = "9"
+                    saveData.characters[i].target[j] = "9"
+                }
             }
         }
         saveData = JSON.stringify(saveData)
@@ -6435,20 +6433,22 @@ function displayExportData(option) {
         title: GetLanguageString("text-exporteddata"),
         html: '<textarea style="width: 400px; height: 250px; resize: none;" readonly>' + saveData + '</textarea>'
     })
-    function downloadObjectAsJson(exportObj, exportName){
-        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
-        var downloadAnchorNode = document.createElement('a');
-        downloadAnchorNode.setAttribute("href",     dataStr);
-        downloadAnchorNode.setAttribute("download", exportName + ".json");
-        document.body.appendChild(downloadAnchorNode); // required for firefox
-        downloadAnchorNode.click();
-        downloadAnchorNode.remove();
+    if (typeof option == "undefined"){
+        function downloadObjectAsJson(exportObj, exportName){
+            var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
+            var downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href",     dataStr);
+            downloadAnchorNode.setAttribute("download", exportName + ".json");
+            document.body.appendChild(downloadAnchorNode); // required for firefox
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+        let date = new Date().getFullYear() + "." + ("0"+(parseInt(new Date().getMonth())+1)).slice(-2) + "." + ("0" + new Date().getDate()).slice(-2) + "." + ("0" + new Date().getHours()).slice(-2) + "" + ("0" + new Date().getMinutes()).slice(-2)
+        let filename = "bag_planner"
+        if (option == "justin") filename += "2justin"
+        filename += "_saveFile_" + date
+        downloadObjectAsJson( saveData , filename )
     }
-    let date = new Date().getFullYear() + "." + ("0"+(parseInt(new Date().getMonth())+1)).slice(-2) + "." + ("0" + new Date().getDate()).slice(-2) + "." + ("0" + new Date().getHours()).slice(-2) + "" + ("0" + new Date().getMinutes()).slice(-2)
-    let filename = "bag_planner"
-    if (option == "justin") filename += "2justin"
-    filename += "_saveFile_" + date
-    downloadObjectAsJson( saveData , filename )
 }
 
 async function getImportData() {

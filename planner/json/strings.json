@@ -1624,12 +1624,10 @@
         "CN": "网站已更新完成 版本号"
     },
     "text-updatemessage": {
-        "EN": "25.02.13<br>- Moved LB box in the student editor to the free space at the top-right<br>-Added a button to ignore LB mats when computing total mats<br>-Fixed owned mats table not tabbing properly<br>-Added a button to select all students when adding<br>-Reverted portraits to webp to use less data<br><br>25.02.10<br>- Added bondgear/LB to portraits.<br>- Sort students by bondgear or sum of LB levels<br>- Export/Import save options<br><br>BUT I fucked up last time and the default bondgear tier was set to 1 instead of 0, so if you used this tool before this patch, all of your students with unchanged BG will have theirs at T1 until you manually change them",
-        "KR": "",
-        "TH": "",
-        "ID": "",
-        "JP": "",
-        "CN": ""
+        "EN": "25.02.26<br>- Added Sena and Juri alts.<br>- I got tired of filling the owned <b>GEAR table in the wrong tier order compared to in-game, so I fixed the tier order</b> without consent from other /bag/gots. Not gonna bother fixing the BT/TN/Ooparts yet because that's annoying to fix.<br>- Exporting a save compatible with Justin won't download a json anymore (no support for it there). And gear max stats get reduced to what Justin's accepts (currently from 10 to 9, so you don't get asked to discard changes just for clicking any gear input there)...<br><br>25.02.13<br>- Moved LB box in the student editor to the free space at the top-right<br>-Added a button to ignore LB mats when computing total mats<br>-Fixed owned mats table not tabbing properly<br>-Added a button to select all students when adding<br>-Reverted portraits to webp to use less data<br><br>25.02.10<br>- Added bondgear/LB to portraits.<br>- Sort students by bondgear or sum of LB levels<br>- Export/Import save options<br><br>BUT I fucked up last time and the default bondgear tier was set to 1 instead of 0, so if you used this tool before this patch, all of your students with unchanged BG will have theirs at T1 until you manually change them"
+    },
+    "text-currentversion": {
+        "EN": "1.4.12.25.2.26.1"
     },
     "text-teamslimit": {
         "EN": "Can't add more than 25 teams",
