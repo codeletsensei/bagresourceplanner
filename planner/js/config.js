@@ -1317,7 +1317,7 @@ const inputValidation = {
         "id": "input-BD_1_Abydos",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_4_Millennium"
     },
@@ -1325,7 +1325,7 @@ const inputValidation = {
         "id": "input-BD_1_Gehenna",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_4_Abydos"
     },
@@ -1333,7 +1333,7 @@ const inputValidation = {
         "id": "input-BD_1_Millennium",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_4_Arius"
     },
@@ -1341,7 +1341,7 @@ const inputValidation = {
         "id": "input-BD_1_Trinity",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_4_Gehenna"
     },
@@ -1349,7 +1349,7 @@ const inputValidation = {
         "id": "input-BD_1_Hyakkiyako",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_4_RedWinter",
     },
@@ -1357,7 +1357,7 @@ const inputValidation = {
         "id": "input-BD_1_Shanhaijing",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_4_Valkyrie"
     },
@@ -1365,7 +1365,7 @@ const inputValidation = {
         "id": "input-BD_1_Arius",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_4_Shanhaijing"
     },
@@ -1373,7 +1373,7 @@ const inputValidation = {
         "id": "input-BD_1_RedWinter",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_4_Trinity"
     },
@@ -1381,7 +1381,7 @@ const inputValidation = {
         "id": "input-BD_1_Valkyrie",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_4_Highlander",
     },
@@ -1389,7 +1389,7 @@ const inputValidation = {
         "id": "input-BD_1_Highlander",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_4_Hyakkiyako",
         "Down": "input-TN_4_Hyakkiyako"
@@ -1398,35 +1398,35 @@ const inputValidation = {
         "id": "input-BD_2_Abydos",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_2_Gehenna": {
         "id": "input-BD_2_Gehenna",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_2_Millennium": {
         "id": "input-BD_2_Millennium",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_2_Trinity": {
         "id": "input-BD_2_Trinity",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_2_Hyakkiyako": {
         "id": "input-BD_2_Hyakkiyako",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Up": "input-BD_3_Highlander"
     },
@@ -1434,35 +1434,35 @@ const inputValidation = {
         "id": "input-BD_2_Shanhaijing",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_2_Arius": {
         "id": "input-BD_2_Arius",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_2_RedWinter": {
         "id": "input-BD_2_RedWinter",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_2_Valkyrie": {
         "id": "input-BD_2_Valkyrie",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
     },
     "BD_2_Highlander": {
         "id": "input-BD_2_Highlander",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_1_Highlander",
     },
@@ -1470,35 +1470,35 @@ const inputValidation = {
         "id": "input-BD_3_Abydos",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_3_Gehenna": {
         "id": "input-BD_3_Gehenna",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_3_Millennium": {
         "id": "input-BD_3_Millennium",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_3_Trinity": {
         "id": "input-BD_3_Trinity",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_3_Hyakkiyako": {
         "id": "input-BD_3_Hyakkiyako",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Up": "input-BD_4_Highlander"
     },
@@ -1506,35 +1506,35 @@ const inputValidation = {
         "id": "input-BD_3_Shanhaijing",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_3_Arius": {
         "id": "input-BD_3_Arius",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_3_RedWinter": {
         "id": "input-BD_3_RedWinter",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_3_Valkyrie": {
         "id": "input-BD_3_Valkyrie",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
     },
     "BD_3_Highlander": {
         "id": "input-BD_3_Highlander",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_2_Highlander"
     },
@@ -1542,7 +1542,7 @@ const inputValidation = {
         "id": "input-BD_4_Abydos",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-BD_1_Gehenna"
     },
@@ -1550,7 +1550,7 @@ const inputValidation = {
         "id": "input-BD_4_Gehenna",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-BD_1_Trinity"
     },
@@ -1558,7 +1558,7 @@ const inputValidation = {
         "id": "input-BD_4_Millennium",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-BD_1_Abydos"
     },
@@ -1566,7 +1566,7 @@ const inputValidation = {
         "id": "input-BD_4_Trinity",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-BD_1_RedWinter"
     },
@@ -1574,14 +1574,14 @@ const inputValidation = {
         "id": "input-BD_4_Hyakkiyako",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "BD_4_Shanhaijing": {
         "id": "input-BD_4_Shanhaijing",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-BD_1_Arius"
     },
@@ -1589,7 +1589,7 @@ const inputValidation = {
         "id": "input-BD_4_Arius",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-BD_1_Millennium"
     },
@@ -1597,7 +1597,7 @@ const inputValidation = {
         "id": "input-BD_4_RedWinter",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-BD_1_Hyakkiyako"
     },
@@ -1605,7 +1605,7 @@ const inputValidation = {
         "id": "input-BD_4_Valkyrie",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-BD_1_Shanhaijing",
     },
@@ -1613,7 +1613,7 @@ const inputValidation = {
         "id": "input-BD_4_Highlander",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-BD_1_Valkyrie",
         "Right": "input-BD_3_Highlander"
@@ -1622,7 +1622,7 @@ const inputValidation = {
         "id": "input-TN_1_Abydos",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_4_Millennium"
     },
@@ -1630,7 +1630,7 @@ const inputValidation = {
         "id": "input-TN_1_Gehenna",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_4_Abydos"
     },
@@ -1638,7 +1638,7 @@ const inputValidation = {
         "id": "input-TN_1_Millennium",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_4_Arius"
     },
@@ -1646,7 +1646,7 @@ const inputValidation = {
         "id": "input-TN_1_Trinity",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_4_Gehenna"
     },
@@ -1654,7 +1654,7 @@ const inputValidation = {
         "id": "input-TN_1_Hyakkiyako",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_4_RedWinter",
         "Up": "input-TN_2_Highlander"
@@ -1663,15 +1663,15 @@ const inputValidation = {
         "id": "input-TN_1_Shanhaijing",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
-        "Right": "input-TN_4_Highlander"
+        "Right": "input-TN_4_Valkyrie"
     },
     "TN_1_Arius": {
         "id": "input-TN_1_Arius",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_4_Shanhaijing"
     },
@@ -1679,7 +1679,7 @@ const inputValidation = {
         "id": "input-TN_1_RedWinter",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_4_Trinity"
     },
@@ -1687,7 +1687,7 @@ const inputValidation = {
         "id": "input-TN_1_Valkyrie",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_4_Highlander",
         "Down": "input-TN_4_Highlander"
@@ -1696,7 +1696,7 @@ const inputValidation = {
         "id": "input-TN_1_Highlander",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Nebra_4",
         "Down": "input-Nebra_4"
@@ -1705,35 +1705,35 @@ const inputValidation = {
         "id": "input-TN_2_Abydos",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_2_Gehenna": {
         "id": "input-TN_2_Gehenna",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_2_Millennium": {
         "id": "input-TN_2_Millennium",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_2_Trinity": {
         "id": "input-TN_2_Trinity",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_2_Hyakkiyako": {
         "id": "input-TN_2_Hyakkiyako",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Up": "input-TN_3_Highlander"
     },
@@ -1741,28 +1741,28 @@ const inputValidation = {
         "id": "input-TN_2_Shanhaijing",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_2_Arius": {
         "id": "input-TN_2_Arius",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_2_RedWinter": {
         "id": "input-TN_2_RedWinter",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_2_Valkyrie": {
         "id": "input-TN_2_Valkyrie",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Down": "input-TN_1_Highlander"
     },
@@ -1770,7 +1770,7 @@ const inputValidation = {
         "id": "input-TN_2_Highlander",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_1_Highlander"
     },
@@ -1778,35 +1778,35 @@ const inputValidation = {
         "id": "input-TN_3_Abydos",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_3_Gehenna": {
         "id": "input-TN_3_Gehenna",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_3_Millennium": {
         "id": "input-TN_3_Millennium",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_3_Trinity": {
         "id": "input-TN_3_Trinity",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_3_Hyakkiyako": {
         "id": "input-TN_3_Hyakkiyako",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Up": "input-TN_4_Highlander"
     },
@@ -1814,28 +1814,28 @@ const inputValidation = {
         "id": "input-TN_3_Shanhaijing",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_3_Arius": {
         "id": "input-TN_3_Arius",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_3_RedWinter": {
         "id": "input-TN_3_RedWinter",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "TN_3_Valkyrie": {
         "id": "input-TN_3_Valkyrie",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Down": "input-TN_2_Highlander"
     },
@@ -1843,7 +1843,7 @@ const inputValidation = {
         "id": "input-TN_3_Highlander",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-TN_2_Highlander",
     },
@@ -1851,7 +1851,7 @@ const inputValidation = {
         "id": "input-TN_4_Abydos",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-TN_1_Gehenna"
     },
@@ -1859,7 +1859,7 @@ const inputValidation = {
         "id": "input-TN_4_Gehenna",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-TN_1_Trinity"
     },
@@ -1867,7 +1867,7 @@ const inputValidation = {
         "id": "input-TN_4_Millennium",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-TN_1_Abydos"
     },
@@ -1875,7 +1875,7 @@ const inputValidation = {
         "id": "input-TN_4_Trinity",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-TN_1_RedWinter"
     },
@@ -1883,7 +1883,7 @@ const inputValidation = {
         "id": "input-TN_4_Hyakkiyako",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-BD_1_Highlander",
         "Up": "input-BD_1_Highlander"
@@ -1892,7 +1892,7 @@ const inputValidation = {
         "id": "input-TN_4_Shanhaijing",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-TN_1_Arius"
     },
@@ -1900,7 +1900,7 @@ const inputValidation = {
         "id": "input-TN_4_Arius",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-TN_1_Millennium"
     },
@@ -1908,7 +1908,7 @@ const inputValidation = {
         "id": "input-TN_4_RedWinter",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-TN_1_Hyakkiyako"
     },
@@ -1916,7 +1916,7 @@ const inputValidation = {
         "id": "input-TN_4_Valkyrie",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-TN_1_Shanhaijing",
         "Down": "input-TN_3_Highlander"
@@ -1925,7 +1925,7 @@ const inputValidation = {
         "id": "input-TN_4_Highlander",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-TN_1_Valkyrie",
         "Right": "input-TN_3_Highlander",
@@ -1934,7 +1934,7 @@ const inputValidation = {
         "id": "input-Nebra_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Phaistos_4",
         "Up": "input-Haniwa_2"
@@ -1943,7 +1943,7 @@ const inputValidation = {
         "id": "input-Nebra_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Up": "input-Haniwa_3"
     },
@@ -1951,7 +1951,7 @@ const inputValidation = {
         "id": "input-Nebra_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Up": "input-Haniwa_4"
     },
@@ -1959,7 +1959,7 @@ const inputValidation = {
         "id": "input-Nebra_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Up": "input-TN_1_Highlander"
     },
@@ -1967,7 +1967,7 @@ const inputValidation = {
         "id": "input-Phaistos_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Wolfsegg_4"
     },
@@ -1975,7 +1975,7 @@ const inputValidation = {
         "id": "input-Phaistos_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Phaistos_1"
     },
@@ -1983,7 +1983,7 @@ const inputValidation = {
         "id": "input-Phaistos_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Phaistos_2"
     },
@@ -1991,7 +1991,7 @@ const inputValidation = {
         "id": "input-Phaistos_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Nebra_1",
         "Right": "input-Phaistos_3"
@@ -2000,7 +2000,7 @@ const inputValidation = {
         "id": "input-Wolfsegg_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Nimrud_4"
     },
@@ -2008,21 +2008,21 @@ const inputValidation = {
         "id": "input-Wolfsegg_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Wolfsegg_3": {
         "id": "input-Wolfsegg_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Wolfsegg_4": {
         "id": "input-Wolfsegg_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Phaistos_1"
     },
@@ -2030,7 +2030,7 @@ const inputValidation = {
         "id": "input-Nimrud_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Mandragora_4"
     },
@@ -2038,21 +2038,21 @@ const inputValidation = {
         "id": "input-Nimrud_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Nimrud_3": {
         "id": "input-Nimrud_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Nimrud_4": {
         "id": "input-Nimrud_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Wolfsegg_1"
     },
@@ -2060,7 +2060,7 @@ const inputValidation = {
         "id": "input-Mandragora_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Rohonc_4"
     },
@@ -2068,21 +2068,21 @@ const inputValidation = {
         "id": "input-Mandragora_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Mandragora_3": {
         "id": "input-Mandragora_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Mandragora_4": {
         "id": "input-Mandragora_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Nimrud_1"
     },
@@ -2090,7 +2090,7 @@ const inputValidation = {
         "id": "input-Rohonc_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Aether_4"
     },
@@ -2098,21 +2098,21 @@ const inputValidation = {
         "id": "input-Rohonc_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Rohonc_3": {
         "id": "input-Rohonc_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Rohonc_4": {
         "id": "input-Rohonc_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Mandragora_1"
     },
@@ -2120,7 +2120,7 @@ const inputValidation = {
         "id": "input-Aether_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Antikythera_4"
     },
@@ -2128,21 +2128,21 @@ const inputValidation = {
         "id": "input-Aether_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Aether_3": {
         "id": "input-Aether_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Aether_4": {
         "id": "input-Aether_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Rohonc_1"
     },
@@ -2150,7 +2150,7 @@ const inputValidation = {
         "id": "input-Antikythera_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Voynich_4"
     },
@@ -2158,21 +2158,21 @@ const inputValidation = {
         "id": "input-Antikythera_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
     },
     "Antikythera_3": {
         "id": "input-Antikythera_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
     },
     "Antikythera_4": {
         "id": "input-Antikythera_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Aether_1",
     },
@@ -2180,7 +2180,7 @@ const inputValidation = {
         "id": "input-Voynich_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Haniwa_4"
     },
@@ -2188,21 +2188,21 @@ const inputValidation = {
         "id": "input-Voynich_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Voynich_3": {
         "id": "input-Voynich_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Voynich_4": {
         "id": "input-Voynich_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Antikythera_1"
     },
@@ -2210,7 +2210,7 @@ const inputValidation = {
         "id": "input-Haniwa_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Totem_4",
         "Down": "input-Totem_4"
@@ -2219,7 +2219,7 @@ const inputValidation = {
         "id": "input-Haniwa_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Down": "input-Nebra_1"
     },
@@ -2227,7 +2227,7 @@ const inputValidation = {
         "id": "input-Haniwa_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Down": "input-Nebra_2"
     },
@@ -2235,7 +2235,7 @@ const inputValidation = {
         "id": "input-Haniwa_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Down": "input-Nebra_3",
         "Left": "input-Voynich_1"
@@ -2245,7 +2245,7 @@ const inputValidation = {
         "id": "input-Totem_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Baghdad_4",
         "Up": "input-Quimbaya_2"
@@ -2254,7 +2254,7 @@ const inputValidation = {
         "id": "input-Totem_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Up": "input-Quimbaya_3"
     },
@@ -2262,7 +2262,7 @@ const inputValidation = {
         "id": "input-Totem_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Up": "input-Quimbaya_4"
     },
@@ -2270,7 +2270,7 @@ const inputValidation = {
         "id": "input-Totem_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Haniwa_1",
         "Up": "input-Haniwa_1"
@@ -2279,7 +2279,7 @@ const inputValidation = {
         "id": "input-Baghdad_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Fleece_4"
     },
@@ -2287,21 +2287,21 @@ const inputValidation = {
         "id": "input-Baghdad_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Baghdad_3": {
         "id": "input-Baghdad_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Baghdad_4": {
         "id": "input-Baghdad_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Totem_1"
     },
@@ -2309,7 +2309,7 @@ const inputValidation = {
         "id": "input-Fleece_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Okiku_4"
     },
@@ -2317,21 +2317,21 @@ const inputValidation = {
         "id": "input-Fleece_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Fleece_3": {
         "id": "input-Fleece_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Fleece_4": {
         "id": "input-Fleece_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-RomanDice_1"
     },
@@ -2339,7 +2339,7 @@ const inputValidation = {
         "id": "input-Okiku_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Colgante_4"
     },
@@ -2347,21 +2347,21 @@ const inputValidation = {
         "id": "input-Okiku_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Okiku_3": {
         "id": "input-Okiku_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Okiku_4": {
         "id": "input-Okiku_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Mystery_1"
     },
@@ -2369,7 +2369,7 @@ const inputValidation = {
         "id": "input-Colgante_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Atlantis_4"
     },
@@ -2377,21 +2377,21 @@ const inputValidation = {
         "id": "input-Colgante_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Colgante_3": {
         "id": "input-Colgante_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Colgante_4": {
         "id": "input-Colgante_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Baghdad_1"
     },
@@ -2399,7 +2399,7 @@ const inputValidation = {
         "id": "input-Atlantis_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-RomanDice_4"
     },
@@ -2407,21 +2407,21 @@ const inputValidation = {
         "id": "input-Atlantis_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Atlantis_3": {
         "id": "input-Atlantis_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Atlantis_4": {
         "id": "input-Atlantis_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Okiku_1"
     },
@@ -2429,7 +2429,7 @@ const inputValidation = {
         "id": "input-RomanDice_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Quimbaya_4"
     },
@@ -2437,21 +2437,21 @@ const inputValidation = {
         "id": "input-RomanDice_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "RomanDice_3": {
         "id": "input-RomanDice_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "RomanDice_4": {
         "id": "input-RomanDice_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Atlantis_1"
     },
@@ -2459,7 +2459,7 @@ const inputValidation = {
         "id": "input-Quimbaya_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Rocket_4"
     },
@@ -2467,7 +2467,7 @@ const inputValidation = {
         "id": "input-Quimbaya_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Down": "input-Totem_1"
     },
@@ -2475,7 +2475,7 @@ const inputValidation = {
         "id": "input-Quimbaya_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Down": "input-Totem_2"
     },
@@ -2483,7 +2483,7 @@ const inputValidation = {
         "id": "input-Quimbaya_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Down": "input-Totem_3",
         "Left": "input-Rocket_1"
@@ -2492,7 +2492,7 @@ const inputValidation = {
         "id": "input-Rocket_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Mystery_4"
     },
@@ -2500,21 +2500,21 @@ const inputValidation = {
         "id": "input-Rocket_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Rocket_3": {
         "id": "input-Rocket_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Rocket_4": {
         "id": "input-Rocket_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Fleece_1"
     },
@@ -2522,7 +2522,7 @@ const inputValidation = {
         "id": "input-Mystery_1",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-Workbook_potentialmaxhp_3"
     },
@@ -2530,21 +2530,21 @@ const inputValidation = {
         "id": "input-Mystery_2",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Mystery_3": {
         "id": "input-Mystery_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable"
     },
     "Mystery_4": {
         "id": "input-Mystery_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Colgante_1"
     },
@@ -2552,7 +2552,7 @@ const inputValidation = {
         "id": "input-Workbook_potentialhealpower_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Workbook_potentialattack_3",
         "Right": "input-favor_0_3"
@@ -2561,7 +2561,7 @@ const inputValidation = {
         "id": "input-Workbook_potentialattack_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Workbook_potentialmaxhp_3",
         "Right": "input-Workbook_potentialhealpower_3"
@@ -2570,7 +2570,7 @@ const inputValidation = {
         "id": "input-Workbook_potentialmaxhp_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Left": "input-Mystery_4",
         "Right": "input-Workbook_potentialattack_3"
@@ -2579,7 +2579,7 @@ const inputValidation = {
         "id": "input-favor_0_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_1_3",
         "Left": "input-Mystery_4"
@@ -2588,7 +2588,7 @@ const inputValidation = {
         "id": "input-favor_1_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_2_3",
         "Left": "input-favor_0_3"
@@ -2597,7 +2597,7 @@ const inputValidation = {
         "id": "input-favor_2_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_3_3",
         "Left": "input-favor_1_3"
@@ -2606,7 +2606,7 @@ const inputValidation = {
         "id": "input-favor_3_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_4_3",
         "Left": "input-favor_2_3"
@@ -2615,7 +2615,7 @@ const inputValidation = {
         "id": "input-favor_4_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_5_3",
         "Left": "input-favor_3_3"
@@ -2624,7 +2624,7 @@ const inputValidation = {
         "id": "input-favor_5_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_6_3",
         "Left": "input-favor_4_3"
@@ -2633,7 +2633,7 @@ const inputValidation = {
         "id": "input-favor_6_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_7_3",
         "Left": "input-favor_5_3"
@@ -2642,7 +2642,7 @@ const inputValidation = {
         "id": "input-favor_7_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_8_3",
         "Left": "input-favor_6_3"
@@ -2651,7 +2651,7 @@ const inputValidation = {
         "id": "input-favor_8_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_9_3",
         "Left": "input-favor_7_3"
@@ -2660,7 +2660,7 @@ const inputValidation = {
         "id": "input-favor_9_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_10_3",
         "Left": "input-favor_8_3"
@@ -2669,7 +2669,7 @@ const inputValidation = {
         "id": "input-favor_10_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_11_3",
         "Left": "input-favor_9_3"
@@ -2678,7 +2678,7 @@ const inputValidation = {
         "id": "input-favor_11_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_12_3",
         "Left": "input-favor_10_3"
@@ -2687,7 +2687,7 @@ const inputValidation = {
         "id": "input-favor_12_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_13_3",
         "Left": "input-favor_11_3"
@@ -2696,7 +2696,7 @@ const inputValidation = {
         "id": "input-favor_13_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_14_3",
         "Left": "input-favor_12_3"
@@ -2705,7 +2705,7 @@ const inputValidation = {
         "id": "input-favor_14_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_15_3",
         "Left": "input-favor_13_3"
@@ -2714,7 +2714,7 @@ const inputValidation = {
         "id": "input-favor_15_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_16_3",
         "Left": "input-favor_14_3"
@@ -2723,7 +2723,7 @@ const inputValidation = {
         "id": "input-favor_16_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_17_3",
         "Left": "input-favor_15_3"
@@ -2732,7 +2732,7 @@ const inputValidation = {
         "id": "input-favor_17_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_18_3",
         "Left": "input-favor_16_3"
@@ -2741,7 +2741,7 @@ const inputValidation = {
         "id": "input-favor_18_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_19_3",
         "Left": "input-favor_17_3"
@@ -2750,7 +2750,7 @@ const inputValidation = {
         "id": "input-favor_19_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_20_3",
         "Left": "input-favor_18_3"
@@ -2759,7 +2759,7 @@ const inputValidation = {
         "id": "input-favor_20_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_21_3",
         "Left": "input-favor_19_3"
@@ -2768,7 +2768,7 @@ const inputValidation = {
         "id": "input-favor_21_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_22_3",
         "Left": "input-favor_20_3"
@@ -2777,7 +2777,7 @@ const inputValidation = {
         "id": "input-favor_22_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_23_3",
         "Left": "input-favor_21_3"
@@ -2786,7 +2786,7 @@ const inputValidation = {
         "id": "input-favor_23_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_24_3",
         "Left": "input-favor_22_3"
@@ -2795,7 +2795,7 @@ const inputValidation = {
         "id": "input-favor_24_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_25_3",
         "Left": "input-favor_23_3"
@@ -2804,7 +2804,7 @@ const inputValidation = {
         "id": "input-favor_25_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_26_3",
         "Left": "input-favor_24_3"
@@ -2813,7 +2813,7 @@ const inputValidation = {
         "id": "input-favor_26_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_27_3",
         "Left": "input-favor_25_3"
@@ -2822,7 +2822,7 @@ const inputValidation = {
         "id": "input-favor_27_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_28_3",
         "Left": "input-favor_26_3"
@@ -2831,7 +2831,7 @@ const inputValidation = {
         "id": "input-favor_28_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_29_3",
         "Left": "input-favor_27_3"
@@ -2840,7 +2840,7 @@ const inputValidation = {
         "id": "input-favor_29_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_30_3",
         "Left": "input-favor_28_3"
@@ -2849,7 +2849,7 @@ const inputValidation = {
         "id": "input-favor_30_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_31_3",
         "Left": "input-favor_29_3"
@@ -2858,7 +2858,7 @@ const inputValidation = {
         "id": "input-favor_31_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_32_3",
         "Left": "input-favor_30_3"
@@ -2867,7 +2867,7 @@ const inputValidation = {
         "id": "input-favor_32_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_33_3",
         "Left": "input-favor_31_3"
@@ -2876,7 +2876,7 @@ const inputValidation = {
         "id": "input-favor_33_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-favor_34_3",
         "Left": "input-favor_32_3"
@@ -2885,7 +2885,7 @@ const inputValidation = {
         "id": "input-favor_34_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "resourceTable",
         "Right": "input-BD_4_Hyakkiyako",
         "Left": "input-favor_33_3"
@@ -2894,7 +2894,7 @@ const inputValidation = {
         "id": "input-Credit",
         "location": "resourceModal",
         "min": "0",
-        "max": "10000000000",
+        "max": "1000000000000",
         "navigation": "direct",
         "Right": "input-XP_4",
         "Down": "input-XP_4"
@@ -2903,7 +2903,7 @@ const inputValidation = {
         "id": "input-Secret",
         "location": "resourceModal",
         "min": "0",
-        "max": "99",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-XP_4",
         "Up": "input-XP_4"
@@ -2912,7 +2912,7 @@ const inputValidation = {
         "id": "input-XP_4",
         "location": "resourceModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "direct",
         "Right": "input-XP_3",
         "Left": "input-Credit",
@@ -2923,7 +2923,7 @@ const inputValidation = {
         "id": "input-XP_3",
         "location": "resourceModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Right": "input-XP_2",
         "Left": "input-XP_4",
@@ -2956,574 +2956,574 @@ const inputValidation = {
         "id": "input-T2_Hat",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T2_Gloves": {
         "id": "input-T2_Gloves",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T2_Shoes": {
         "id": "input-T2_Shoes",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T2_Bag": {
         "id": "input-T2_Bag",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T2_Badge": {
         "id": "input-T2_Badge",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T2_Hairpin": {
         "id": "input-T2_Hairpin",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T2_Charm": {
         "id": "input-T2_Charm",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T2_Watch": {
         "id": "input-T2_Watch",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T2_Necklace": {
         "id": "input-T2_Necklace",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T3_Hat": {
         "id": "input-T3_Hat",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T3_Gloves": {
         "id": "input-T3_Gloves",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T3_Shoes": {
         "id": "input-T3_Shoes",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T3_Bag": {
         "id": "input-T3_Bag",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T3_Badge": {
         "id": "input-T3_Badge",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T3_Hairpin": {
         "id": "input-T3_Hairpin",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T3_Charm": {
         "id": "input-T3_Charm",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T3_Watch": {
         "id": "input-T3_Watch",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T3_Necklace": {
         "id": "input-T3_Necklace",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T4_Hat": {
         "id": "input-T4_Hat",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T4_Gloves": {
         "id": "input-T4_Gloves",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T4_Shoes": {
         "id": "input-T4_Shoes",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T4_Bag": {
         "id": "input-T4_Bag",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T4_Badge": {
         "id": "input-T4_Badge",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T4_Hairpin": {
         "id": "input-T4_Hairpin",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T4_Charm": {
         "id": "input-T4_Charm",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T4_Watch": {
         "id": "input-T4_Watch",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T4_Necklace": {
         "id": "input-T4_Necklace",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T5_Hat": {
         "id": "input-T5_Hat",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T5_Gloves": {
         "id": "input-T5_Gloves",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T5_Shoes": {
         "id": "input-T5_Shoes",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T5_Bag": {
         "id": "input-T5_Bag",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T5_Badge": {
         "id": "input-T5_Badge",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T5_Hairpin": {
         "id": "input-T5_Hairpin",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T5_Charm": {
         "id": "input-T5_Charm",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T5_Watch": {
         "id": "input-T5_Watch",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T5_Necklace": {
         "id": "input-T5_Necklace",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T6_Hat": {
         "id": "input-T6_Hat",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T6_Gloves": {
         "id": "input-T6_Gloves",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T6_Shoes": {
         "id": "input-T6_Shoes",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T6_Bag": {
         "id": "input-T6_Bag",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T6_Badge": {
         "id": "input-T6_Badge",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T6_Hairpin": {
         "id": "input-T6_Hairpin",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T6_Charm": {
         "id": "input-T6_Charm",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T6_Watch": {
         "id": "input-T6_Watch",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T6_Necklace": {
         "id": "input-T6_Necklace",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T7_Hat": {
         "id": "input-T7_Hat",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T7_Gloves": {
         "id": "input-T7_Gloves",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T7_Shoes": {
         "id": "input-T7_Shoes",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T7_Bag": {
         "id": "input-T7_Bag",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T7_Badge": {
         "id": "input-T7_Badge",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T7_Hairpin": {
         "id": "input-T7_Hairpin",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T7_Charm": {
         "id": "input-T7_Charm",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T7_Watch": {
         "id": "input-T7_Watch",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T7_Necklace": {
         "id": "input-T7_Necklace",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T8_Hat": {
         "id": "input-T8_Hat",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T8_Gloves": {
         "id": "input-T8_Gloves",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T8_Shoes": {
         "id": "input-T8_Shoes",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T8_Bag": {
         "id": "input-T8_Bag",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T8_Badge": {
         "id": "input-T8_Badge",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T8_Hairpin": {
         "id": "input-T8_Hairpin",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T8_Charm": {
         "id": "input-T8_Charm",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T8_Watch": {
         "id": "input-T8_Watch",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T8_Necklace": {
         "id": "input-T8_Necklace",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T9_Hat": {
         "id": "input-T9_Hat",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T9_Gloves": {
         "id": "input-T9_Gloves",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T9_Shoes": {
         "id": "input-T9_Shoes",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T9_Bag": {
         "id": "input-T9_Bag",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T9_Badge": {
         "id": "input-T9_Badge",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T9_Hairpin": {
         "id": "input-T9_Hairpin",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T9_Charm": {
         "id": "input-T9_Charm",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T9_Watch": {
         "id": "input-T9_Watch",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T9_Necklace": {
         "id": "input-T9_Necklace",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T10_Hat": {
         "id": "input-T10_Hat",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T10_Gloves": {
         "id": "input-T10_Gloves",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T10_Shoes": {
         "id": "input-T10_Shoes",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T10_Bag": {
         "id": "input-T10_Bag",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T10_Badge": {
         "id": "input-T10_Badge",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T10_Hairpin": {
         "id": "input-T10_Hairpin",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T10_Charm": {
         "id": "input-T10_Charm",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T10_Watch": {
         "id": "input-T10_Watch",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "T10_Necklace": {
         "id": "input-T10_Necklace",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "gearTable"
     },
     "GXP_4": {
         "id": "input-GXP_4",
         "location": "gearModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "direct",
         "Right": "input-GXP_3",
         "Down": "input-GXP_3"
@@ -3532,7 +3532,7 @@ const inputValidation = {
         "id": "input-GXP_3",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Right": "input-GXP_2",
         "Left": "input-GXP_4",
@@ -3563,7 +3563,7 @@ const inputValidation = {
         "id": "input-T4_Spring",
         "location": "gearModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "direct",
         "Right": "input-T3_Spring",
         "Down": "input-T4_Hammer"
@@ -3572,7 +3572,7 @@ const inputValidation = {
         "id": "input-T3_Spring",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T4_Spring",
         "Right": "input-T2_Spring",
@@ -3583,7 +3583,7 @@ const inputValidation = {
         "id": "input-T2_Spring",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T3_Spring",
         "Right": "input-T1_Spring",
@@ -3594,7 +3594,7 @@ const inputValidation = {
         "id": "input-T1_Spring",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T2_Spring",
         "Right": "input-T4_Hammer",
@@ -3605,7 +3605,7 @@ const inputValidation = {
         "id": "input-T4_Hammer",
         "location": "gearModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T1_Spring",
         "Right": "input-T3_Hammer",
@@ -3616,7 +3616,7 @@ const inputValidation = {
         "id": "input-T3_Hammer",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T4_Hammer",
         "Right": "input-T2_Hammer",
@@ -3627,7 +3627,7 @@ const inputValidation = {
         "id": "input-T2_Hammer",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T3_Hammer",
         "Right": "input-T1_Hammer",
@@ -3638,7 +3638,7 @@ const inputValidation = {
         "id": "input-T1_Hammer",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T2_Hammer",
         "Right": "input-T4_Barrel",
@@ -3649,7 +3649,7 @@ const inputValidation = {
         "id": "input-T4_Barrel",
         "location": "gearModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T1_Hammer",
         "Right": "input-T3_Barrel",
@@ -3660,7 +3660,7 @@ const inputValidation = {
         "id": "input-T3_Barrel",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T4_Barrel",
         "Right": "input-T2_Barrel",
@@ -3671,7 +3671,7 @@ const inputValidation = {
         "id": "input-T2_Barrel",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T3_Barrel",
         "Right": "input-T1_Barrel",
@@ -3682,7 +3682,7 @@ const inputValidation = {
         "id": "input-T1_Barrel",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T2_Barrel",
         "Right": "input-T4_Needle",
@@ -3693,7 +3693,7 @@ const inputValidation = {
         "id": "input-T4_Needle",
         "location": "gearModal",
         "min": "0",
-        "max": "999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T1_Barrel",
         "Right": "input-T3_Needle",
@@ -3704,7 +3704,7 @@ const inputValidation = {
         "id": "input-T3_Needle",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T4_Needle",
         "Right": "input-T2_Needle",
@@ -3715,7 +3715,7 @@ const inputValidation = {
         "id": "input-T2_Needle",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T3_Needle",
         "Right": "input-T1_Needle",
@@ -3726,7 +3726,7 @@ const inputValidation = {
         "id": "input-T1_Needle",
         "location": "gearModal",
         "min": "0",
-        "max": "9999",
+        "max": "99999",
         "navigation": "direct",
         "Left": "input-T2_Needle",
         "Up": "input-T1_Barrel"
@@ -3735,7 +3735,7 @@ const inputValidation = {
         "id": "input_eleph_owned",
         "location": "characterModal",
         "min": "0",
-        "max": "999"
+        "max": "99999"
     },
     "Eleph_Cost": {
         "id": "input_eleph_cost",
