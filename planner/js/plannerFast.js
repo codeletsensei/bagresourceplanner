@@ -457,11 +457,12 @@ function updateInfoDisplay(charId, idInject, charData) {
 
     var limitbreakCurrent = formatLevel("LB", charData.current?.potentialmaxhp) + " " + formatLevel("LB", charData.current?.potentialattack) + " " + formatLevel("LB", charData.current?.potentialhealpower);
     var limitbreakTarget = formatLevel("LB", charData.target?.potentialmaxhp) + " " + formatLevel("LB", charData.target?.potentialattack) + " " + formatLevel("LB", charData.target?.potentialhealpower);
-    document.getElementById(charId + idInject + "-limitbreak-current").innerText = limitbreakCurrent;
     if (limitbreakCurrent != limitbreakTarget) {
+        document.getElementById(charId + idInject + "-limitbreak-current").innerText = limitbreakCurrent;
         document.getElementById(charId + idInject + "-limitbreak-target").innerText = limitbreakTarget;
     }
     else {
+        if (limitbreakCurrent != "0 0 0") document.getElementById(charId + idInject + "-limitbreak-current").innerText = limitbreakCurrent;
         document.getElementById(charId + idInject + "-limitbreak-target").innerText = "";
     }
 }
