@@ -1329,7 +1329,7 @@ function freezeBody(mode) {
     }
 }
 
-function openModal(e) {
+async function openModal(e) {
 
     if (!loaded) {
         return;
@@ -1416,8 +1416,11 @@ function openModal(e) {
 
         let charSelected = charNames.get(charId);
 
-        document.getElementById('char-eleph').src = "icons/Eleph/Eleph_" + charId + ".png";
-        document.getElementById('char-eleph-needed-icon').src = "icons/Eleph/Eleph_" + charId + ".png";
+        let elephId = charId
+        let elephIcon = await fetch("icons/Eleph/Eleph_" + elephId + ".png")
+        if (!elephIcon.ok) elephId =  "XXXXX"
+        document.getElementById('char-eleph').src = "icons/Eleph/Eleph_" + elephId + ".png";
+        document.getElementById('char-eleph-needed-icon').src = "icons/Eleph/Eleph_" + elephId + ".png";
 
         let hardModes = misc_data.hard_modes[charId];
         let shopCharacter = misc_data.shop_characters[charId];
