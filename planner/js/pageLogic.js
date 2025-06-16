@@ -6581,7 +6581,8 @@ function getOffset(el) {
 }
 
 function GetGroupScreenshot(src = "teamsContainer") {
-
+  if (typeof currentlyBusy == "undefined") {
+    currentlyBusy = 1
     options = { "logging": false, "scale": 1 }
     let visibilityChange = []
     if (src == "teamsContainer") {
@@ -6614,14 +6615,16 @@ function GetGroupScreenshot(src = "teamsContainer") {
     document.getElementById("button-save-image").style.display = "none";
 
     html2canvas(document.getElementById(src), options )
-        .then(canvas => {
-            document.getElementById("popup-screenshot").appendChild(canvas);
-            document.getElementById("text-creating-image").style.display = "none";
-            document.getElementById("button-save-image").style.display = "";
-            if (visibilityChange[0]) {
-                visibilityChange.forEach(id=>{document.getElementById(id).click()})
-            }
-        });
+    .then(canvas => {
+        document.getElementById("popup-screenshot").appendChild(canvas);
+        document.getElementById("text-creating-image").style.display = "none";
+        document.getElementById("button-save-image").style.display = "";
+        if (visibilityChange[0]) {
+            visibilityChange.forEach(id=>{document.getElementById(id).click()})
+        }
+        delete currentlyBusy
+    });
+  }
 }
 
 function ClearScreenshot() {
