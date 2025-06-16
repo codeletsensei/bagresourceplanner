@@ -20,7 +20,7 @@
     <title>/bag/ Resource Planner - a fork of Justin163's planner</title>
     <style id="toggleViewStyle" class="modifyable"></style>
     <script src="packages/jquery/jquery.min.js"></script>
-    <script src="js/plannerFast.js?q=20"></script>
+    <script src="js/plannerFast.js?q=21"></script>
     <link href="packages/sweetalert2/minimal.css" rel="stylesheet">
     <link href="packages/sweetalert2/dark.css" rel="stylesheet">
     <script src="packages/sweetalert2/sweetalert2.min.js" defer></script>
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="packages/tippyjs/light.css" />
     <script src="js/config.js?q=30" defer></script>
     <script src="js/common.js?q=19" defer></script>
-    <script src="js/pageLogic.js?q=155" defer></script>
+    <script src="js/pageLogic.js?q=156" defer></script>
     <script src="js/filters.js?q=7" defer></script>
     <script src="js/lzma_worker.js?q=1" defer></script>
     <!--<script src="js/cloudAPI.js?q=6" defer></script>-->
@@ -93,6 +93,7 @@
                     data-id="label-charactersize"></label>
                 <input id="character-size" type="range" min="1" max="5" value="5" oninput="ChangeCharSizes(this, false)"
                     onchange="ChangeCharSizes(this, true)">
+                <img src="icons/UI/chiaki_l2d_cropped.png" title="Screenshot your active students" onclick="GetGroupScreenshot('charsContainer')" style="height:5vh; margin: 10px;"></img>
             </div>
             <div id="charsContainer" class="docked">
             </div>

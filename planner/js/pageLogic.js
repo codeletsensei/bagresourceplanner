@@ -6580,20 +6580,47 @@ function getOffset(el) {
     };
 }
 
-function GetGroupScreenshot() {
+function GetGroupScreenshot(src = "teamsContainer") {
 
-    if (currentGroup == "") {
-        basicAlert(GetLanguageString("text-selectgroup"));
-        return;
+    options = { "logging": false, "scale": 1 }
+    let visibilityChange = []
+    if (src == "teamsContainer") {
+        if (currentGroup == "") {
+            basicAlert(GetLanguageString("text-selectgroup"));
+            return;
+        }
+        options["windowWidth"] = 2000
+        options["windowHeight"] = 1000 
     }
-
+    else {
+        if (!document.getElementById("selected")) {
+            toggleViewFilters()
+            toggleViewFilters()
+        }
+        if (!document.getElementById("selected").checked && !document.getElementById("deselected").checked) {
+            document.getElementById("selected").click()
+            visibilityChange.push("selected")
+        }
+        else if (document.getElementById("deselected").checked) {
+            document.getElementById("deselected").click()
+            visibilityChange.push("deselected")
+            if (!document.getElementById("selected").checked) {
+                document.getElementById("selected").click()
+                visibilityChange.push("selected")
+            }
+        }
+    }
     document.getElementById("background-blur-container").style.display = '';
     document.getElementById("button-save-image").style.display = "none";
 
-    html2canvas(document.getElementById("teamsContainer"), { "logging": false, "windowWidth": 2000, "windowHeight": 1000, "scale": 1 })
+    html2canvas(document.getElementById(src), options )
         .then(canvas => {
-            document.getElementById("popup-screenshot").appendChild(canvas); document.getElementById("text-creating-image").style.display = "none";
+            document.getElementById("popup-screenshot").appendChild(canvas);
+            document.getElementById("text-creating-image").style.display = "none";
             document.getElementById("button-save-image").style.display = "";
+            if (visibilityChange[0]) {
+                visibilityChange.forEach(id=>{document.getElementById(id).click()})
+            }
         });
 }
 
