@@ -6411,12 +6411,13 @@ function switchGearDisplay(displayType) {
 function displayExportData(option) {
     var saveData = localStorage.getItem('save-data')
     if (option == "justin") {
-        let extraChars = ["20042"]
+        let extraChars = [10116, 16017, 10118, 10117, 20045, 20046, 10119, 10120]
         let extraProps = ["bondgear", "potentialmaxhp", "potentialattack", "potentialhealpower"]
         saveData = JSON.parse(saveData)
         for (let i in extraChars) {
             saveData.characters = saveData.characters.filter((a)=>{ return a.id != extraChars[i] })
             saveData.disabled_characters = saveData.disabled_characters.filter((a)=>{ return a != extraChars[i] })
+            saveData.character_order = saveData.character_order.filter((a)=>{ return a != extraChars[i] })
         }
         for (let i in saveData.characters) {
             for (let j in saveData.characters[i].current) {
