@@ -3,7 +3,7 @@
 var curID = 0;
 var modalCharID = 0;
 var modalStars = { "star": 0, "star_target": 0, "ue": 0, "ue_target": 0 };
-const ueStarCap = 3;
+const ueStarCap = 4;
 const globalMaxWorld = 27;
 const cnMaxWorld = 17;
 
@@ -7112,8 +7112,11 @@ function ApplyBulkUpdate(bulkUpdate) {
             }
 
             if (uc.ue_level) {
-                if (parseInt(cc.ue) >= 3) {
+                if (parseInt(cc.ue) >= 4) {
                     cc.ue_level = uc.ue_level;
+                }
+                else if (cc.ue == 3) {
+                    cc.ue_level = Math.min(uc.ue_level, 50);
                 }
                 else if (cc.ue == 2) {
                     cc.ue_level = Math.min(uc.ue_level, 40);
@@ -7127,8 +7130,11 @@ function ApplyBulkUpdate(bulkUpdate) {
             }
 
             if (ut.ue_level) {
-                if (parseInt(ct.ue) >= 3) {
+                if (parseInt(ct.ue) >= 4) {
                     ct.ue_level = Math.max(ut.ue_level, cc.ue_level);
+                }
+                else if (ct.ue == 3) {
+                    ct.ue_level = Math.min(Math.max(ut.ue_level, cc.ue_level), 50);
                 }
                 else if (ct.ue == 2) {
                     ct.ue_level = Math.min(Math.max(ut.ue_level, cc.ue_level), 40);
