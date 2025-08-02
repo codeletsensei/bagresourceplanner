@@ -3676,6 +3676,12 @@ function serverToggle(e) {
         serverToggleBtn2.innerText = "JP";
     }
     else if (data.server == "JP") {
+        data.server = "Global"
+        serverToggleBtn.innerText = "Gbl";
+        serverToggleBtn2.innerText = "Gbl";
+    }
+    /*
+    else if (data.server == "JP") {
         data.server = "CN"
         serverToggleBtn.innerText = "CN";
         serverToggleBtn2.innerText = "CN";
@@ -3685,6 +3691,7 @@ function serverToggle(e) {
         serverToggleBtn.innerText = "Gbl";
         serverToggleBtn2.innerText = "Gbl";
     }
+    */
 
     if (e && e.currentTarget.id == "nm-server-toggle") {
         HideStagesPopup();
@@ -5460,7 +5467,7 @@ function GenerateModelVariables(multiplier) {
                 let tier = rates[areas[i]][gr].Tier;
 
                 let rateArray = rates[areas[i]][gr].Rates;
-                if (data.server == "CN" && rates[areas[i]][gr].OldRates) {
+                if (data.server == "Global" && rates[areas[i]][gr].OldRates) {
                     rateArray = rates[areas[i]][gr].OldRates;
                 }
 
