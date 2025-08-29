@@ -6570,6 +6570,11 @@ function formatLevel(type, level) {
             return "M";
         }
     }
+    else if (type == "Gear") {
+        if (level == "10" || level == 10) {
+            return "X";
+        }
+    }
 
     if (level != undefined) {
         return level.toString();
