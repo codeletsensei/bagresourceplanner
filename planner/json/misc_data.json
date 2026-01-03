@@ -311,10 +311,10 @@
         "FT": "Spring",
         "AR": "Hammer",
         "GL": "Hammer",
+        "RL": "Hammer",
         "MG": "Barrel",
         "SR": "Barrel",
         "RG": "Barrel",
-        "RL": "Barrel",
         "MT": "Barrel"
     },
     "hard_modes": {
