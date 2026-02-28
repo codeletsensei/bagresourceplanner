@@ -491,6 +491,8 @@ function init() {
             event.target.parentElement.classList.add("focused");
         })
         xpInputs[i].addEventListener('focusout', (event) => {
+            data.owned_materials = ownedMatDict
+            saveToLocalStorage(true)
             event.target.className = "resource-input";
             event.target.parentElement.classList.remove("focused");
         })
@@ -522,6 +524,8 @@ function init() {
             event.target.parentElement.classList.add("focused");
         })
         ueInputs[i].addEventListener('focusout', (event) => {
+            data.owned_materials = ownedMatDict
+            saveToLocalStorage(true)
             event.target.classList.remove("focused");
             event.target.parentElement.classList.remove("focused");
         })
@@ -670,6 +674,7 @@ function init() {
     setInterval(() => {
         if (saveTime != 0) {
             if (Date.now() > saveTime) {
+                if (resourceDisplay == "Owned" || gearDisplay == "Owned") return
                 saveTime = 0
                 data.owned_materials = ownedMatDict;
                 saveToLocalStorage(true);
@@ -3328,6 +3333,7 @@ function getTextFormattedGroup(monospaced) {
 }
 
 async function saveToLocalStorage(notify) {
+    console.log('saving')
     saveTime = 0;
 
     localStorage.setItem("save-data", JSON.stringify(data));
@@ -4793,6 +4799,7 @@ function updateMatDisplay(matName, matValue, editable, type) {
 }
 
 function closeResourceModal() {
+    if (resourceDisplay == "Owned") switchResourceDisplay("Remaining")
 
     freezeBody(false);
 
@@ -4801,6 +4808,7 @@ function closeResourceModal() {
     var modal = document.getElementById("resourceModal");
 
     modal.style.visibility = "hidden";
+
 
     modalOpen = "";
 
@@ -4816,6 +4824,7 @@ function closeResourceModal() {
 }
 
 function closeGearModal() {
+    if (gearDisplay == "Owned") switchResourceDisplay("Remaining")
 
     freezeBody(false);
 
@@ -5169,6 +5178,8 @@ function createTable(id, columns, colOffset, rows, rowOffset, tableNavigation, p
                     event.target.parentElement.classList.add("focused");
                 })
                 newInput.addEventListener('focusout', (event) => {
+                    data.owned_materials = ownedMatDict
+                    saveToLocalStorage(true)
                     event.target.className = "resource-input";
                     event.target.parentElement.classList.remove("focused");
                 })
@@ -6300,7 +6311,6 @@ function CalculateLeftoverGearXp() {
 }
 
 function switchGearDisplay(displayType) {
-
     // APRIL FOOLS
     // if (displayType == "Owned") {
     //     if (document.getElementById("switch-gear-owned").classList.contains("april-fools-button")) {
