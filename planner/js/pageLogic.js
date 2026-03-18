@@ -7861,3 +7861,32 @@ function SwitchCharacter(direction) {
         document.getElementById("char_" + nextCharId).click();
     }, 10);
 }
+
+function searchStudentBox(name) {
+    [...document.getElementsByClassName("nameBar")].forEach(nameBar=>{
+        let el = nameBar.parentNode.parentNode.parentNode
+        if (nameBar.textContent.toLowerCase().includes(name.toLowerCase())) {
+            el.style.display = ""
+        }
+        else {
+            el.style.display = "none"
+        }
+    })
+}
+
+function openSearchBox(){
+    el = document.getElementById("studentSearchBar")
+    el.focus()
+    el.setSelectionRange(0, el.value.length)
+}
+
+document.addEventListener("click", function(ev) {
+    if (ev.target.id != "studentSearchBar") searchStudentBox("")
+})
+
+document.addEventListener("keydown", function(ev) {
+    if (ev.ctrlKey && ev.keyCode == 70) {
+        ev.preventDefault()
+        openSearchBox()
+    }
+})
