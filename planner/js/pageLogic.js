@@ -3439,6 +3439,8 @@ function saveCharChanges() {
         charData.eleph.use_eligma = document.getElementById("option-eligma").checked;
         charData.eleph.use_shop = document.getElementById("option-shop").checked;
 
+        charData.notes = document.getElementById("student-notes-textbox").innerHTML;
+
         saveToLocalStorage(true);
     }
 
@@ -3616,6 +3618,8 @@ function populateCharModal(charId) {
         document.getElementById("input_allow_node_refresh").checked = charData.eleph?.node_refresh;
         document.getElementById("option-eligma").checked = charData.eleph?.use_eligma;
         document.getElementById("option-shop").checked = charData.eleph?.use_shop;
+
+        document.getElementById("student-notes-textbox").innerHTML = charData.notes || "";
 
         /*gtag('event', 'character_viewed', {
             'event_label': charName,
@@ -4019,6 +4023,8 @@ function charDataFromModal(charId) {
     charData.eleph.node_refresh = document.getElementById("input_allow_node_refresh").checked;
     charData.eleph.use_eligma = document.getElementById("option-eligma").checked;
     charData.eleph.use_shop = document.getElementById("option-shop").checked;
+
+    charData.notes = document.getElementById("student-notes-textbox").innerHTML;
 
     return charData;
 

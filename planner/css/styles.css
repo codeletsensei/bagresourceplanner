@@ -2686,3 +2686,9 @@ input.filter-option {
         transform: scale(1, 1);
     }
 }
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  pointer-events: none;
+  display: block;
+}
