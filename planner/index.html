@@ -20,7 +20,7 @@
     <title>/bag/ Resource Planner - a fork of Justin163's planner</title>
     <style id="toggleViewStyle" class="modifyable"></style>
     <script src="packages/jquery/jquery.min.js"></script>
-    <script src="js/plannerFast.js?q=26"></script>
+    <script src="js/plannerFast.js?q=27"></script>
     <link href="packages/sweetalert2/minimal.css" rel="stylesheet">
     <link href="packages/sweetalert2/dark.css" rel="stylesheet">
     <script src="packages/sweetalert2/sweetalert2.min.js" defer></script>
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="packages/tippyjs/light.css" />
     <script src="js/config.js?q=33" defer></script>
     <script src="js/common.js?q=19" defer></script>
-    <script src="js/pageLogic.js?q=163" defer></script>
+    <script src="js/pageLogic.js?q=164" defer></script>
     <script src="js/filters.js?q=7" defer></script>
     <script src="js/lzma_worker.js?q=1" defer></script>
     <!--<script src="js/cloudAPI.js?q=6" defer></script>-->
@@ -595,7 +595,7 @@
                     onclick="cancelCharModal()" data-id="label-close"></button>
                 <button id="save-button-resource" class="resource-modal-button display-string"
                     onclick="saveCharChanges()" data-id="label-save"></button>
-                <div id="student-notes-textbox" contenteditable="true" placeholder="Notes" style="margin-right:20px; background-color: white; color:black; width:250px"></div>
+                <span id="student-notes-textbox" contenteditable="true" placeholder="Notes" style="margin-right:20px; background-color: white; color:black; width: 250px; overflow: scroll; max-height:90px"></span>
             </div>
             <div style="height: 10px;"></div>
             <div id="character-left-button" onclick="SwitchCharacter('left')">

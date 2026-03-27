@@ -292,6 +292,7 @@ function init() {
             if (!data.characters[i].target.potentialattack) data.characters[i].target.potentialattack = 0
             if (!data.characters[i].current.potentialhealpower) data.characters[i].current.potentialhealpower = 0
             if (!data.characters[i].target.potentialhealpower) data.characters[i].target.potentialhealpower = 0
+            if (!data.characters[i].notes) data.characters[i].notes = ""
         }
         // if (!data.level_cap) {
         //     data.level_cap = 90;
@@ -729,6 +730,9 @@ function validateData() {
 }
 
 function handleKeydown(e, keyPressed) {
+
+    let ignoreIds = ["student-notes-textbox"]
+    if (ignoreIds.includes(e.target.id)) return
 
     let keycount = Object.keys(keyPressed).length;
 
@@ -4025,14 +4029,15 @@ function charDataFromModal(charId) {
     charData.eleph.use_shop = document.getElementById("option-shop").checked;
 
     charData.notes = document.getElementById("student-notes-textbox").innerHTML;
-
     return charData;
 
 }
 
 function isCharModalDirty() {
     let charData = data.characters.find(obj => { return obj.id == modalCharID });
+    charData.current.notes = charData.notes || ""
     let modalData = charDataFromModal();
+    modalData.current.notes = modalData.notes
     if (!charData) {
         Swal.fire({
             icon: 'error',

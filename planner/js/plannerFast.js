@@ -24,6 +24,13 @@ if (data == null) {
     localStorage.setItem("save-data", JSON.stringify(data));
 }
 
+if (data.site_version <= "1.4.12.26.03.20") {
+    data.characters.forEach(c=>{
+        if (c.notes) c.notes = c.notes.replace(/<div>/g,"").replace(/<\/div>/g,"<br>") 
+    })
+}
+
+
 let charBoxSize = localStorage.getItem("character_box_size") ?? "5";
 var dummy = Date.parse(new Date())/1000
 fetch('json/students.min.json?q='+dummy).then((response) => response.json()).then((json) => {
