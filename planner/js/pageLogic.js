@@ -5403,8 +5403,14 @@ function DisplayStageRuns() {
     disclaimerP2.innerText = GetLanguageString("text-farmenergyinfo2");
     disclaimerP2.style.marginTop = "15px";
 
+    disclaimerP3 = document.createElement('p')
+    disclaimerP3.innerHTML = "Read changelog 26.04.23 to know how Universal Blueprints were used."
+    disclaimerP3.style.marginTop = "15px";
+    disclaimerP3.style.color = "red";
+
     disclaimerDiv.appendChild(disclaimerP);
     disclaimerDiv.appendChild(disclaimerP2);
+    disclaimerDiv.appendChild(disclaimerP3);
     wrapperDiv.appendChild(disclaimerDiv);
 
     for (let i = 0; i < OptimalStageRuns.length; i++) {
@@ -5464,8 +5470,83 @@ function HideStagesPopup() {
     closableAfter = 0;
 }
 
+function dumpUniversalBlueprintsOnHighestTier() {
+    let ubp_rates = misc_data.universal_blueprint_rates
+    let ubp_exchange = misc_data.universal_blueprint_exchange
+    let stage_drops = misc_data.gear_rates
+    const regions = ["JP", "Global"];
+
+    const ratesByRegion = {
+        JP: ubp_rates.JP,
+        Global: ubp_rates.Global
+    };
+
+    const exchByRegion = {};
+
+    for (const r of regions) {
+        const src = ubp_exchange[r];
+        const map = {};
+        for (const k in src) map[+k.slice(1)] = src[k];
+        exchByRegion[r] = map;
+    }
+
+    const out = {};
+
+    for (const stage in stage_drops) {
+
+        const data = stage_drops[stage];
+
+        const jpBP = ratesByRegion.JP?.[stage];
+        const glBP = ratesByRegion.Global?.[stage];
+
+        const jpEx = exchByRegion.JP;
+        const glEx = exchByRegion.Global;
+
+        const copy = new Array(data.length);
+
+        for (let j = 0; j < data.length; j++) {
+
+            const entry = data[j];
+
+            const jpRates = entry.Rates.slice();
+            var glRates = null
+            if (entry.OldRates) glRates = entry.OldRates.slice();
+            else glRates = entry.Rates.slice();
+            if (j === 0) {
+
+                const tier = +entry.Tier;
+
+                const jpX = jpEx[tier];
+                if (jpX && jpBP) {
+                    for (let i = 0; i < jpRates.length; i++) {
+                        jpRates[i] += (jpBP[i] ?? 0) / jpX;
+                    }
+                }
+
+                const glX = glEx[tier];
+                if (glX && glBP) {
+                    for (let i = 0; i < glRates.length; i++) {
+                        glRates[i] += (glBP[i] ?? 0) / glX;
+                    }
+                }
+            }
+
+            copy[j] = {
+                Tier: entry.Tier,
+                Rates: jpRates,
+                OldRates: glRates
+            };
+        }
+
+        out[stage] = copy;
+    }
+
+    return out;
+}
+
 function GenerateModelVariables(multiplier) {
     let rates = misc_data.gear_rates;
+    rates = dumpUniversalBlueprintsOnHighestTier(rates)
     let areas = Object.keys(rates);
 
     let drops = misc_data.gear_drops;
@@ -5492,6 +5573,8 @@ function GenerateModelVariables(multiplier) {
                 if (data.server == "Global" && rates[areas[i]][gr].OldRates) {
                     rateArray = rates[areas[i]][gr].OldRates;
                 }
+
+
 
                 newVariable["T" + tier + "_" + drops[stage][0]] = rateArray[0] * multiplier;
                 newVariable["T" + tier + "_" + drops[stage][1]] = rateArray[1] * multiplier;
