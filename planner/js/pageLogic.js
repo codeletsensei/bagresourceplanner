@@ -5587,41 +5587,38 @@ function GenerateModelVariables(multiplier) {
                 availableGear["T" + tier + "_" + drops[stage][2]] = true;
             }
 
-            // UBP capacity: each run of this stage generates UBPs.
-            // Add a positive coefficient so the solver tracks how many are available.
+            // UBP exchange variables: one per (gear-type index, target tier).
+            // Only create exchange vars for tiers the player actually needs.
+            // The solver would never pick vars that satisfy no active constraint,
+            // so skipping them upfront shrinks the LP without changing the result.
+            // The capacity coefficient on newVariable is only registered once at
+            // least one useful exchange var exists for that (stage, gi) pair.
             const ubpRates = ubpRatesForRegion?.[world];
             if (ubpRates) {
                 for (let gi = 0; gi < 3; gi++) {
                     const bpRate = (ubpRates[gi] ?? 0) * multiplier;
-                    if (bpRate > 0) {
-                        const capKey = `ubp_cap_${stage}_${gi}`;
-                        newVariable[capKey] = bpRate;
-                        ubpCapConstraints[capKey] = { min: 0 };
-                    }
-                }
-            }
-
-            modelVariables[stage] = newVariable;
-
-            // UBP exchange variables: one per (gear-type index, target tier).
-            // The solver freely allocates UBPs to whichever tier minimises AP.
-            // Each variable:
-            //   contributes  1/exchange[T]  gear of T_gearType
-            //   consumes     1              UBP from the stage's capacity pool
-            //   costs        0              AP (AP is charged to stage runs)
-            if (ubpRates) {
-                for (let gi = 0; gi < 3; gi++) {
-                    if ((ubpRates[gi] ?? 0) === 0) continue;
+                    if (bpRate <= 0) continue;
 
                     const gearType = drops[stage][gi];
                     const capKey   = `ubp_cap_${stage}_${gi}`;
+                    let   capAdded = false;
 
                     for (const tierStr in exchSrc) {
                         const tier    = +tierStr.slice(1);
-                        const cost    = exchSrc[tierStr];
                         const gearKey = `T${tier}_${gearType}`;
-                        const varName = `UBP_${stage}_${gi}_T${tier}`;
 
+                        // Skip tiers whose gear is not needed.
+                        if (!(neededMatDict[gearKey] > 0)) continue;
+
+                        // First useful tier for this (stage, gi): register capacity.
+                        if (!capAdded) {
+                            newVariable[capKey] = bpRate;
+                            ubpCapConstraints[capKey] = { min: 0 };
+                            capAdded = true;
+                        }
+
+                        const cost    = exchSrc[tierStr];
+                        const varName = `UBP_${stage}_${gi}_T${tier}`;
                         modelVariables[varName] = {
                             [gearKey]: 1 / cost,
                             [capKey]:  -1,
@@ -5631,6 +5628,15 @@ function GenerateModelVariables(multiplier) {
                     }
                 }
             }
+
+            // Skip stages that contribute nothing to any needed gear (direct or UBP).
+            // The LP ignores such variables anyway; pruning them reduces problem size.
+            const hasNeededDirect = Object.keys(newVariable)
+                .some(k => k !== 'AP' && !k.startsWith('ubp_cap') && neededMatDict[k] > 0);
+            const hasUBPVars = Object.keys(newVariable).some(k => k.startsWith('ubp_cap'));
+            if (!hasNeededDirect && !hasUBPVars) continue;
+
+            modelVariables[stage] = newVariable;
         }
     }
 
@@ -5646,6 +5652,7 @@ function GenerateModelVariablesFast(multiplier) {
 
     modelVariables = {};
     availableGear = {};
+    ubpCapConstraints = {}; // reset so GenerateGearLinearModel stays clean
 
     for (let i = 0; i < areas.length; i++) {
 
