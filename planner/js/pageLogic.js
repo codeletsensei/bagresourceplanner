@@ -68,7 +68,7 @@ let tooltips = [];
 
 let modalOpen = "";
 
-let modelVariables, availableGear;
+let modelVariables, availableGear, ubpCapConstraints;
 let campaignMultiplier = 1;
 let OptimalStageRuns = [];
 
@@ -5403,14 +5403,8 @@ function DisplayStageRuns() {
     disclaimerP2.innerText = GetLanguageString("text-farmenergyinfo2");
     disclaimerP2.style.marginTop = "15px";
 
-    disclaimerP3 = document.createElement('p')
-    disclaimerP3.innerHTML = "Read changelog 26.04.23 to know how Universal Blueprints were used."
-    disclaimerP3.style.marginTop = "15px";
-    disclaimerP3.style.color = "red";
-
     disclaimerDiv.appendChild(disclaimerP);
     disclaimerDiv.appendChild(disclaimerP2);
-    disclaimerDiv.appendChild(disclaimerP3);
     wrapperDiv.appendChild(disclaimerDiv);
 
     for (let i = 0; i < OptimalStageRuns.length; i++) {
@@ -5546,6 +5540,105 @@ function dumpUniversalBlueprintsOnHighestTier() {
 
 function GenerateModelVariables(multiplier) {
     let rates = misc_data.gear_rates;
+    let areas = Object.keys(rates);
+
+    let drops = misc_data.gear_drops;
+
+    const ubp_rates = misc_data.universal_blueprint_rates;
+    const ubp_exchange = misc_data.universal_blueprint_exchange;
+    const region = data.server == "Global" ? "Global" : "JP";
+    const exchSrc = ubp_exchange[region];
+    const ubpRatesForRegion = ubp_rates[region];
+
+    modelVariables = {};
+    availableGear = {};
+    ubpCapConstraints = {};
+
+    for (let i = 0; i < areas.length; i++) {
+
+        const world = areas[i];
+
+        if ((data.server == "Global" && parseInt(world) > globalMaxWorld) || (data.server == "CN" && parseInt(world) > cnMaxWorld)) {
+            break;
+        }
+
+        for (let s = 1; s <= 5; s++) {
+
+            let stage = world + "-" + s;
+            let newVariable = {};
+
+            // Direct gear drops (unchanged)
+            for (let gr = 0; gr < rates[world].length; gr++) {
+
+                let tier = rates[world][gr].Tier;
+
+                let rateArray = rates[world][gr].Rates;
+                if (data.server == "Global" && rates[world][gr].OldRates) {
+                    rateArray = rates[world][gr].OldRates;
+                }
+
+                newVariable["T" + tier + "_" + drops[stage][0]] = rateArray[0] * multiplier;
+                newVariable["T" + tier + "_" + drops[stage][1]] = rateArray[1] * multiplier;
+                newVariable["T" + tier + "_" + drops[stage][2]] = rateArray[2] * multiplier;
+                newVariable["AP"] = 10;
+
+                availableGear["T" + tier + "_" + drops[stage][0]] = true;
+                availableGear["T" + tier + "_" + drops[stage][1]] = true;
+                availableGear["T" + tier + "_" + drops[stage][2]] = true;
+            }
+
+            // UBP capacity: each run of this stage generates UBPs.
+            // Add a positive coefficient so the solver tracks how many are available.
+            const ubpRates = ubpRatesForRegion?.[world];
+            if (ubpRates) {
+                for (let gi = 0; gi < 3; gi++) {
+                    const bpRate = (ubpRates[gi] ?? 0) * multiplier;
+                    if (bpRate > 0) {
+                        const capKey = `ubp_cap_${stage}_${gi}`;
+                        newVariable[capKey] = bpRate;
+                        ubpCapConstraints[capKey] = { min: 0 };
+                    }
+                }
+            }
+
+            modelVariables[stage] = newVariable;
+
+            // UBP exchange variables: one per (gear-type index, target tier).
+            // The solver freely allocates UBPs to whichever tier minimises AP.
+            // Each variable:
+            //   contributes  1/exchange[T]  gear of T_gearType
+            //   consumes     1              UBP from the stage's capacity pool
+            //   costs        0              AP (AP is charged to stage runs)
+            if (ubpRates) {
+                for (let gi = 0; gi < 3; gi++) {
+                    if ((ubpRates[gi] ?? 0) === 0) continue;
+
+                    const gearType = drops[stage][gi];
+                    const capKey   = `ubp_cap_${stage}_${gi}`;
+
+                    for (const tierStr in exchSrc) {
+                        const tier    = +tierStr.slice(1);
+                        const cost    = exchSrc[tierStr];
+                        const gearKey = `T${tier}_${gearType}`;
+                        const varName = `UBP_${stage}_${gi}_T${tier}`;
+
+                        modelVariables[varName] = {
+                            [gearKey]: 1 / cost,
+                            [capKey]:  -1,
+                            AP:         0
+                        };
+                        availableGear[gearKey] = true;
+                    }
+                }
+            }
+        }
+    }
+
+    return;
+}
+
+function GenerateModelVariablesFast(multiplier) {
+    let rates = misc_data.gear_rates;
     rates = dumpUniversalBlueprintsOnHighestTier(rates)
     let areas = Object.keys(rates);
 
@@ -5574,8 +5667,6 @@ function GenerateModelVariables(multiplier) {
                     rateArray = rates[areas[i]][gr].OldRates;
                 }
 
-
-
                 newVariable["T" + tier + "_" + drops[stage][0]] = rateArray[0] * multiplier;
                 newVariable["T" + tier + "_" + drops[stage][1]] = rateArray[1] * multiplier;
                 newVariable["T" + tier + "_" + drops[stage][2]] = rateArray[2] * multiplier;
@@ -5589,7 +5680,6 @@ function GenerateModelVariables(multiplier) {
             modelVariables[stage] = newVariable;
         }
     }
-
     return;
 }
 
@@ -5609,6 +5699,9 @@ function GenerateGearLinearModel() {
         }
     }
 
+    // UBP capacity constraints: total UBPs spent <= total UBPs generated per stage
+    Object.assign(model.constraints, ubpCapConstraints);
+
     return model;
 }
 
@@ -5617,9 +5710,21 @@ function SetMultiplier(multi) {
     SolveGearFarm();
 }
 
-function SolveGearFarm() {
+async function SolveGearFarm() {
 
-    GenerateModelVariables(campaignMultiplier);
+    let speed = await Swal.fire({
+        icon: "question",
+        title: "Select Calculation Method",
+        html: "Slow: More accurate. It tries to use the acquired Ultimate Blueprints on whichever tiers are still needed. The more blueprints you need, the longer the page will remain frozen while it calcs.<br><br>Fast: Uses UBPs acquired from a stage on the highest tier from that stage. This will tell you to run more stages than you truly need, because when farming 29-2 for Hairpins and Watches, you may not need T10 shoes anymore and could use those shoes UBPs on lower tiers, but this mode used all shoes UBPs on excess T10...",
+        color: alertColour,
+        showCancelButton: true,
+        confirmButtonText: "Slow",
+        cancelButtonText: "Fast",
+    })
+
+    if (await speed.isConfirmed) GenerateModelVariables(campaignMultiplier)
+    else GenerateModelVariablesFast(campaignMultiplier)
+
     let solution = solver.Solve(GenerateGearLinearModel());
     let solKeys = Object.keys(solution);
 
@@ -5628,7 +5733,7 @@ function SolveGearFarm() {
 
     for (let i = 0; i < solKeys.length; i++) {
 
-        if (solKeys[i].includes('-')) {
+        if (/^\d+-\d+$/.test(solKeys[i])) {
             let sr = Math.ceil(solution[solKeys[i]]);
             OptimalStageRuns.push({ stage: solKeys[i], runs: sr })
             totalAP += sr * 10;
