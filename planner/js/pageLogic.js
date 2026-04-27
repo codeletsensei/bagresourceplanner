@@ -655,11 +655,6 @@ function init() {
         theme: 'light'
     })
 
-    tippy('#hm-apCalcSlow', {
-        content: GetLanguageString("ap-calculation-method"),
-        theme: 'light'
-    })
-
     tippy('#nm-apCalcSlow', {
         content: GetLanguageString("ap-calculation-method"),
         theme: 'light'
@@ -5929,7 +5924,6 @@ async function SolveGearFarm(apCalc = "Fast") {
     if (apCalc == "Slow") {
         data.apCalc = "Slow"
         document.getElementById("nm-apCalcSlow").style.display = "none"
-        document.getElementById("hm-apCalcSlow").style.display = "none"
         await Swal.fire({
             title: "Calculating...",
             toast: true,
@@ -5942,7 +5936,6 @@ async function SolveGearFarm(apCalc = "Fast") {
     else {
         data.apCalc = "Fast"
         document.getElementById("nm-apCalcSlow").style.display = ""
-        document.getElementById("hm-apCalcSlow").style.display = ""
         GenerateModelVariablesFast(campaignMultiplier)
     }
     saveToLocalStorage()
