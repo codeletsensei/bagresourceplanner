@@ -5519,8 +5519,15 @@ function DisplayStageRuns() {
     disclaimerP2.innerText = GetLanguageString("text-farmenergyinfo2");
     disclaimerP2.style.marginTop = "15px";
 
+    let disclaimerP3 = document.createElement('p');
+    disclaimerP3.innerHTML = "Click \"Fix UBP\" to improve this result.<br>Read changelogs 26.04.23 to 27 for more info."
+    disclaimerP3.style.marginTop = "15px";
+    disclaimerP3.style.color = "red";
+    disclaimerP3.style.fontWeight = "bold";
+
     disclaimerDiv.appendChild(disclaimerP);
     disclaimerDiv.appendChild(disclaimerP2);
+    if (data.apCalc == "Fast") disclaimerDiv.appendChild(disclaimerP3);
     wrapperDiv.appendChild(disclaimerDiv);
 
     for (let i = 0; i < OptimalStageRuns.length; i++) {
@@ -5896,8 +5903,8 @@ function SetMultiplier(multi) {
 }
 
 async function SolveGearFarm(apCalc = "Fast") {
-    if (!apCalc || gearOwnedDirty) {
-        /*apCalc = await Swal.fire({
+    /*if (!apCalc || gearOwnedDirty) {
+        apCalc = await Swal.fire({
             icon: "question",
             title: "Select AP Optimization Method",
             html: "Slow: More accurate. It tries to use the acquired Universal Blueprints on whichever tiers are still needed. <a style='color:red'>The more blueprints you need, the longer the page will remain frozen while it calcs</a>.<br><br>Fast (Not recommended): Uses UBPs acquired from a stage on the highest tier from that stage. This will tell you to run more stages than you truly need, because when farming 29-2 for Hairpins and Watches, you may not need T10 shoes anymore and could use those shoes UBPs on lower tiers, but this mode uses all shoes UBPs on excess T10...<br><br>Hotkeys:<br>ESC / Wait = Fast.<br>Space / click backdrop = Slow",
@@ -5916,10 +5923,13 @@ async function SolveGearFarm(apCalc = "Fast") {
         else {
             apCalc = "Fast"
             data.apCalc = "Fast"
-        }*/
+        }
         apCalc = "Fast"
-    }
+    }*/
     if (apCalc == "Slow") {
+        data.apCalc = "Slow"
+        document.getElementById("nm-apCalcSlow").style.color = ""
+        document.getElementById("hm-apCalcSlow").style.color = ""
         await Swal.fire({
             title: "Calculating...",
             toast: true,
@@ -5929,7 +5939,12 @@ async function SolveGearFarm(apCalc = "Fast") {
         })
         GenerateModelVariables(campaignMultiplier)
     }
-    else GenerateModelVariablesFast(campaignMultiplier)
+    else {
+        data.apCalc = "Fast"
+        document.getElementById("nm-apCalcSlow").style.color = "red"
+        document.getElementById("hm-apCalcSlow").style.color = "red"
+        GenerateModelVariablesFast(campaignMultiplier)
+    }
     saveToLocalStorage()
 
     let solution = solver.Solve(GenerateGearLinearModel());
