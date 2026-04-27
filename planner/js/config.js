@@ -228,7 +228,9 @@ const matLookup = new TwoWayMap({
     9999: "Secret"
 });
 
-const gearLookup = ["T2_Hat", "T2_Gloves", "T2_Shoes", "T2_Bag", "T2_Badge", "T2_Hairpin", "T2_Charm", "T2_Watch", "T2_Necklace",
+const gearLookup = ["UBP_Hat", "UBP_Gloves", "UBP_Shoes", "UBP_Bag", "UBP_Badge", "UBP_Hairpin", "UBP_Charm", "UBP_Watch", "UBP_Necklace",
+    "T2_SLC", "T3_SLC", "T4_SLC", "T5_SLC", "T6_SLC", "T7_SLC", "T8_SLC", "T9_SLC", "T10_SLC",
+    "T2_Hat", "T2_Gloves", "T2_Shoes", "T2_Bag", "T2_Badge", "T2_Hairpin", "T2_Charm", "T2_Watch", "T2_Necklace",
     "T3_Hat", "T3_Gloves", "T3_Shoes", "T3_Bag", "T3_Badge", "T3_Hairpin", "T3_Charm", "T3_Watch", "T3_Necklace",
     "T4_Hat", "T4_Gloves", "T4_Shoes", "T4_Bag", "T4_Badge", "T4_Hairpin", "T4_Charm", "T4_Watch", "T4_Necklace",
     "T5_Hat", "T5_Gloves", "T5_Shoes", "T5_Bag", "T5_Badge", "T5_Hairpin", "T5_Charm", "T5_Watch", "T5_Necklace",
@@ -3029,68 +3031,223 @@ const inputValidation = {
         "Up": "input-Credit",
         "Down": "input-XP_2"
     },
+    "T2_SLC": {
+        "id": "input-T2_SLC",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Left": "input-T10_SLC"
+    },
+    "T3_SLC": {
+        "id": "input-T3_SLC",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable"
+    },
+    "T4_SLC": {
+        "id": "input-T4_SLC",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable"
+    },
+    "T5_SLC": {
+        "id": "input-T5_SLC",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable"
+    },
+    "T6_SLC": {
+        "id": "input-T6_SLC",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable"
+    },
+    "T7_SLC": {
+        "id": "input-T7_SLC",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable"
+    },
+    "T8_SLC": {
+        "id": "input-T8_SLC",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable"
+    },
+    "T9_SLC": {
+        "id": "input-T9_SLC",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable"
+    },
+    "T10_SLC": {
+        "id": "input-T10_SLC",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Right": "input-T2_SLC"
+    },
+    "UBP_Hat": {
+        "id": "input-UBP_Hat",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Left": "input-T10_Necklace",
+        "Right": "input-UBP_Gloves"
+    },
+    "UBP_Gloves": {
+        "id": "input-UBP_Gloves",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Left": "input-UBP_Hat",
+        "Right": "input-UBP_Shoes"
+    },
+    "UBP_Shoes": {
+        "id": "input-UBP_Shoes",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Left": "input-UBP_Gloves",
+        "Right": "input-UBP_Bag"
+    },
+    "UBP_Bag": {
+        "id": "input-UBP_Bag",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Left": "input-UBP_Shoes",
+        "Right": "input-UBP_Badge"
+    },
+    "UBP_Badge": {
+        "id": "input-UBP_Badge",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Left": "input-UBP_Bag",
+        "Right": "input-UBP_Hairpin"
+    },
+    "UBP_Hairpin": {
+        "id": "input-UBP_Hairpin",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Left": "input-UBP_Badge",
+        "Right": "input-UBP_Charm"
+    },
+    "UBP_Charm": {
+        "id": "input-UBP_Charm",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Left": "input-UBP_Hairpin",
+        "Right": "input-UBP_Watch"
+    },
+    "UBP_Watch": {
+        "id": "input-UBP_Watch",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Left": "input-UBP_Charm",
+        "Right": "input-UBP_Necklace"
+    },
+    "UBP_Necklace": {
+        "id": "input-UBP_Necklace",
+        "location": "gearModal",
+        "min": "0",
+        "max": "99999",
+        "navigation": "gearTable",
+        "Left": "input-UBP_Watch",
+        "Right": "input-T2_Hat"
+    },
     "T2_Hat": {
         "id": "input-T2_Hat",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Left": "input-UBP_Necklace"
     },
     "T2_Gloves": {
         "id": "input-T2_Gloves",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Left": "input-T10_Hat"
     },
     "T2_Shoes": {
         "id": "input-T2_Shoes",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Left": "input-T10_Gloves"
     },
     "T2_Bag": {
         "id": "input-T2_Bag",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Left": "input-T10_Shoes"
     },
     "T2_Badge": {
         "id": "input-T2_Badge",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Left": "input-T10_Bag"
     },
     "T2_Hairpin": {
         "id": "input-T2_Hairpin",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Left": "input-T10_Badge"
     },
     "T2_Charm": {
         "id": "input-T2_Charm",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Left": "input-T10_Hairpin"
     },
     "T2_Watch": {
         "id": "input-T2_Watch",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Left": "input-T10_Charm"
     },
     "T2_Necklace": {
         "id": "input-T2_Necklace",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Left": "input-T10_Watch"
     },
     "T3_Hat": {
         "id": "input-T3_Hat",
@@ -3538,56 +3695,64 @@ const inputValidation = {
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Right": "input-T2_Gloves"
     },
     "T10_Gloves": {
         "id": "input-T10_Gloves",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Right": "input-T2_Shoes"
     },
     "T10_Shoes": {
         "id": "input-T10_Shoes",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Right": "input-T2_Bag"
     },
     "T10_Bag": {
         "id": "input-T10_Bag",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Right": "input-T2_Badge"
     },
     "T10_Badge": {
         "id": "input-T10_Badge",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Right": "input-T2_Hairpin"
     },
     "T10_Hairpin": {
         "id": "input-T10_Hairpin",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Right": "input-T2_Charm"
     },
     "T10_Charm": {
         "id": "input-T10_Charm",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Right": "input-T2_Watch"
     },
     "T10_Watch": {
         "id": "input-T10_Watch",
         "location": "gearModal",
         "min": "0",
         "max": "99999",
-        "navigation": "gearTable"
+        "navigation": "gearTable",
+        "Right": "input-T2_Necklace"
     },
     "T10_Necklace": {
         "id": "input-T10_Necklace",
@@ -3595,7 +3760,7 @@ const inputValidation = {
         "min": "0",
         "max": "99999",
         "navigation": "gearTable",
-        "Right": "input-T1_Spring"
+        "Right": "input-UBP_Hat"
     },
     "GXP_4": {
         "id": "input-GXP_4",
@@ -3676,6 +3841,7 @@ const inputValidation = {
         "min": "0",
         "max": "99999",
         "navigation": "direct",
+        "Left": "input-T4_Needle",
         "Right": "input-T2_Spring",
         "Down": "input-T1_Hammer"
     },
@@ -3774,7 +3940,7 @@ const inputValidation = {
         "max": "99999",
         "navigation": "direct",
         "Left": "input-T3_Needle",
-        "Right": "input-T2_Hat",
+        "Right": "input-T1_Spring",
         "Up": "input-T4_Barrel"
     },
     "T3_Needle": {

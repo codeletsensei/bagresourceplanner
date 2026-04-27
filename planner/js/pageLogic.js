@@ -72,6 +72,10 @@ let modelVariables, availableGear, ubpCapConstraints;
 let campaignMultiplier = 1;
 let OptimalStageRuns = [];
 
+// True whenever owned inputs have changed since the last SolveGearFarm() run.
+// Starts true so the first switch to Remaining always triggers a solve.
+let gearOwnedDirty = true;
+
 let docScrollTop = 0;
 
 let bugsNotified = {};
@@ -419,8 +423,8 @@ function init() {
     }
 
     let gearNavigation = [];
-    createTable("gear-table", ["T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10"], 0, ["Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"],
-        0, gearNavigation, document.getElementById('table-parent-4'), false, "gear", "icons/Gear/", [], "gear-");
+    createTable("gear-table", ["UBP", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10"], 0, ["SLC", "Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"],
+        0, gearNavigation, document.getElementById('table-parent-4'), false, "gear", "icons/Gear/", ["UBP_SLC"], "gear-", true);
 
     let navObj = {};
     for (let x in tableNavigation) {
@@ -651,6 +655,17 @@ function init() {
         theme: 'light'
     })
 
+    tippy('#hm-apCalcSlow', {
+        content: GetLanguageString("ap-calculation-method"),
+        theme: 'light'
+    })
+
+    tippy('#nm-apCalcSlow', {
+        content: GetLanguageString("ap-calculation-method"),
+        theme: 'light'
+    })
+
+
     tippy('#char-delete', {
         content: GetLanguageString("tooltip-chardelete"),
         theme: 'light'
@@ -767,11 +782,11 @@ function handleKeydown(e, keyPressed) {
         }
     }
 
-    if (keycount == 2 && ((keyPressed.Control == true && keyPressed.ArrowLeft == true) || (keyPressed.Shift == true && keyPressed.Tab == true))) {
+    if ((keycount == 2 && keyPressed.Control == true && keyPressed.ArrowLeft == true) || (keyPressed.Tab == true && e.shiftKey)) {
         inputNavigate('Left')
         keyPressed = {};
     }
-    else if ((keycount == 2 && keyPressed.Control == true && keyPressed.ArrowRight == true) || (keycount == 1 && keyPressed.Tab == true)) {
+    else if ((keycount == 2 && keyPressed.Control == true && keyPressed.ArrowRight == true) || (keyPressed.Tab == true && !e.shiftKey)) {
         inputNavigate('Right')
         keyPressed = {};
     }
@@ -4670,6 +4685,7 @@ function openGearModal() {
         updateUeXP();
         document.getElementById("leftover-xp").innerText = commafy(CalculateLeftoverGearXp());
 
+        gearOwnedDirty = true;
         SolveGearFarm();
 
         modal.onclick = function (event) {
@@ -4805,6 +4821,14 @@ function updateMatDisplay(matName, matValue, editable, type) {
         }
         else {
             textElement.parentElement.classList.remove("editable")
+        }
+        // UBP and SLC cells are always visually empty on non-Owned tables
+        // (they have no Remaining/Total/Leftover values to display).
+        const alwaysEmpty = !editable && (matName.startsWith("UBP_") || matName.endsWith("_SLC"));
+        if (alwaysEmpty || matValue == 0) {
+            textElement.parentElement.classList.add("empty-resource");
+        } else {
+            textElement.parentElement.classList.remove("empty-resource");
         }
     }
 }
@@ -5100,10 +5124,23 @@ function hideEmptyCell(id) {
     }
 }
 
-function createTable(id, columns, colOffset, rows, rowOffset, tableNavigation, parent, reorder, type, imgLoc, skip, stringLangPrefix) {
+function createTable(id, columns, colOffset, rows, rowOffset, tableNavigation, parent, reorder, type, imgLoc, skip, stringLangPrefix, showColumnHeaders) {
     const newTable = document.createElement("table");
     newTable.className = "resource-table";
     newTable.id = id;
+
+    if (showColumnHeaders) {
+        const newThead = document.createElement("thead");
+        const newHeadRow = document.createElement("tr");
+        newHeadRow.appendChild(document.createElement("th"));
+        for (let c = 0; c < columns.length; c++) {
+            const newTh = document.createElement("th");
+            newTh.innerText = columns[c];
+            newHeadRow.appendChild(newTh);
+        }
+        newThead.appendChild(newHeadRow);
+        newTable.appendChild(newThead);
+    }
 
     const newTbody = document.createElement("tbody");
 
@@ -5174,7 +5211,7 @@ function createTable(id, columns, colOffset, rows, rowOffset, tableNavigation, p
                 }
 
                 newCell.addEventListener('click', (event) => {
-                    DisplayMatUsers(event.currentTarget.id);
+                    DisplayMatUsers(event.currentTarget.id, newImg.src);
                 })
 
                 const newInput = document.createElement("input");
@@ -5291,9 +5328,10 @@ function updatedResource() {
     }
 
     saveTime = Date.now() + (1000 * 5);
+    gearOwnedDirty = true;
 }
 
-function DisplayMatUsers(mat) {
+function DisplayMatUsers(mat, iconUrl) {
 
     if (resourceDisplay == "Owned" && modalOpen == "resourceModal" || gearDisplay == "Owned" && modalOpen == "gearModal") {
         return;
@@ -5322,6 +5360,14 @@ function DisplayMatUsers(mat) {
     while (wrapperChildren.length > 0) {
         wrapperChildren[0].remove();
     }
+
+    let typeIcon = document.createElement("img");
+    if (iconUrl) typeIcon.src = iconUrl
+    else {
+        typeIcon.src = "icons/Gifts/" + matLookup.get(mat.replace("mat-","")) + "_small.webp"
+    }
+    typeIcon.className = "char-row-mats";
+    wrapperDiv.appendChild(typeIcon);
 
     for (let i = 0; i < matUsers.length; i++) {
 
@@ -5374,6 +5420,76 @@ function DisplayMatUsers(mat) {
     wrapperDiv.style.display = "";
     closableAfter = Date.now() + 200;
 
+}
+
+function DisplayUeMatUsers(type) {
+
+    const xpKey = type + "_Xp";
+    let matUsers = [];
+
+    for (let key in charMatDicts) {
+        if (!disabledChars.includes(key) && charMatDicts[key][xpKey] > 0) {
+            matUsers.push({ charId: key, matCount: charMatDicts[key][xpKey] });
+        }
+    }
+
+    if (matUsers.length == 0) {
+        return;
+    }
+
+    matUsers.sort((a, b) => b.matCount - a.matCount);
+
+    let wrapperDiv = document.getElementById('popup-wrapper');
+    while (wrapperDiv.children.length > 0) {
+        wrapperDiv.children[0].remove();
+    }
+
+    let typeIcon = document.createElement("img");
+    typeIcon.src = "icons/LevelPart/" + type + "_All.png";
+    typeIcon.className = "char-row-mats";
+    wrapperDiv.appendChild(typeIcon);
+
+    for (let i = 0; i < matUsers.length; i++) {
+        let charDiv = document.createElement('div');
+        charDiv.className = "char-row-mats";
+
+        let charImg = document.createElement('img');
+        charImg.src = "icons/Portrait/Icon_" + matUsers[i].charId + ".webp";
+
+        let matAmount = document.createElement('p');
+        matAmount.innerText = commafy(matUsers[i].matCount);
+
+        charDiv.appendChild(charImg);
+        charDiv.appendChild(matAmount);
+        wrapperDiv.appendChild(charDiv);
+    }
+
+    // Anchor the popup to the type's aggregate icon (spring-all, hammer-all, barrel-all)
+    let element = document.getElementById(type.toLowerCase() + "-all");
+    if (!element) {
+        element = document.getElementById("row-" + type + "-needed");
+    }
+    let matOffset = getOffset(element);
+
+    if (matOffset.left > (window.innerWidth / 2)) {
+        wrapperDiv.style.right = (window.innerWidth - Math.round(matOffset.left) - 10) + "px";
+        wrapperDiv.style.left = "";
+    } else {
+        wrapperDiv.style.left = (20 + Math.round(matOffset.left)) + "px";
+        wrapperDiv.style.right = "";
+    }
+
+    if (matOffset.top > (window.innerHeight / 2)) {
+        wrapperDiv.style.bottom = (document.body.clientHeight - Math.round(matOffset.top) - docScrollTop) + "px";
+        wrapperDiv.style.top = "";
+    } else {
+        wrapperDiv.style.top = (20 + Math.round(matOffset.top) + docScrollTop) + "px";
+        wrapperDiv.style.bottom = "";
+    }
+
+    HideStagesPopup();
+    wrapperDiv.style.display = "";
+    closableAfter = Date.now() + 200;
 }
 
 function HidePopup() {
@@ -5538,6 +5654,58 @@ function dumpUniversalBlueprintsOnHighestTier() {
     return out;
 }
 
+// Adds LP variables for gear blueprints the player already owns.
+// Each gear type has a shared pool bounded by the owned count; exchange
+// variables draw from it to satisfy any needed tier of that type at 0 AP.
+function addOwnedUbpVariables(exchSrc) {
+    const gearTypes = ["Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"];
+    for (const gt of gearTypes) {
+        const owned = parseInt(ownedMatDict["UBP_" + gt] ?? 0);
+        if (owned <= 0) continue;
+
+        // Pool constraint: spending reduces the balance; it may not go below -owned.
+        const poolKey = "owned_ubp_pool_" + gt;
+        ubpCapConstraints[poolKey] = { min: -owned };
+
+        for (const tierStr in exchSrc) {
+            const tier    = +tierStr.slice(1);
+            const gearKey = "T" + tier + "_" + gt;
+            if (!(neededMatDict[gearKey] > 0)) continue;
+
+            const cost = exchSrc[tierStr];
+            modelVariables["OWNED_UBP_" + gt + "_T" + tier] = {
+                [gearKey]: 1 / cost,
+                [poolKey]: -1,
+                AP:         0
+            };
+            availableGear[gearKey] = true;
+        }
+    }
+}
+
+function addOwnedSlcVariables() {
+    const gearTypes = ["Hat", "Gloves", "Shoes", "Bag", "Badge", "Hairpin", "Charm", "Watch", "Necklace"];
+    for (let tier = 2; tier <= 10; tier++) {
+        const owned = parseInt(ownedMatDict["T" + tier + "_SLC"] ?? 0);
+        if (owned <= 0) continue;
+
+        const poolKey = "owned_slc_pool_T" + tier;
+        ubpCapConstraints[poolKey] = { min: -owned };
+
+        for (const gt of gearTypes) {
+            const gearKey = "T" + tier + "_" + gt;
+            if (!(neededMatDict[gearKey] > 0)) continue;
+
+            modelVariables["OWNED_SLC_T" + tier + "_" + gt] = {
+                [gearKey]: 1,
+                [poolKey]: -1,
+                AP:         0
+            };
+            availableGear[gearKey] = true;
+        }
+    }
+}
+
 function GenerateModelVariables(multiplier) {
     let rates = misc_data.gear_rates;
     let areas = Object.keys(rates);
@@ -5567,7 +5735,11 @@ function GenerateModelVariables(multiplier) {
             let stage = world + "-" + s;
             let newVariable = {};
 
-            // Direct gear drops (unchanged)
+            // Direct gear drops: only include coefficients for gear the player
+            // actually needs. The solver no-ops unconstrained coefficients in
+            // loadJson anyway, so omitting them upfront reduces object size and
+            // the number of keys the solver has to iterate per variable.
+            newVariable["AP"] = 10;
             for (let gr = 0; gr < rates[world].length; gr++) {
 
                 let tier = rates[world][gr].Tier;
@@ -5577,14 +5749,13 @@ function GenerateModelVariables(multiplier) {
                     rateArray = rates[world][gr].OldRates;
                 }
 
-                newVariable["T" + tier + "_" + drops[stage][0]] = rateArray[0] * multiplier;
-                newVariable["T" + tier + "_" + drops[stage][1]] = rateArray[1] * multiplier;
-                newVariable["T" + tier + "_" + drops[stage][2]] = rateArray[2] * multiplier;
-                newVariable["AP"] = 10;
-
-                availableGear["T" + tier + "_" + drops[stage][0]] = true;
-                availableGear["T" + tier + "_" + drops[stage][1]] = true;
-                availableGear["T" + tier + "_" + drops[stage][2]] = true;
+                for (let gi = 0; gi < 3; gi++) {
+                    const gearKey = "T" + tier + "_" + drops[stage][gi];
+                    availableGear[gearKey] = true;
+                    if (neededMatDict[gearKey] > 0) {
+                        newVariable[gearKey] = rateArray[gi] * multiplier;
+                    }
+                }
             }
 
             // UBP exchange variables: one per (gear-type index, target tier).
@@ -5640,6 +5811,8 @@ function GenerateModelVariables(multiplier) {
         }
     }
 
+    addOwnedUbpVariables(exchSrc);
+    addOwnedSlcVariables();
     return;
 }
 
@@ -5687,6 +5860,11 @@ function GenerateModelVariablesFast(multiplier) {
             modelVariables[stage] = newVariable;
         }
     }
+
+    const ubp_exchange_fast = misc_data.universal_blueprint_exchange;
+    const region_fast = data.server == "Global" ? "Global" : "JP";
+    addOwnedUbpVariables(ubp_exchange_fast[region_fast]);
+    addOwnedSlcVariables();
     return;
 }
 
@@ -5717,20 +5895,42 @@ function SetMultiplier(multi) {
     SolveGearFarm();
 }
 
-async function SolveGearFarm() {
-
-    let speed = await Swal.fire({
-        icon: "question",
-        title: "Select Calculation Method",
-        html: "Slow: More accurate. It tries to use the acquired Ultimate Blueprints on whichever tiers are still needed. The more blueprints you need, the longer the page will remain frozen while it calcs.<br><br>Fast: Uses UBPs acquired from a stage on the highest tier from that stage. This will tell you to run more stages than you truly need, because when farming 29-2 for Hairpins and Watches, you may not need T10 shoes anymore and could use those shoes UBPs on lower tiers, but this mode used all shoes UBPs on excess T10...",
-        color: alertColour,
-        showCancelButton: true,
-        confirmButtonText: "Slow",
-        cancelButtonText: "Fast",
-    })
-
-    if (await speed.isConfirmed) GenerateModelVariables(campaignMultiplier)
+async function SolveGearFarm(apCalc = "Fast") {
+    if (!apCalc || gearOwnedDirty) {
+        /*apCalc = await Swal.fire({
+            icon: "question",
+            title: "Select AP Optimization Method",
+            html: "Slow: More accurate. It tries to use the acquired Universal Blueprints on whichever tiers are still needed. <a style='color:red'>The more blueprints you need, the longer the page will remain frozen while it calcs</a>.<br><br>Fast (Not recommended): Uses UBPs acquired from a stage on the highest tier from that stage. This will tell you to run more stages than you truly need, because when farming 29-2 for Hairpins and Watches, you may not need T10 shoes anymore and could use those shoes UBPs on lower tiers, but this mode uses all shoes UBPs on excess T10...<br><br>Hotkeys:<br>ESC / Wait = Fast.<br>Space / click backdrop = Slow",
+            color: alertColour,
+            showCancelButton: true,
+            confirmButtonText: "Slow",
+            cancelButtonText: "Fast",
+            animation: false,
+            timer: 1250,
+            timerProgressBar: true,
+        })
+        if (await apCalc.isConfirmed || apCalc.dismiss == "backdrop") {
+            apCalc = "Slow"
+            data.apCalc = "Slow"
+        }
+        else {
+            apCalc = "Fast"
+            data.apCalc = "Fast"
+        }*/
+        apCalc = "Fast"
+    }
+    if (apCalc == "Slow") {
+        await Swal.fire({
+            title: "Calculating...",
+            toast: true,
+            timer: 10,
+            animation: false, 
+            showConfirmButton: false
+        })
+        GenerateModelVariables(campaignMultiplier)
+    }
     else GenerateModelVariablesFast(campaignMultiplier)
+    saveToLocalStorage()
 
     let solution = solver.Solve(GenerateGearLinearModel());
     let solKeys = Object.keys(solution);
@@ -5747,8 +5947,8 @@ async function SolveGearFarm() {
         }
     }
 
+    gearOwnedDirty = false;
     OptimalStageRuns.sort((a, b) => b.runs - a.runs);
-
     document.getElementById("gear-farm-energy").innerText = commafy(totalAP);
 }
 
@@ -6507,7 +6707,8 @@ function CalculateLeftoverGearXp() {
 
     let matKeys = Object.keys(leftoverMatDict);
     for (let i = 0; i < matKeys.length; i++) {
-        if (gearLookup.includes(matKeys[i])) {
+        // UBP_* keys are in gearLookup but don't have a tier XP value
+        if (gearLookup.includes(matKeys[i]) && matKeys[i].startsWith("T") && !matKeys[i].endsWith("_SLC")) {
             let tier = matKeys[i].substring(0, matKeys[i].indexOf("_"));
             totalLeftover += leftoverMatDict[matKeys[i]] * misc_data.gear_bp_value[tier];
         }
@@ -6575,7 +6776,7 @@ function switchGearDisplay(displayType) {
         leftoverDisplay.parentElement.style.display = "none";
         displayText.innerText = GetLanguageString("label-remainingneeded");
         updateCells(neededMatDict, false, 'gear-count-text', 'misc-gear');
-        SolveGearFarm();
+        if (gearOwnedDirty) SolveGearFarm();
     }
     else if (displayType == "Total") {
         gearDisplay = "Total";
