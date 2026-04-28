@@ -3377,7 +3377,7 @@ function getTextFormattedGroup(monospaced) {
             let gear = cur.gear1 + "/" + cur.gear2 + "/" + cur.gear3;
 
             // ── ♥ Bond ────────────────────────────────────────────────────
-            let bond = cur.bond ?? "";
+            let bond = cur.bond>9 ? ("♥" + cur.bond) : "ᓀ‸ᓂ"
 
             // ── BG Bond Gear ──────────────────────────────────────────────
             let bg;
@@ -3386,7 +3386,7 @@ function getTextFormattedGroup(monospaced) {
             }
             else {
                 let bgVal = parseInt(cur.bondgear ?? 0);
-                bg = bgVal > 0 ? "T" + bgVal : "0";
+                bg = bgVal > 0 ? "T" + bgVal : "ᓀ‸ᓂ";
             }
 
             // ── LB Potential ──────────────────────────────────────────────
