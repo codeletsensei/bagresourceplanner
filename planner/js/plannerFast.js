@@ -444,7 +444,7 @@ function updateInfoDisplay(charId, idInject, charData) {
         document.getElementById(charId + idInject + "-level-target").innerText = "";
     }
 
-    document.getElementById(charId + idInject + "-bond-current").innerText = charData.current?.bond;
+    document.getElementById(charId + idInject + "-bond-current").innerText = charData.current?.bond > 1 ? charData.current?.bond : "ᓀ‸ᓂ";
     if (charData.current?.bond != charData.target?.bond) {
         document.getElementById(charId + idInject + "-bond-target").innerText = charData.target?.bond;
     }

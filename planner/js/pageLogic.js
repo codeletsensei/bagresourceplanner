@@ -3377,7 +3377,7 @@ function getTextFormattedGroup(monospaced) {
             let gear = cur.gear1 + "/" + cur.gear2 + "/" + cur.gear3;
 
             // ── ♥ Bond ────────────────────────────────────────────────────
-            let bond = cur.bond>9 ? ("♥" + cur.bond) : "ᓀ‸ᓂ"
+            let bond = cur.bond>1 ? ("♥" + cur.bond) : "ᓀ‸ᓂ"
 
             // ── BG Bond Gear ──────────────────────────────────────────────
             let bg;
