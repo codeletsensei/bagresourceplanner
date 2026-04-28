@@ -20,7 +20,7 @@
     <title>/bag/ Resource Planner - a fork of Justin163's planner</title>
     <style id="toggleViewStyle" class="modifyable"></style>
     <script src="packages/jquery/jquery.min.js"></script>
-    <script src="js/plannerFast.js?q=27"></script>
+    <script src="js/plannerFast.js?q=28"></script>
     <link href="packages/sweetalert2/minimal.css" rel="stylesheet">
     <link href="packages/sweetalert2/dark.css" rel="stylesheet">
     <script src="packages/sweetalert2/sweetalert2.min.js" defer></script>
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="packages/tippyjs/light.css" />
     <script src="js/config.js?q=34" defer></script>
     <script src="js/common.js?q=19" defer></script>
-    <script src="js/pageLogic.js?q=166" defer></script>
+    <script src="js/pageLogic.js?q=167" defer></script>
     <script src="js/filters.js?q=7" defer></script>
     <script src="js/lzma_worker.js?q=1" defer></script>
     <!--<script src="js/cloudAPI.js?q=6" defer></script>-->
@@ -113,12 +113,16 @@
                     data-id="button-movegroup"></button>
                 <button class="teamEditorButton display-string" onclick="addNewGroup()"
                     data-id="button-newgroup"></button>
+                <button class="teamEditorButton display-string" onclick="addNewLbaGroup()"
+                    data-id="button-newlbagroup"></button>
                 <button class="teamEditorButton display-string" onclick="renameGroup()"
                     data-id="button-renamegroup"></button>
                 <button class="teamEditorButton display-string" onclick="deleteGroup()"
                     data-id="button-deletegroup"></button>
-                <button class="teamEditorButton display-string" onclick="addNewTeam([null,null,null,null,null,null])"
+                <button id="btn-addteam" class="teamEditorButton display-string" onclick="addNewTeam([null,null,null,null,null,null])"
                     data-id="button-addteam"></button>
+                <button id="btn-addlbateam" class="teamEditorButton display-string" onclick="addNewLbaTeam()"
+                    data-id="button-addlbateam" style="display:none;"></button>
                 <button id="group-move-mode" class="teamEditorButton display-string" onclick="groupEditorMode('Move')"
                     data-id="button-add/movemode"></button>
                 <button id="group-remove-mode" class="teamEditorButton display-string"

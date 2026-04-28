@@ -27,6 +27,12 @@ let groupStrikerBorrows = [];
 let groupSpecialBorrows = [];
 let groupEditMode = "Move";
 let currentGroup = "";
+let currentGroupIsLba = false;
+
+function updateAddTeamButtons() {
+    document.getElementById("btn-addteam").style.display    = currentGroupIsLba ? "none" : "";
+    document.getElementById("btn-addlbateam").style.display = currentGroupIsLba ? ""     : "none";
+}
 let borrowed = false;
 
 let bulkMode = false;
@@ -2017,6 +2023,8 @@ function teamsToggle() {
         if (currentGroup) {
             clearTeams();
             borrowed = false;
+            currentGroupIsLba = data.lba_groups && data.lba_groups.hasOwnProperty(currentGroup);
+            updateAddTeamButtons();
             loadGroup(currentGroup);
         }
     }
@@ -2183,7 +2191,7 @@ function generateTeamCharOptions() {
     // }
 }
 
-function addNewTeam(team) {
+function addNewTeam(team, isLba) {
 
     if (currentGroup == "") {
         basicAlert(GetLanguageString("text-selectgroup"));
@@ -2205,6 +2213,9 @@ function addNewTeam(team) {
         return;
     }
 
+    const strikerCount = isLba ? 6 : 4;
+    const specialCount = isLba ? 4 : 2;
+
     let new_teamDiv = document.createElement('div');
     let teamId = "team" + teamNum;
     new_teamDiv.id = teamId;
@@ -2219,13 +2230,14 @@ function addNewTeam(team) {
 
     let new_strikerDiv = document.createElement('div');
     new_strikerDiv.className = "striker-wrapper";
+    new_strikerDiv.style.backgroundColor = "#ff000033";
 
     new_teamDiv.appendChild(new_teamLabel)
     new_teamDiv.appendChild(new_strikerDiv);
 
     teamsContainer.appendChild(new_teamDiv);
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < strikerCount; i++) {
         let blankSlot = newBlankSlot(teamId, i, "Striker");
         new_strikerDiv.appendChild(blankSlot);
         if (team[i] == null) {
@@ -2251,33 +2263,38 @@ function addNewTeam(team) {
 
     let new_specialDiv = document.createElement('div');
     new_specialDiv.className = "special-wrapper";
+    new_specialDiv.style.backgroundColor = "#0000ff33";
 
     new_teamDiv.appendChild(new_specialDiv);
 
-    for (let i = 0; i < 2; i++) {
-        let blankSlot = newBlankSlot(teamId, i + 4, "Special");
+    for (let i = 0; i < specialCount; i++) {
+        let blankSlot = newBlankSlot(teamId, i + strikerCount, "Special");
         new_specialDiv.appendChild(blankSlot);
-        if (team[i + 4] == null) {
+        if (team[i + strikerCount] == null) {
             blankSlot.appendChild(groupEmptySlot());
         }
         else {
-            if (typeof (team[i + 4]) == "object") {
-                let charName = charNames.get(team[i + 4].id);
+            if (typeof (team[i + strikerCount]) == "object") {
+                let charName = charNames.get(team[i + strikerCount].id);
                 if (charName) {
-                    createCharBox(team[i + 4].id, blankSlot, "borrow", false);
+                    createCharBox(team[i + strikerCount].id, blankSlot, "borrow", false);
                     //groupChars.push(charName);
                 }
             }
             else {
-                let charName = charNames.get(team[i + 4]);
+                let charName = charNames.get(team[i + strikerCount]);
                 if (charName) {
-                    createCharBox(team[i + 4], blankSlot, "teams", false);
+                    createCharBox(team[i + strikerCount], blankSlot, "teams", false);
                     groupChars.push(charName);
                 }
             }
         }
     }
 
+}
+
+function addNewLbaTeam() {
+    addNewTeam([null,null,null,null,null,null,null,null,null,null], true);
 }
 
 function newBlankSlot(teamId, slotId, type) {
@@ -2442,16 +2459,53 @@ async function addNewGroup() {
         generateTeamCharOptions();
 
         currentGroup = groupName;
-        addNewTeam([null, null, null, null, null, null]);
+        currentGroupIsLba = false;
+        updateAddTeamButtons();
+        addNewTeam([null, null, null, null, null, null], false);
         borrowed = false;
 
-        let groupCount = 0;
-        if (data.groups) {
-            groupCount = Object.keys(data.groups).length;
-        }
+        let groupCount = Object.keys(data.groups ?? {}).length + Object.keys(data.lba_groups ?? {}).length;
 
         let selectElement = document.getElementById('select-groups');
         addOption(selectElement, (groupCount + 1) + ". " + groupName, groupName);
+
+        selectElement.value = groupName;
+    }
+
+}
+
+// Creates a new LBA group (6 Strikers + 4 Specials per team).
+async function addNewLbaGroup() {
+
+    const { value: groupName } = await Swal.fire({
+        title: GetLanguageString("text-createnewgroup"),
+        input: 'text',
+        inputPlaceholder: GetLanguageString("placeholder-newgroup"),
+        showCancelButton: true,
+        confirmButtonText: GetLanguageString("button-ok"),
+        cancelButtonText: GetLanguageString("label-cancel"),
+        inputValidator: (value) => {
+            if (!value) return GetLanguageString("text-fieldempty");
+            if (value.length > 35) return GetLanguageString("text-namelong");
+            if ($("#select-groups option[value='" + value + "']").length > 0)
+                return GetLanguageString("text-groupexists");
+        }
+    })
+
+    if (groupName) {
+        clearTeams();
+        generateTeamCharOptions();
+
+        currentGroup = groupName;
+        currentGroupIsLba = true;
+        updateAddTeamButtons();
+        addNewTeam([null,null,null,null,null,null,null,null,null,null], true);
+        borrowed = false;
+
+        let groupCount = Object.keys(data.groups ?? {}).length + Object.keys(data.lba_groups ?? {}).length;
+
+        let selectElement = document.getElementById('select-groups');
+        addOption(selectElement, (groupCount + 1) + ". [LBA] " + groupName, groupName);
 
         selectElement.value = groupName;
     }
@@ -2701,8 +2755,10 @@ function getCharsInTeam(teamId) {
     if (team) {
         let strikers = team.children[1];
         let specials = team.children[2];
+        let strikerCount = strikers.children.length;
+        let specialCount = specials.children.length;
 
-        for (let str = 0; str < 4; str++) {
+        for (let str = 0; str < strikerCount; str++) {
             let slotCharId = strikers.children[str].children[0].id;
 
             if (slotCharId) {
@@ -2718,19 +2774,19 @@ function getCharsInTeam(teamId) {
             }
         }
 
-        for (let spe = 0; spe < 2; spe++) {
+        for (let spe = 0; spe < specialCount; spe++) {
             let slotCharId = specials.children[spe].children[0].id;
 
             if (slotCharId) {
                 if (slotCharId.includes('borrow')) {
-                    inGroup[spe + 4] = { id: slotCharId.substring(12) };
+                    inGroup[spe + strikerCount] = { id: slotCharId.substring(12) };
                 }
                 else {
-                    inGroup[spe + 4] = slotCharId.substring(11);
+                    inGroup[spe + strikerCount] = slotCharId.substring(11);
                 }
             }
             else {
-                inGroup[spe + 4] = null;
+                inGroup[spe + strikerCount] = null;
             }
         }
     }
@@ -2766,13 +2822,18 @@ function saveGroup() {
         data.groups = {};
     }
 
+    if (data.lba_groups == null) {
+        data.lba_groups = {};
+    }
+
     let teams = getCharsInGroup();
 
+    const groupStore = currentGroupIsLba ? data.lba_groups : data.groups;
     if (teams.length > 0) {
-        data.groups[currentGroup] = teams;
+        groupStore[currentGroup] = teams;
     }
     else {
-        data.groups[currentGroup] = null;
+        groupStore[currentGroup] = null;
     }
 
     saveTime = Date.now() + (1000 * 5);
@@ -2790,6 +2851,8 @@ function groupSelected() {
         clearTeams();
 
         currentGroup = groupName;
+        currentGroupIsLba = data.lba_groups && data.lba_groups.hasOwnProperty(groupName);
+        updateAddTeamButtons();
         borrowed = false;
         loadGroup(groupName);
     }
@@ -2799,17 +2862,23 @@ function loadGroup(groupName) {
 
     let teams;
 
-    if (data.groups) {
+    if (currentGroupIsLba && data.lba_groups) {
+        teams = data.lba_groups[groupName];
+    } else if (data.groups) {
         teams = data.groups[groupName];
     }
 
+    const emptyTeam = currentGroupIsLba
+        ? [null,null,null,null,null,null,null,null,null,null]
+        : [null,null,null,null,null,null];
+
     if (teams && teams.length > 0) {
         for (let i = 0; i < teams.length; i++) {
-            addNewTeam(teams[i]);
+            addNewTeam(teams[i], currentGroupIsLba);
         }
     }
     else {
-        addNewTeam([null, null, null, null, null, null]);
+        addNewTeam(emptyTeam, currentGroupIsLba);
     }
 
     generateTeamCharOptions();
@@ -2843,13 +2912,16 @@ function deleteGroup() {
             $("#select-groups option[value='" + currentGroup + "']").remove();
             // }
 
-            if (data.groups[currentGroup]) {
+            const delStore = currentGroupIsLba ? data.lba_groups : data.groups;
+            if (delStore[currentGroup]) {
 
-                delete (data.groups[currentGroup]);
+                delete (delStore[currentGroup]);
                 saveTime = Date.now() + (1000 * 5);
             }
 
             currentGroup = "";
+            currentGroupIsLba = false;
+            updateAddTeamButtons();
 
             rebuildGroups();
         }
@@ -2905,11 +2977,12 @@ async function renameGroup() {
             // }
             let curGroupPos;
 
-            if (data.groups && data.groups[currentGroup]) {
-                curGroupPos = Object.keys(data.groups).indexOf(currentGroup) + 1;
+            const renameStore = currentGroupIsLba ? data.lba_groups : data.groups;
+            if (renameStore && renameStore[currentGroup]) {
+                curGroupPos = Object.keys(renameStore).indexOf(currentGroup) + 1;
 
-                data.groups[groupName] = data.groups[currentGroup];
-                delete (data.groups[currentGroup]);
+                renameStore[groupName] = renameStore[currentGroup];
+                delete (renameStore[currentGroup]);
 
                 currentGroup = groupName;
 
@@ -2927,18 +3000,7 @@ async function renameGroup() {
 }
 
 function isTeamEmpty(team) {
-
-    let isEmpty = true;
-
-    for (let c = 0; c < 6; c++) {
-
-        if (team[c] != null) {
-            isEmpty = false;
-            break;
-        }
-    }
-
-    return isEmpty
+    return team.every(slot => slot == null);
 }
 
 async function MoveGroup() {
@@ -2948,13 +3010,10 @@ async function MoveGroup() {
         return;
     }
 
-    let groupCount = 0;
-    if (data.groups) {
-        groupCount = Object.keys(data.groups).length;
-        if (groupCount <= 1) {
-            basicAlert(GetLanguageString("text-needmoregroups"));
-            return;
-        }
+    let groupCount = Object.keys(data.groups ?? {}).length + Object.keys(data.lba_groups ?? {}).length;
+    if (groupCount <= 1) {
+        basicAlert(GetLanguageString("text-needmoregroups"));
+        return;
     }
 
     const { value: groupPos } = await Swal.fire({
@@ -2987,24 +3046,26 @@ async function MoveGroup() {
 function SetGroupOrder(newPos) {
 
     if (newPos) {
+        const store = currentGroupIsLba ? data.lba_groups : data.groups;
         let curGroup = 1;
         let newGroupObject = {};
-        let groups = Object.keys(data.groups);
+        let groups = Object.keys(store);
 
         for (let i = 0; i < groups.length; i++) {
             if (newPos == curGroup) {
-                newGroupObject[currentGroup] = data.groups[currentGroup];
+                newGroupObject[currentGroup] = store[currentGroup];
             }
             if (groups[i] != currentGroup) {
-                newGroupObject[groups[i]] = data.groups[groups[i]];
+                newGroupObject[groups[i]] = store[groups[i]];
                 curGroup++;
             }
         }
         if (newGroupObject[currentGroup] == undefined) {
-            newGroupObject[currentGroup] = data.groups[currentGroup];
+            newGroupObject[currentGroup] = store[currentGroup];
         }
 
-        data.groups = newGroupObject;
+        if (currentGroupIsLba) data.lba_groups = newGroupObject;
+        else data.groups = newGroupObject;
         rebuildGroups();
     }
 }
@@ -3025,18 +3086,23 @@ function rebuildGroups() {
     let curGroup = 1;
 
     if (data.groups) {
-
         for (key in data.groups) {
-
-            // if (!defaultGroups.includes(key)) {
             addOption(selectElement, curGroup + ". " + key, key);
-            // }
+            curGroup++;
+        }
+    }
+
+    if (data.lba_groups) {
+        for (key in data.lba_groups) {
+            addOption(selectElement, curGroup + ". [LBA] " + key, key);
             curGroup++;
         }
     }
 
     selectElement.value = "blankselect";
     currentGroup = "";
+    currentGroupIsLba = false;
+    updateAddTeamButtons();
     clearTeams();
 }
 
@@ -3052,9 +3118,14 @@ function rebuildFilters() {
     addOption(filterGroups, GetLanguageString("label-all"), "All");
 
     if (data.groups) {
-
         for (key in data.groups) {
             addOption(filterGroups, key, key);
+        }
+    }
+
+    if (data.lba_groups) {
+        for (key in data.lba_groups) {
+            addOption(filterGroups, "[LBA] " + key, key);
         }
     }
 
@@ -3253,88 +3324,138 @@ function getTextFormattedGroup(monospaced) {
     let group = getCharsInGroup();
     let textOutput = "";
 
-    let names = [];
-    let levels = [];
+    // Each entry is an object with one property per column so we can
+    // measure column widths independently for monospaced alignment.
+    let rows = [];
 
     for (let i = 0; i < group.length; i++) {
 
-        names.push("Team " + (i + 1));
-        levels.push("");
+        rows.push({ teamLabel: "Team " + (i + 1) });
 
         for (let c = 0; c < group[i].length; c++) {
 
-            if (group[i][c] != null) {
+            if (group[i][c] == null) continue;
 
-                let charDataString = "";
-                let charId;
-                if (typeof (group[i][c]) == "object") {
-                    charId = group[i][c].id;
-                    names.push(charNames.get(charId));
-                    levels.push("(Borrowed)");
-                    continue;
-                }
-                else {
-                    charId = group[i][c];
-                }
-
-                let charData = data.characters.find(obj => { return obj.id == charId });
-
-                names.push(charNames.get(charId));
-
-                if (charData.current.ue > 0) {
-                    charDataString += "UE" + charData.current.ue + "★  ";
-                }
-                else {
-                    charDataString += charData.current.star + "★  ";
-                    if (monospaced) {
-                        charDataString += "  ";
-                    }
-                }
-                charDataString += charData.current.level + "  ";
-                if (charData.current.level.length == 1 && monospaced) {
-                    charDataString += " ";
-                }
-                charDataString += formatLevel("Ex", charData.current.ex) + formatLevel("Other", charData.current.basic) +
-                    formatLevel("Other", charData.current.passive) + formatLevel("Other", charData.current.sub) + "  ";
-                charDataString += charData.current.gear1 + charData.current.gear2 + charData.current.gear3 + "  ";
-                if (charData.current.ue_level != "0") {
-                    charDataString += charData.current.ue_level;
-                }
-
-                levels.push(charDataString);
-            }
-
-        }
-    }
-
-    let longest = 0;
-    for (let i = 0; i < names.length; i++) {
-        if (names[i].length > longest) {
-            longest = names[i].length;
-        }
-    }
-
-    if (monospaced) {
-        textOutput += "Name" + " ".repeat(longest - 4) + " Star  Lvl Skill Gear UE\n";
-    }
-    else {
-        textOutput += "Name   Star Lvl Skill Gear UE\n";
-    }
-
-    for (let i = 0; i < names.length; i++) {
-        if (names[i].substring(0, 5) == "Team ") {
-            if (i != 0) {
-                textOutput += "\n";
-            }
-            textOutput += names[i] + "\n";
-        }
-        else {
-            if (monospaced) {
-                textOutput += names[i] + " ".repeat(longest - names[i].length + 1) + levels[i] + "\n";
+            let charId;
+            if (typeof (group[i][c]) == "object") {
+                charId = group[i][c].id;
+                rows.push({ name: charNames.get(charId), borrowed: true });
+                continue;
             }
             else {
-                textOutput += names[i] + " " + levels[i] + "\n";
+                charId = group[i][c];
             }
+
+            let charData = data.characters.find(obj => { return obj.id == charId });
+            let cur = charData.current;
+
+            // ── Name ───────────────────────────────────────────────────────
+            let name = charNames.get(charId);
+
+            // ── Lvl ────────────────────────────────────────────────────────
+            let lvl = cur.level;
+
+            // ── Star ───────────────────────────────────────────────────────
+            let star;
+            if (cur.ue > 0 && cur.ue_level > 0) {
+                star = "UE" + cur.ue + "★" + cur.ue_level;
+            }
+            else if (cur.ue > 0) {
+                star = "UE" + cur.ue + "★";
+            }
+            else {
+                star = cur.star + "★";
+            }
+
+            // ── Skill ──────────────────────────────────────────────────────
+            let skill = formatLevel("Ex", cur.ex) +
+                        formatLevel("Other", cur.basic) +
+                        formatLevel("Other", cur.passive) +
+                        formatLevel("Other", cur.sub);
+
+            // ── Gear ───────────────────────────────────────────────────────
+            let gear = cur.gear1 + "/" + cur.gear2 + "/" + cur.gear3;
+
+            // ── ♥ Bond ────────────────────────────────────────────────────
+            let bond = cur.bond ?? "";
+
+            // ── BG Bond Gear ──────────────────────────────────────────────
+            let bg;
+            if (!bondgear_characters.includes(parseInt(charId))) {
+                bg = "-";
+            }
+            else {
+                let bgVal = parseInt(cur.bondgear ?? 0);
+                bg = bgVal > 0 ? "T" + bgVal : "0";
+            }
+
+            // ── LB Potential ──────────────────────────────────────────────
+            let lb = "";
+            if (cur.ue > 0) {
+                let hp  = parseInt(cur.potentialmaxhp   ?? 0);
+                let atk = parseInt(cur.potentialattack  ?? 0);
+                let hea = parseInt(cur.potentialhealpower ?? 0);
+                if (hp > 0 || atk > 0 || hea > 0) {
+                    lb = hp + "/" + atk + "/" + hea;
+                }
+            }
+
+            rows.push({ name, lvl, star, skill, gear, bond, bg, lb });
+        }
+    }
+
+    // ── Column widths for monospaced mode ──────────────────────────────────
+    const cols = ["name", "lvl", "star", "skill", "gear", "bond", "bg", "lb"];
+    const headers = { name: "Name", lvl: "Lvl", star: "Star", skill: "Skill",
+                      gear: "Gear", bond: "♥", bg: "BG", lb: "LB" };
+
+    let widths = {};
+    for (let col of cols) {
+        widths[col] = headers[col].length;
+    }
+    for (let row of rows) {
+        if (row.teamLabel || row.borrowed) continue;
+        for (let col of cols) {
+            let val = String(row[col] ?? "");
+            if (val.length > widths[col]) widths[col] = val.length;
+        }
+    }
+
+    function pad(val, col) {
+        let s = String(val ?? "");
+        return s + " ".repeat(widths[col] - s.length);
+    }
+
+    function formatRow(row) {
+        if (monospaced) {
+            return cols.map(col => pad(row[col] ?? "", col)).join("  ");
+        }
+        else {
+            return cols.map(col => String(row[col] ?? "")).join("  ");
+        }
+    }
+
+    // ── Header ────────────────────────────────────────────────────────────
+    if (monospaced) {
+        textOutput += cols.map(col => pad(headers[col], col)).join("  ") + "\n";
+    }
+    else {
+        textOutput += cols.map(col => headers[col]).join("  ") + "\n";
+    }
+
+    // ── Body ──────────────────────────────────────────────────────────────
+    let firstTeam = true;
+    for (let row of rows) {
+        if (row.teamLabel) {
+            if (!firstTeam) textOutput += "\n";
+            textOutput += row.teamLabel + "\n";
+            firstTeam = false;
+        }
+        else if (row.borrowed) {
+            textOutput += row.name + "  (Borrowed)\n";
+        }
+        else {
+            textOutput += formatRow(row) + "\n";
         }
     }
 
@@ -6931,6 +7052,9 @@ function initData() {
 
     if (!data.groups) {
         data.groups = {};
+    }
+    if (!data.lba_groups) {
+        data.lba_groups = {};
     }
 }
 
