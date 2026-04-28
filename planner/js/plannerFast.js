@@ -348,7 +348,7 @@ function createCharBox(charId, container, location, lazy) {
     }
     else {
         newImg.loading = "eager";
-        if (location == "teams") {
+        if (location == "teams" && colorContainerAtk) {
             colorContainerAtk.style.backgroundColor = hexToRgb(propertyColours[charlist[charId].BulletType]);
             colorContainerDef.style.backgroundColor = hexToRgb(propertyColours[charlist[charId].ArmorType]);
         }
