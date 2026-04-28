@@ -155,6 +155,15 @@
     /*z-index: 1;*/
 }
 
+.atkdef-container {
+    display: flex;
+    position: absolute;
+    bottom: 14%;
+    left: 0%;
+    /*width: 100%;*/
+    /*z-index: 1;*/
+}
+
 .ue-container {
     display: flex;
     position: absolute;

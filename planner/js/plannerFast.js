@@ -38,6 +38,7 @@ fetch('json/students.min.json?q='+dummy).then((response) => response.json()).the
     charlist = json;
     if (nameReady && (data.language == "EN" || data.language == "Id")) {
         ShowNames(charlist);
+        updateContainers();
     }
 });
 
@@ -233,6 +234,9 @@ function createCharBox(charId, container, location, lazy) {
     let newUEContainer;
     let newBondContainer;
     let newBondContainerBG;
+    let colorContainer;
+    let colorContainerAtk;
+    let colorContainerDef;
 
     let char = data.characters[dataCharIndex[charId]]; //.find(obj => { return obj.id == charId });
 
@@ -281,7 +285,16 @@ function createCharBox(charId, container, location, lazy) {
         newBondContainerBG.appendChild(newBondgearP);
         newBondContainerBG.appendChild(newBondgearP2);
 
-
+        colorContainer = document.createElement("div")
+        colorContainer.className = "atkdef-container";
+        colorContainerAtk = document.createElement("span");
+        colorContainerAtk.id = charId + idInject + "-atkColor";
+        colorContainerAtk.innerText = "A";
+        colorContainerDef = document.createElement("span");
+        colorContainerDef.id = charId + idInject + "-defColor";
+        colorContainerDef.innerText = "D";
+        colorContainer.appendChild(colorContainerAtk)
+        colorContainer.appendChild(colorContainerDef)
 
         for (i = 0; i < 5; i++) {
             const newStar = document.createElement("img");
@@ -335,6 +348,10 @@ function createCharBox(charId, container, location, lazy) {
     }
     else {
         newImg.loading = "eager";
+        if (location == "teams") {
+            colorContainerAtk.style.backgroundColor = hexToRgb(propertyColours[charlist[charId].BulletType]);
+            colorContainerDef.style.backgroundColor = hexToRgb(propertyColours[charlist[charId].ArmorType]);
+        }
     }
 
     const nameDiv = document.createElement("div");
@@ -383,6 +400,7 @@ function createCharBox(charId, container, location, lazy) {
         newDiv.appendChild(newUEContainer);
         newDiv.appendChild(newBondContainer);
         newDiv.appendChild(newBondContainerBG);
+        newDiv.appendChild(colorContainer);
     }
     if (location == "main") {
         newDiv.onclick = openModal
@@ -476,6 +494,7 @@ function updateInfoDisplay(charId, idInject, charData) {
         if (limitbreakCurrent != "0 0 0") document.getElementById(charId + idInject + "-limitbreak-current").innerText = limitbreakCurrent;
         document.getElementById(charId + idInject + "-limitbreak-target").innerText = "";
     }
+
 }
 
 function updateStarDisplay(id, charId, type, fromTemp, charData) {
@@ -579,6 +598,24 @@ function ShowNames(source) {
         }
     }
 }
+
+function hexToRgb(hex) {
+    hex = hex.replace(/^#/, '');
+    let r = parseInt(hex.substring(0, 2), 16);
+    let g = parseInt(hex.substring(2, 4), 16);
+    let b = parseInt(hex.substring(4, 6), 16);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+function updateContainers(){
+    data.characters.forEach(c=>{
+        let charId = c.id
+        document.getElementById(charId + "-atkColor").style.backgroundColor = hexToRgb(propertyColours[charlist[charId].BulletType]);
+        document.getElementById(charId + "-defColor").style.backgroundColor = hexToRgb(propertyColours[charlist[charId].ArmorType]);
+    })
+}
+
 
 function updateUiLanguage() {
 
