@@ -5477,14 +5477,13 @@ function DisplayMatUsers(mat, iconUrl) {
         wrapperChildren[0].remove();
     }
 
-    let typeIcon = document.createElement("img");
-    if (iconUrl) typeIcon.src = iconUrl
-    else {
-        typeIcon.src = "icons/Gifts/" + matLookup.get(mat.replace("mat-","")) + "_small.webp"
+    if (iconUrl) {
+        let typeIcon = document.createElement("img");
+        typeIcon.src = iconUrl
+        typeIcon.className = "char-row-mats";
+        wrapperDiv.appendChild(typeIcon);
     }
-    typeIcon.className = "char-row-mats";
-    wrapperDiv.appendChild(typeIcon);
-
+    
     for (let i = 0; i < matUsers.length; i++) {
 
         let charDiv = document.createElement('div');
