@@ -2461,6 +2461,8 @@ async function addNewGroup() {
         currentGroup = groupName;
         currentGroupIsLba = false;
         updateAddTeamButtons();
+        if (!data.groups) data.groups = {};
+        data.groups[groupName] = [];
         addNewTeam([null, null, null, null, null, null], false);
         borrowed = false;
 
@@ -2499,6 +2501,8 @@ async function addNewLbaGroup() {
         currentGroup = groupName;
         currentGroupIsLba = true;
         updateAddTeamButtons();
+        if (!data.lba_groups) data.lba_groups = {};
+        data.lba_groups[groupName] = [];
         addNewTeam([null,null,null,null,null,null,null,null,null,null], true);
         borrowed = false;
 
@@ -2978,7 +2982,7 @@ async function renameGroup() {
             let curGroupPos;
 
             const renameStore = currentGroupIsLba ? data.lba_groups : data.groups;
-            if (renameStore && renameStore[currentGroup]) {
+            if (renameStore && renameStore.hasOwnProperty(currentGroup)) {
                 curGroupPos = Object.keys(renameStore).indexOf(currentGroup) + 1;
 
                 renameStore[groupName] = renameStore[currentGroup];
@@ -2991,6 +2995,11 @@ async function renameGroup() {
                 }
 
                 rebuildGroups();
+
+                currentGroup = groupName;
+                currentGroupIsLba = !!renameStore && renameStore.hasOwnProperty(groupName) ? currentGroupIsLba : false;
+                document.getElementById('select-groups').value = groupName;
+                groupSelected()
 
                 saveTime = Date.now() + (1000 * 5);
             }
