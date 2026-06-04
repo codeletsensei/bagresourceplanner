@@ -14,6 +14,7 @@ class TwoWayMap {
 }
 
 const matLookup = new TwoWayMap({
+
     100: "Nebra_1",
     101: "Nebra_2",
     102: "Nebra_3",
@@ -227,6 +228,25 @@ const matLookup = new TwoWayMap({
 
     9999: "Secret"
 });
+
+const additionalEquipMap = {
+    1: "GXP_1", 2: "GXP_2", 3: "GXP_3", 4: "GXP_4",
+    10: "T1_Spring", 11: "T2_Spring", 12: "T3_Spring", 13: "T4_Spring",
+    20: "T1_Hammer", 21: "T2_Hammer", 22: "T3_Hammer", 23: "T4_Hammer",
+    30: "T1_Barrel", 31: "T2_Barrel", 32: "T3_Barrel", 33: "T4_Barrel",
+    40: "T1_Needle", 41: "T2_Needle", 42: "T3_Needle", 43: "T4_Needle",
+    1001: "T2_Hat", 1002: "T3_Hat", 1003: "T4_Hat", 1004: "T5_Hat", 1005: "T6_Hat", 1006: "T7_Hat", 1007: "T8_Hat", 1008: "T9_Hat", 1009: "T10_Hat",
+    2001: "T2_Gloves", 2002: "T3_Gloves", 2003: "T4_Gloves", 2004: "T5_Gloves", 2005: "T6_Gloves", 2006: "T7_Gloves", 2007: "T8_Gloves", 2008: "T9_Gloves", 2009: "T10_Gloves",
+    3001: "T2_Shoes", 3002: "T3_Shoes", 3003: "T4_Shoes", 3004: "T5_Shoes", 3005: "T6_Shoes", 3006: "T7_Shoes", 3007: "T8_Shoes", 3008: "T9_Shoes", 3009: "T10_Shoes",
+    4001: "T2_Bag", 4002: "T3_Bag", 4003: "T4_Bag", 4004: "T5_Bag", 4005: "T6_Bag", 4006: "T7_Bag", 4007: "T8_Bag", 4008: "T9_Bag", 4009: "T10_Bag",
+    5001: "T2_Badge", 5002: "T3_Badge", 5003: "T4_Badge", 5004: "T5_Badge", 5005: "T6_Badge", 5006: "T7_Badge", 5007: "T8_Badge", 5008: "T9_Badge", 5009: "T10_Badge",
+    6001: "T2_Hairpin", 6002: "T3_Hairpin", 6003: "T4_Hairpin", 6004: "T5_Hairpin", 6005: "T6_Hairpin", 6006: "T7_Hairpin", 6007: "T8_Hairpin", 6008: "T9_Hairpin", 6009: "T10_Hairpin",
+    7001: "T2_Charm", 7002: "T3_Charm", 7003: "T4_Charm", 7004: "T5_Charm", 7005: "T6_Charm", 7006: "T7_Charm", 7007: "T8_Charm", 7008: "T9_Charm", 7009: "T10_Charm",
+    8001: "T2_Watch", 8002: "T3_Watch", 8003: "T4_Watch", 8004: "T5_Watch", 8005: "T6_Watch", 8006: "T7_Watch", 8007: "T8_Watch", 8008: "T9_Watch", 8009: "T10_Watch",
+    9001: "T2_Necklace", 9002: "T3_Necklace", 9003: "T4_Necklace", 9004: "T5_Necklace", 9005: "T6_Necklace", 9006: "T7_Necklace", 9007: "T8_Necklace", 9008: "T9_Necklace", 9009: "T10_Necklace",
+    150028: "T2_SLC", 150029: "T3_SLC", 150030: "T4_SLC", 150031: "T5_SLC", 150032: "T6_SLC", 150033: "T7_SLC", 150041: "T8_SLC", 150045: "T9_SLC",
+    501000: "UBP_Hat", 502000: "UBP_Gloves", 503000: "UBP_Shoes", 504000: "UBP_Bag", 505000: "UBP_Badge", 506000: "UBP_Hairpin", 507000: "UBP_Charm", 508000: "UBP_Watch", 509000: "UBP_Necklace",
+};
 
 const gearLookup = ["UBP_Hat", "UBP_Gloves", "UBP_Shoes", "UBP_Bag", "UBP_Badge", "UBP_Hairpin", "UBP_Charm", "UBP_Watch", "UBP_Necklace",
     "T2_SLC", "T3_SLC", "T4_SLC", "T5_SLC", "T6_SLC", "T7_SLC", "T8_SLC", "T9_SLC", "T10_SLC",

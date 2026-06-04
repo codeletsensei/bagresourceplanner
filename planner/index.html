@@ -1340,16 +1340,19 @@
                     style="right: 20px; background-color: #dc415e94;" onclick="loadClick()"
                     data-id="saving-loadbutton"></button>
             </div>-->
-            <div class="transfer-modal-button-wrapper" style="border-top: 2px solid gainsboro; padding-top: 10px;">
-                <button class="transfer-modal-button display-string" onclick="displayExportData('justin')" style="left: 20px; background-color: #2778c494;" data-id="saving-exportbutton-justin"></button>
-                <label for="inputImportFile" class="transfer-modal-button" style="right: 20px; background-color: #dc964194; text-align:center">
+            <div class="transfer-modal-button-wrapper" style="border-top: 2px solid gainsboro; padding-top: 10px; height: 450px">
+                <button class="transfer-modal-button display-string" onclick="displayExportData('justin')" style="left: 20px; background-color: #2778c494;" data-id="saving-exportbutton-justin">Export file compatible with Justin. Cuts stuff it doesn't have (newer students, SLC, UBP, etc).</button>
+                <button class="transfer-modal-button display-string" onclick="displayExportDataEridu()" style="right: 20px; background-color: #27c46094;" data-id="saving-exportbutton-eridu">Export to Eridu</button>
+
+                <label for="inputImportFile" class="transfer-modal-button" style="bottom:100px; min-width: 360px; right: 20px; background-color: #dc964194; text-align:center">
                     Click to select the Import file...
                     <br>
-                    Or Drag & Drop the json file.
-                    <input id="inputImportFile" type="file" style="display:none" />
+                    Or Drag &amp; Drop the json file.
+                    <input id="inputImportFile" type="file" style="display:none">
                 </label>
-                <button class="transfer-modal-button display-string" onclick="displayExportData()" style="left: 20px; bottom:10px; background-color: #2778c494;" data-id="saving-exportbutton"></button>
-                <button class="transfer-modal-button display-string" onclick="getImportData()" style="right: 20px; bottom:10px; background-color: #dc964194;" data-id="saving-importbutton"></button>
+
+                <button class="transfer-modal-button display-string" onclick="displayExportData()" style="left: 20px; bottom:10px; background-color: #2778c494;" data-id="saving-exportbutton">Export/Download</button>
+                <button class="transfer-modal-button display-string" onclick="getImportData()" style="right: 20px; bottom:10px; background-color: #dc964194;" data-id="saving-importbutton">Import</button>
             </div>
         </div>
     </div>

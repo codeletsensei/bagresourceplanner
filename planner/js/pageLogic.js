@@ -121,9 +121,8 @@ function checkResources() {
 
     if (charlist && misc_data && mLocalisations && language_strings) {
 
-        if (!localStorage.getItem('data-backup')) {
-            localStorage.setItem('data-backup', localStorage.getItem('save-data'));
-        }
+        // Always refresh backup on load so it reflects the last known good state
+        localStorage.setItem("data-backup", localStorage.getItem("save-data"));
 
         charMap = new Map()
         charNames = new Map()
@@ -3478,8 +3477,9 @@ function getTextFormattedGroup(monospaced) {
 
 async function saveToLocalStorage(notify) {
     saveTime = 0;
-
-    localStorage.setItem("save-data", JSON.stringify(data));
+    let tempData = JSON.stringify(data)
+    localStorage.setItem("save-data", tempData);
+    localStorage.setItem("data-backup", tempData);
 
     if (notify && !document.documentElement.classList.contains('swal2-shown')) {
         Swal.fire({
@@ -6861,7 +6861,6 @@ function CalculateLeftoverGearXp() {
 
     let matKeys = Object.keys(leftoverMatDict);
     for (let i = 0; i < matKeys.length; i++) {
-        // UBP_* keys are in gearLookup but don't have a tier XP value
         if (gearLookup.includes(matKeys[i]) && matKeys[i].startsWith("T") && !matKeys[i].endsWith("_SLC")) {
             let tier = matKeys[i].substring(0, matKeys[i].indexOf("_"));
             totalLeftover += leftoverMatDict[matKeys[i]] * misc_data.gear_bp_value[tier];
@@ -6986,31 +6985,83 @@ function switchGearDisplay(displayType) {
 
 // }
 
-function displayExportData(option) {
+async function displayExportData(option) {
     var saveData = localStorage.getItem('save-data')
+
+    const forkToJustinFieldMap = {
+        "bondgear":           "bond_gear",
+        "potentialmaxhp":     "book_hp",
+        "potentialattack":    "book_atk",
+        "potentialhealpower": "book_heal"
+    };
+
+    let justinExcludeChars     = [];                // character ids to strip for justin
+    const justinExcludeCharProps = ["notes"];         // per-character current/target props to strip for justin
+    const justinExcludeTopLevel  = ["apCalc"];        // top-level save keys to strip for justin
+    const justinGearCap          = 10;                // justin's maximum gear level
+
+    saveData = JSON.parse(saveData)
+
+    for (let i in saveData.characters) {
+        if (saveData.characters[i].current.bondgear == 1 && saveData.characters[i].current.bond < 15) saveData.characters[i].current.bond = "15"
+        else if (saveData.characters[i].current.bondgear == 2 && saveData.characters[i].current.bond < 20) saveData.characters[i].current.bond = "20"
+    }
+
     if (option == "justin") {
-        let extraChars = []
-        let extraProps = ["bondgear", "potentialmaxhp", "potentialattack", "potentialhealpower", "Wildhunt"]
-        saveData = JSON.parse(saveData)
-        for (let i in extraChars) {
-            saveData.characters = saveData.characters.filter((a)=>{ return a.id != extraChars[i] })
-            saveData.disabled_characters = saveData.disabled_characters.filter((a)=>{ return a != extraChars[i] })
-            saveData.character_order = saveData.character_order.filter((a)=>{ return a != extraChars[i] })
-        }
-        for (let i in saveData.characters) {
-            for (let j in saveData.characters[i].current) {
-                if (extraProps.includes(j)) {
-                    saveData.characters[i].current = Object.fromEntries(Object.entries(saveData.characters[i].current).filter(([k, v]) => k != j));
-                    saveData.characters[i].target = Object.fromEntries(Object.entries(saveData.characters[i].target).filter(([k, v]) => k != j));
+
+        let justinChars = await fetch("https://raw.githubusercontent.com/JustinL163/BA-Resource-Planner/refs/heads/main/planner/json/skillinfo/jp.json")
+        justinChars = await justinChars.json()
+        justinChars = Object.keys(justinChars)
+        let forkChars = saveData.characters.map(a=>{return a.id})
+
+        justinExcludeChars = forkChars.filter((e) => !justinChars.includes(e));
+
+        saveData.characters          = saveData.characters.filter(a => !justinExcludeChars.includes(a.id));
+        saveData.disabled_characters = saveData.disabled_characters.filter(a => !justinExcludeChars.includes(a));
+        saveData.character_order     = saveData.character_order.filter(a => !justinExcludeChars.includes(a));
+    }
+
+    for (let i in saveData.characters) {
+        let char = saveData.characters[i];
+
+        for (const scope of ["current", "target"]) {
+            let obj = char[scope];
+            if (!obj) continue;
+
+            for (const [forkKey, justinKey] of Object.entries(forkToJustinFieldMap)) {
+                if (forkKey in obj) {
+                    obj[justinKey] = obj[forkKey];
+                    delete obj[forkKey];
                 }
-                else if (j.includes("gear") && parseInt(saveData.characters[i].current[j]) > 10) {
-                    saveData.characters[i].current[j] = "10"
-                    saveData.characters[i].target[j] = "10"
+            }
+
+            if (option == "justin") {
+                for (const prop of justinExcludeCharProps) {
+                    delete obj[prop];
+                }
+                for (const key in obj) {
+                    if (key.includes("gear") && parseInt(obj[key]) > justinGearCap) {
+                        obj[key] = String(justinGearCap);
+                    }
                 }
             }
         }
-        saveData = JSON.stringify(saveData)
+
+        if (option == "justin") {
+            for (const prop of justinExcludeCharProps) {
+                delete char[prop];
+            }
+        }
     }
+
+    if (option == "justin") {
+        for (const key of justinExcludeTopLevel) {
+            delete saveData[key];
+        }
+    }
+
+    saveData = JSON.stringify(saveData)
+
     Swal.fire({
         title: GetLanguageString("text-exporteddata"),
         html: '<textarea style="width: 400px; height: 250px; resize: none;" readonly>' + saveData + '</textarea>'
@@ -7033,8 +7084,331 @@ function displayExportData(option) {
     }
 }
 
-async function getImportData() {
 
+async function displayExportDataEridu() {
+    const data = JSON.parse(localStorage.getItem('save-data'));
+    const studentsDb = (typeof charlist !== "undefined") ? charlist : {};
+
+    // Reverse maps: bagplanner string key -> eridu equipment integer ID
+    // Built from additionalEquipMap (gear slots/blueprints) and matLookup (GXP, weapon growth)
+    const forkKeyToEquipId = {};
+    for (const [eid, fkey] of Object.entries(additionalEquipMap)) {
+        // Blueprints accumulate (multiple IDs -> same T{n}_SLC key); only store the first per slot
+        // to avoid double-counting on export. We pick the Hat slot (slotCode=1) as canonical.
+        if (fkey.endsWith("_SLC") && forkKeyToEquipId[fkey] !== undefined) continue;
+        forkKeyToEquipId[fkey] = parseInt(eid);
+    }
+    // Add GXP and weapon growth from matLookup (non-colliding entries)
+    for (const fkey of ["GXP_1","GXP_2","GXP_3","GXP_4",
+                        "T1_Spring","T2_Spring","T3_Spring","T4_Spring",
+                        "T1_Hammer","T2_Hammer","T3_Hammer","T4_Hammer",
+                        "T1_Barrel","T2_Barrel","T3_Barrel","T4_Barrel",
+                        "T1_Needle","T2_Needle","T3_Needle","T4_Needle"]) {
+        const eid = matLookup.revGet(fkey);
+        if (eid !== undefined) forkKeyToEquipId[fkey] = eid;
+    }
+
+    // Reverse map: bagplanner string key -> eridu resource integer ID
+    const forkKeyToResourceId = {
+        "Credit": 5, "XP_1": 10, "XP_2": 11, "XP_3": 12, "XP_4": 13
+    };
+
+    // --- Build userData.forms ---
+    const forms = {};
+    for (const char of data.characters) {
+        const id = char.id;
+        const studentData = studentsDb[id] || studentsDb[parseInt(id)];
+        const equipSlots  = (studentData && studentData.Equipment) ? studentData.Equipment : [];
+        const cur = char.current;
+        const tgt = char.target;
+        const isOwned = char.enabled !== false
+                        && !data.disabled_characters.includes(id)
+                        && !data.disabled_characters.includes(parseInt(id));
+
+        // gradeLevels: star + ue combined (star capped at 5, ue = grade - 5)
+        const gradeCur = Number(cur.star || 0) + Number(cur.ue || 0);
+        const gradeTgt = Number(tgt.star || 0) + Number(tgt.ue || 0);
+
+        // equipmentLevels: gear1/2/3 -> named slots via charlist Equipment array
+        const equipmentLevels = {};
+        for (let i = 0; i < equipSlots.length && i < 3; i++) {
+            const slot = equipSlots[i];
+            equipmentLevels[slot] = {
+                current: parseInt(cur["gear" + (i + 1)] || 0),
+                target:  parseInt(tgt["gear" + (i + 1)] || 0)
+            };
+        }
+
+        forms[id] = {
+            studentId:       parseInt(id),
+            isOwned:         isOwned,
+            characterLevels: { current: parseInt(cur.level || 1), target: parseInt(tgt.level || 1) },
+            bondDetailData:  { currentBond: parseInt(cur.bond || 1), targetBond: parseInt(tgt.bond || 1), currentUeLevel: parseInt(cur.ue_level || 0), targetUeLevel: parseInt(tgt.ue_level || 0) },
+            skillLevels: {
+                Ex:           { current: parseInt(cur.ex  || 1), target: parseInt(tgt.ex  || 1) },
+                Public:       { current: parseInt(cur.basic || 1), target: parseInt(tgt.basic || 1) },
+                Passive:      { current: parseInt(cur.passive || 1), target: parseInt(tgt.passive || 1) },
+                ExtraPassive: { current: parseInt(cur.sub  || 1), target: parseInt(tgt.sub  || 1) }
+            },
+            equipmentLevels: equipmentLevels,
+            exclusiveGearLevel: {
+                current: parseInt(cur.bondgear || 0),
+                target:  parseInt(tgt.bondgear || 0)
+            },
+            gradeLevels: { current: gradeCur, target: gradeTgt },
+            potentialLevels: {
+                attack:    { current: parseInt(cur.potentialattack    || 0), target: parseInt(tgt.potentialattack    || 0) },
+                maxhp:     { current: parseInt(cur.potentialmaxhp     || 0), target: parseInt(tgt.potentialmaxhp     || 0) },
+                healpower: { current: parseInt(cur.potentialhealpower || 0), target: parseInt(tgt.potentialhealpower || 0) }
+            },
+            gradeInfos: {
+                owned:       parseInt(char.eleph?.owned || 0),
+                price:       parseInt(char.eleph?.cost  || 1),
+                purchasable: parseInt(char.eleph?.purchasable || 20)
+            }
+        };
+    }
+
+    // --- Build userData.equipments and userData.resources ---
+    const equipments = {};
+    const resources  = {};
+
+    for (const [fkey, qty] of Object.entries(data.owned_materials)) {
+        if (!qty || qty === "0") continue;
+        const qtyInt = parseInt(qty);
+        if (!qtyInt) continue;
+
+        if (forkKeyToEquipId[fkey] !== undefined) {
+            equipments[forkKeyToEquipId[fkey]] = qtyInt;
+        } else if (forkKeyToResourceId[fkey] !== undefined) {
+            resources[forkKeyToResourceId[fkey]] = qtyInt;
+        } else {
+            // Numeric string keys (matLookup items like BD, TN, favor, workbooks, etc.)
+            const asInt = parseInt(fkey);
+            if (!isNaN(asInt)) {
+                resources[asInt] = qtyInt;
+            }
+        }
+    }
+
+    const eriduExport = {
+        version:   "3.0",
+        timestamp: Date.now(),
+        settings:  {},
+        userData:  { forms, resources, equipments }
+    };
+
+    const saveStr = JSON.stringify(eriduExport);
+
+    Swal.fire({
+        title: GetLanguageString("text-exporteddataEridu"),
+        html: '<textarea style="width: 400px; height: 250px; resize: none;" readonly>' + saveStr + '</textarea>'
+    });
+
+    function downloadObjectAsJson(exportObj, exportName) {
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
+        var downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", exportName + ".json");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    }
+    let date = new Date().getFullYear() + "." + ("0"+(parseInt(new Date().getMonth())+1)).slice(-2) + "." + ("0" + new Date().getDate()).slice(-2) + "." + ("0" + new Date().getHours()).slice(-2) + "" + ("0" + new Date().getMinutes()).slice(-2);
+    downloadObjectAsJson(saveStr, "bag_planner2eridu_saveFile_" + date);
+}
+
+function convertEriduToFork(eriduData, currentData) {
+    const studentsDb = (typeof charlist !== "undefined") ? charlist : {};
+
+    const characters = [];
+    const disabledCharacters = [];
+
+    for (const [idStr, form] of Object.entries(eriduData.userData.forms)) {
+        const studentId = String(form.studentId || idStr);
+
+        const studentData = studentsDb[studentId] || studentsDb[parseInt(studentId)];
+        const equipSlots  = (studentData && studentData.Equipment) ? studentData.Equipment : [];
+
+        function gearValue(scope, slotIndex) {
+            if (slotIndex >= equipSlots.length) return "0";
+            const slotName = equipSlots[slotIndex];
+            const slotObj  = form.equipmentLevels && form.equipmentLevels[slotName];
+            if (!slotObj) return "0";
+            return String(slotObj[scope] !== undefined ? slotObj[scope] : 0);
+        }
+
+        const skills = form.skillLevels || {};
+        const Ex            = skills.Ex            || { current: 1, target: 1 };
+        const Public        = skills.Public        || { current: 1, target: 1 };
+        const Passive       = skills.Passive       || { current: 1, target: 1 };
+        const ExtraPassive  = skills.ExtraPassive  || { current: 1, target: 1 };
+
+        const pot = form.potentialLevels || {};
+        const potAtk    = pot.attack    || { current: 0, target: 0 };
+        const potHp     = pot.maxhp     || { current: 0, target: 0 };
+        const potHeal   = pot.healpower || { current: 0, target: 0 };
+
+        const bondGear = form.exclusiveGearLevel || { current: 0, target: 0 };
+
+        const grade = form.gradeLevels || { current: 3, target: 3 };
+        const starCurrent = Math.min(Number(grade.current), 5);
+        const starTarget  = Math.min(Number(grade.target),  5);
+        const ueCurrent   = Math.max(Number(grade.current) - 5, 0);
+        const ueTarget    = Math.max(Number(grade.target)  - 5, 0);
+
+        const currentBond = (form.bondDetailData && form.bondDetailData.currentBond) || 1;
+        // bagplanner-only fields: read from eridu if exported by us, else fall back to current user data
+        const currentChar = currentData && currentData.characters
+            ? (currentData.characters.find(c => String(c.id) === studentId) || null)
+            : null;
+        const bd = form.bondDetailData || {};
+        const targetBond = bd.targetBond     != null ? String(bd.targetBond)     : (currentChar ? String(currentChar.target.bond    || currentBond) : String(currentBond));
+        const curUeLevel = bd.currentUeLevel != null ? String(bd.currentUeLevel) : (currentChar ? String(currentChar.current.ue_level || "0")        : "0");
+        const tgtUeLevel = bd.targetUeLevel  != null ? String(bd.targetUeLevel)  : (currentChar ? String(currentChar.target.ue_level  || "0")        : "0");
+
+        const gi = form.gradeInfos || {};
+
+        const isOwned = !!form.isOwned;
+
+        const charEntry = {
+            id:   studentId,
+            name: (studentData && studentData.Name) ? studentData.Name : studentId,
+            current: {
+                level:              String(form.characterLevels ? form.characterLevels.current : 1),
+                ue_level:           curUeLevel,
+                bond:               String(currentBond),
+                ex:                 String(Ex.current),
+                basic:              String(Public.current),
+                passive:            String(Passive.current),
+                sub:                String(ExtraPassive.current),
+                gear1:              gearValue("current", 0),
+                gear2:              gearValue("current", 1),
+                gear3:              gearValue("current", 2),
+                star:               starCurrent,
+                ue:                 ueCurrent,
+                notes:              "",
+                bondgear:           Number(bondGear.current),
+                potentialmaxhp:     Number(potHp.current),
+                potentialattack:    Number(potAtk.current),
+                potentialhealpower: Number(potHeal.current)
+            },
+            target: {
+                level:              String(form.characterLevels ? form.characterLevels.target : 1),
+                ue_level:           tgtUeLevel,
+                bond:               targetBond,
+                ex:                 String(Ex.target),
+                basic:              String(Public.target),
+                passive:            String(Passive.target),
+                sub:                String(ExtraPassive.target),
+                gear1:              gearValue("target", 0),
+                gear2:              gearValue("target", 1),
+                gear3:              gearValue("target", 2),
+                star:               starTarget,
+                ue:                 ueTarget,
+                bondgear:           Number(bondGear.target),
+                potentialmaxhp:     Number(potHp.target),
+                potentialattack:    Number(potAtk.target),
+                potentialhealpower: Number(potHeal.target)
+            },
+            eleph: {
+                owned:       String(gi.owned  !== undefined ? gi.owned  : 0),
+                unlocked:    isOwned,
+                cost:        String(gi.price  !== undefined ? gi.price  : 1),
+                purchasable: String(gi.purchasable !== undefined ? gi.purchasable : 20),
+                farm_nodes:  "0",
+                node_refresh: false,
+                use_eligma:   false,
+                use_shop:     false
+            },
+            enabled:     isOwned,
+            hasBondGear: false,
+            notes:       ""
+        };
+
+        if (!isOwned) disabledCharacters.push(studentId);
+        characters.push(charEntry);
+    }
+
+    const additionalResourceMap = { 5: "Credit", 10: "XP_1", 11: "XP_2", 12: "XP_3", 13: "XP_4" };
+
+    // Material keys that eridu doesn't track; these are always kept from the user's current data.
+    const alwaysKeepMatKeys = new Set();
+    const ubpPattern   = /^UBP_/;
+    const slcPattern   = /^T\d+_SLC$/;
+    const uematPattern = /^T[1-4]_(Spring|Hammer|Barrel|Needle)$/;
+    if (currentData) {
+        for (const key of Object.keys(currentData.owned_materials || {})) {
+            if (ubpPattern.test(key) || slcPattern.test(key) || uematPattern.test(key)) {
+                alwaysKeepMatKeys.add(key);
+            }
+        }
+    }
+
+    // Build owned_materials from eridu, then apply keep-from-current logic.
+    const eriduMaterials = {};
+
+    if (eriduData.userData.equipments) {
+        for (const [eid, qty] of Object.entries(eriduData.userData.equipments)) {
+            if (!qty) continue;
+            const eidInt = parseInt(eid);
+            const forkKey = additionalEquipMap[eidInt] ?? matLookup.get(eidInt);
+            if (!forkKey) continue;
+            eriduMaterials[forkKey] = String((parseInt(eriduMaterials[forkKey] || 0)) + parseInt(qty));
+        }
+    }
+
+    if (eriduData.userData.resources) {
+        for (const [rid, qty] of Object.entries(eriduData.userData.resources)) {
+            if (!qty) continue;
+            const ridInt = parseInt(rid);
+            const forkKey = additionalResourceMap[ridInt] !== undefined ? additionalResourceMap[ridInt] : rid;
+            eriduMaterials[forkKey] = String(qty);
+        }
+    }
+
+    // Merge: for always-keep keys, use current data if eridu has 0 or nothing.
+    const owned_materials = Object.assign({}, eriduMaterials);
+    const keptMatKeys = [];
+    if (currentData) {
+        for (const key of alwaysKeepMatKeys) {
+            const eriduVal = parseInt(eriduMaterials[key] || 0);
+            const currentVal = parseInt((currentData.owned_materials || {})[key] || 0);
+            if (!eriduVal && currentVal) {
+                owned_materials[key] = String(currentVal);
+                keptMatKeys.push(key);
+            }
+        }
+    }
+
+    // Use currentData as fallback for meta fields in case the global `data` is null
+    // (e.g. first-time import with no existing save).
+    const metaSrc = currentData || (typeof data !== "undefined" ? data : null) || {};
+
+    return {
+        exportVersion:        metaSrc.exportVersion ?? 2,
+        characters:           characters,
+        character_order:      (() => {
+            const formIds = Object.values(eriduData.userData.forms || {})
+                .map(f => String(f.studentId || ""));
+            const filtered = (metaSrc.character_order ?? [])
+                .filter(id => formIds.includes(String(id)));
+            const missing = formIds
+                .filter(id => !filtered.some(o => String(o) === id));
+            return [...filtered, ...missing];
+        })(),
+        disabled_characters:  disabledCharacters,
+        owned_materials:      owned_materials,
+        groups:               metaSrc.groups ?? { Binah:[], Chesed:[], Hod:[], ShiroKuro:[], Perorodzilla:[], Goz:[], Hieronymous:[], Kaiten:[] },
+        language:             metaSrc.language ?? "EN",
+        level_cap:            metaSrc.level_cap ?? 90,
+        server:               metaSrc.server ?? "Global",
+        site_version:         (typeof siteVersion !== "undefined") ? siteVersion : GetLanguageString("text-currentversion"),
+        _keptMatKeys:         keptMatKeys
+    };
+}
+
+async function getImportData() {
     const { value: importData } = await Swal.fire({
         input: 'textarea',
         inputLabel: GetLanguageString("text-importdata"),
@@ -7044,32 +7418,155 @@ async function getImportData() {
     })
 
     if (importData) {
-        const { value: confirmation } = await Swal.fire({
-            title: "Are you sure you want to IMPORT this?<br>It will replace your current data!",
+        let tempData = tryParseJSON(importData);
+
+        if (!!!tempData) {
+            Swal.fire({
+                icon: 'error',
+                title: GetLanguageString("text-oops"),
+                text: GetLanguageString("text-invalidjson"),
+                color: alertColour
+            })
+
+            return false;
+        }
+
+        const justinToForkFieldMap = {
+            "bond_gear":  "bondgear",
+            "book_hp":    "potentialmaxhp",
+            "book_atk":   "potentialattack",
+            "book_heal":  "potentialhealpower"
+        };
+
+        let alertData = {
+            title: "Are you sure you want to IMPORT this?<br>It will REPLACE your current data!",
             color: alertColour,
             showCancelButton: true
-        })
-
-        if (confirmation) {
-            let tempData = tryParseJSON(importData);
-
-            if (!!!tempData) {
-                Swal.fire({
-                    icon: 'error',
-                    title: GetLanguageString("text-oops"),
-                    text: GetLanguageString("text-invalidjson"),
-                    color: alertColour
-                })
-
-                return false;
-            }
-
-            localStorage.setItem("save-data", JSON.stringify(tempData));
-
-            /*gtag('event', 'action_import');*/
-
-            location.reload();
         }
+
+        // Detect eridu format
+        let eriduImport = tempData.userData && tempData.userData.forms
+        if (eriduImport) {
+            const currentData = JSON.parse(JSON.stringify(data))
+            const forms = tempData.userData.forms || {};
+            const hasForms = Object.keys(forms).length > 0;
+
+            // Materials-only if every character in forms has only default values:
+            // characterLevels and all skillLevels current/target = 1,
+            // all equipmentLevels current/target = 0, all potentialLevels = 0.
+            // bondDetailData current/target = 1 or absent.
+            // This means the user only changed materials in eridu.
+            const isDefaultOnly = hasForms && Object.values(forms).every(form => {
+                const cl = form.characterLevels || {};
+                if ((cl.current || 1) !== 1 || (cl.target || 1) !== 1) return false;
+                for (const skill of Object.values(form.skillLevels || {})) {
+                    if ((skill.current || 1) !== 1 || (skill.target || 1) !== 1) return false;
+                }
+                for (const slot of Object.values(form.equipmentLevels || {})) {
+                    if ((slot.current || 1) !== 1 || (slot.target || 1) !== 1) return false;
+                }
+                const bd = form.bondDetailData || {};
+                if ((bd.currentBond || 1) !== 1 || (bd.targetBond || 1) !== 1) return false;
+                for (const p of Object.values(form.potentialLevels || {})) {
+                    if ((p.current || 0) !== 0 || (p.target || 0) !== 0) return false;
+                }
+                return true;
+            });
+
+            if (!hasForms || isDefaultOnly) {
+                // Case 2: no characters - convert only materials, keep all other user data intact
+                const matOnly = convertEriduToFork(tempData, currentData);
+                const keptKeys = matOnly._keptMatKeys || [];
+                if (currentData && currentData.characters !== undefined) {
+                    // Merge only owned_materials into the existing save; discard the empty
+                    // characters/disabled_characters/etc. that convertEriduToFork produced.
+                    tempData = Object.assign({}, currentData, { owned_materials: matOnly.owned_materials });
+                } else {
+                    delete matOnly._keptMatKeys;
+                    tempData = matOnly;
+                    tempData.characters = data.characters;
+                }
+                let msg = "Only materials were imported. Your students and other data were kept.";
+                if (keptKeys.length) msg += "<br><br>The following material fields had no data in the imported file and were kept from your current save:<br><b>" + keptKeys.join(", ") + "</b>";
+                alertData = { icon: "info", title: "Materials-only import", html: msg, color: alertColour };
+            }
+            else {
+                // Case 3: eridu file has characters - full overwrite (with fallback for missing fields)
+                // Store raw forms on eriduData so we can inspect which fields were absent after conversion
+                let confirmation = await Swal.fire(alertData)
+                if (!confirmation.isConfirmed) return
+                eriduImport = 0
+                const rawForms = tempData.userData.forms;
+                tempData = convertEriduToFork(tempData, currentData);
+                const keptKeys = tempData._keptMatKeys || [];
+                delete tempData._keptMatKeys;
+
+                // Detect per-character fields that fell back to current data
+                const keptCharFields = [];
+                if (currentData) {
+                    for (const char of tempData.characters) {
+                        const origChar = currentData.characters
+                            ? currentData.characters.find(c => String(c.id) === String(char.id))
+                            : null;
+                        const bd = (rawForms[char.id] || rawForms[String(char.id)] || {}).bondDetailData || {};
+                        if (origChar) {
+                            if (bd.targetBond     == null) keptCharFields.push(char.name + ": target bond");
+                            if (bd.currentUeLevel == null) keptCharFields.push(char.name + ": current UE level");
+                            if (bd.targetUeLevel  == null) keptCharFields.push(char.name + ": target UE level");
+                        }
+                    }
+                }
+
+                // Deduplicate char field messages (all chars missing same field -> one message)
+                const keptFieldTypes = {};
+                for (const entry of keptCharFields) {
+                    const field = entry.split(": ")[1];
+                    keptFieldTypes[field] = (keptFieldTypes[field] || 0) + 1;
+                }
+                const charFieldSummary = Object.entries(keptFieldTypes)
+                    .map(([f, n]) => f + " (" + n + " character" + (n > 1 ? "s" : "") + ")");
+
+                const allKept = [...keptKeys, ...charFieldSummary];
+                if (allKept.length) {
+                    alertData = {
+                        icon: "info",
+                        title: "Some fields kept from your current save",
+                        html: "The following had no data in the imported file and were kept from your current save:<br><b>" + allKept.join(", ") + "</b>",
+                        color: alertColour
+                    };
+                }
+            }
+        } 
+        else if (tempData.characters) {
+            let confirmation = await Swal.fire(alertData)
+            if (!confirmation.isConfirmed) return
+            delete alertData
+            for (const char of tempData.characters) {
+                for (const scope of ["current", "target"]) {
+                    const obj = char[scope];
+                    if (!obj) continue;
+                    for (const [justinKey, forkKey] of Object.entries(justinToForkFieldMap)) {
+                        if (justinKey in obj) {
+                            obj[forkKey] = obj[justinKey];
+                            delete obj[justinKey];
+                        }
+                    }
+                }
+                if (!("notes" in char)) char.notes = "";
+            }
+        }
+
+        // Safety check: never save a file without a characters array
+        if (!tempData.characters) tempData.characters = currentData?.characters ?? [];
+
+        localStorage.setItem("data-backup", JSON.stringify(data))
+        localStorage.setItem("save-data", JSON.stringify(tempData));
+
+        if (eriduImport) await Swal.fire(alertData)
+
+        /*gtag('event', 'action_import');*/
+
+        location.reload();
     }
 }
 
