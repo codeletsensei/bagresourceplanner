@@ -3266,7 +3266,7 @@ function charsFromGroup(group, groupType) {
 
 }
 
-function charactersToggle(value) {
+async function charactersToggle(value) {
 
     // APRIL FOOLS
     // if (value == "enable" && document.getElementById("button-enableall").classList.contains("april-fools-button")) {
@@ -3277,6 +3277,16 @@ function charactersToggle(value) {
     // }
 
     disabledChars = [];
+
+    if (["disable", "enable"].includes(value)) {
+        response = await Swal.fire({
+          title: value.toUpperCase() + " ALL students?",
+          showCancelButton: true,
+        });
+        if (!response.isConfirmed) {
+            return null
+        }
+    }
 
     for (let i in data.characters) {
 
@@ -5473,7 +5483,13 @@ function DisplayMatUsers(mat, iconUrl) {
     let matUsers = [];
 
     for (key in charMatDicts) {
-        if (!disabledChars.includes(key) && charMatDicts[key][matId] > 0) {
+
+        let filtered = 0
+        if (mainDisplay == "Teams") filtered = !document.getElementById("char_teams_" + key)
+        else filtered = document.getElementById("char_" + key).classList.contains("filtered-out")
+            || isFilteredByWhitelist(key);
+
+        if (!disabledChars.includes(key) && charMatDicts[key][matId] > 0 && !filtered) {
             matUsers.push({ "charId": key, "matCount": charMatDicts[key][matId] });
         }
     }
@@ -6672,13 +6688,28 @@ function calcUECost(charObj, star, starTarget, level, levelTarget, matDict) {
     }
 }
 
+function isFilteredByWhitelist(charId) {
+    if (whitelist.length() === 0) return false;
+    const el = document.getElementById("char_" + charId);
+    if (!el) return false;
+    const groups = whitelist.getNonEmpty();
+    return !groups.every(group => group.some(cls => el.classList.contains(cls)));
+}
+
 function updateAggregateCount() {
 
     requiredMatDict = {};
     neededMatDict = {};
 
     for (charId in charMatDicts) {
-        if (!disabledChars.includes(charId)) {
+        let filtered = 0
+        if (mainDisplay == "Teams") {
+            filtered = !document.getElementById("char_teams_" + charId)
+        }
+        else filtered = document.getElementById("char_" + charId).classList.contains("filtered-out")
+            || isFilteredByWhitelist(charId);
+
+        if (!disabledChars.includes(charId) && !filtered) {
             for (matName in charMatDicts[charId]) {
 
                 if (matName == "Xp") {

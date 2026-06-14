@@ -114,6 +114,11 @@ function buildFilterList() {
             whitelist[grouping] = whitelist[grouping].filter(filtered => filtered != target);
         }
         rebuildViewFilters();
+        if (modalOpen === "resourceModal") {
+            openResourceModal();
+        } else if (modalOpen === "gearModal") {
+            openGearModal();
+        }
     });
     function buildFilterGroup(prefix, data) {
         const label = data.label;
