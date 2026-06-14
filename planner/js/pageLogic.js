@@ -3173,14 +3173,19 @@ function filterChanged(filterType) {
             filtered = "All";
         }
         else if (groupName) {
+            let groupsNames = Object.keys(data.groups)
+            let groupType = ""
+            if (!groupsNames.includes(groupName)) {
+                groupType = "lba_"
+                groupsNames = Object.keys(data.lba_groups)
+            }
             if (GroupFilterMode == "OnlyGroup") {
-                filtered = charsFromGroup(groupName);
+                filtered = charsFromGroup(groupName, groupType);
             }
             else if (GroupFilterMode == "UpToGroup") {
-                let groups = Object.keys(data.groups);
-
+                let groups = groupsNames;
                 for (let i = 0; i < groups.length; i++) {
-                    let additionalMembers = charsFromGroup(groups[i]);
+                    let additionalMembers = charsFromGroup(groups[i], groupType);
 
                     for (let m = 0; m < additionalMembers.length; m++) {
                         if (!filtered.includes(additionalMembers[m])) {
@@ -3236,15 +3241,15 @@ function resetFilters() {
     resetViewFilters();
 }
 
-function charsFromGroup(group) {
+function charsFromGroup(group, groupType) {
 
     let inGroup = [];
 
-    if (data.groups && data.groups[group]) {
+    if (data[groupType + "groups"] && data[groupType + "groups"][group]) {
 
-        for (let t = 0; t < data.groups[group].length; t++) {
+        for (let t = 0; t < data[groupType + "groups"][group].length; t++) {
 
-            let team = data.groups[group][t];
+            let team = data[groupType + "groups"][group][t];
 
             for (let i = 0; i < team.length; i++) {
 

@@ -615,6 +615,7 @@ function ShowNames(source) {
 }
 
 function hexToRgb(hex, opacity) {
+    if (!hex) return "rgb(0,0,0,0)"
     hex = hex.replace(/^#/, '');
     let r = parseInt(hex.substring(0, 2), 16);
     let g = parseInt(hex.substring(2, 4), 16);

@@ -270,7 +270,7 @@ var rowColours = {
 };
 
 const propertyColours = {
-    "Explosion": "#ec242487", "Pierce": "#fff10099", "Chemical": "#0A6E5F", "Mystic": "#1070a5c2", "Sonic": "#c246d79e",
+    "Explosion": "#ec242487", "Pierce": "#fff10099", "Piercing": "#fff10099", "Chemical": "#0A6E5F", "Mystic": "#1070a5c2", "Sonic": "#c246d79e",
     "LightArmor": "#ec242487", "HeavyArmor": "#fff10099", "CompositeArmor": "#0A6E5F", "Unarmed": "#1070a5c2", "ElasticArmor": "#c246d79e",
     "Striker": "#cc1a2587", "Special": "#006aff87",
     "Abydos": "#9ce4fc66", "Gehenna": "#ec7d7966", "Millennium": "#9ebdfa66", "Trinity": "#fcd19c66", "Hyakkiyako": "#f0a8c466",
