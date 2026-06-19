@@ -357,8 +357,20 @@
         "10015": [
             "23-3"
         ],
+        "10017": [
+            "30-3"
+        ],
         "10025": [
             "26-3"
+        ],
+        "10030":[
+            "27-3"  
+        ],
+        "10036":[
+            "29-3"  
+        ],
+        "10041":[
+            "28-3"  
         ],
         "13001": [
             "14-2",
@@ -403,7 +415,11 @@
             "12-2"
         ],
         "13012": [
-            "22-2"
+            "22-2",
+            "29-2"
+        ],
+        "13013": [
+            "30-2"
         ],
         "16000": [
             "13-1",
@@ -429,7 +445,8 @@
         "16004": [
             "4-2",
             "6-2",
-            "10-2"
+            "10-2",
+            "30-1"
         ],
         "20000": [
             "22-3"
@@ -448,26 +465,31 @@
             "26-2"
         ],
         "23003": [
-            "20-2"
+            "20-2",
+            "27-2"
         ],
         "23005": [
             "18-2",
             "25-2"
         ],
         "23008": [
-            "24-2"
+            "24-2",
+            "28-2"
         ],
         "26002": [
             "19-1",
-            "23-1"
+            "23-1",
+            "28-1"
         ],
         "26003": [
             "20-1",
-            "24-1"
+            "24-1",
+            "29-1"
         ],
         "26004": [
             "18-1",
-            "22-1"
+            "22-1",
+            "27-1"
         ],
         "26005": [
             "17-1",
@@ -477,12 +499,38 @@
     },
     "shop_characters": {
         "10001": "JECoin",
-        "10007": "RaidToken",
         "10012": "JECoin",
         "10013": "JECoin",
+        "20010": "JECoin",
+        "10007": "RaidToken",
+        "13000": "RaidToken",
+        "13011": "RaidToken",
+        "20009": "RaidToken",
+        "23002": "RaidToken",
+        "23007": "RaidToken",
+        "26000": "RaidToken",
+        "26001": "RaidToken",
         "10016": "RareRaidToken",
         "10019": "RareRaidToken",
         "10020": "RareRaidToken",
+        "20013": "RareRaidToken",
+        "10018": "EliminationRaidToken",
+        "10024": "EliminationRaidToken",
+        "10029": "EliminationRaidToken",
+        "10034": "EliminationRaidToken",
+        "20011": "EliminationRaidToken",
+        "20017": "EliminationRaidToken",
+        "10028": "RareEliminationRaidToken",
+        "10043": "RareEliminationRaidToken",
+        "20012": "RareEliminationRaidToken",
+        "20015": "RareEliminationRaidToken",
+        "10038": "ArenaCoin",
+        "10039": "ArenaCoin",
+        "20002": "ArenaCoin",
+        "20003": "ArenaCoin",
+        "23001": "ArenaCoin",
+        "23004": "ArenaCoin",
+        "23006": "ArenaCoin",
         "10021": "MasteryCertificate",
         "10022": "MasteryCertificate",
         "10023": "MasteryCertificate",
@@ -490,6 +538,33 @@
         "10027": "MasteryCertificate",
         "10031": "MasteryCertificate",
         "10032": "MasteryCertificate",
+        "10046": "MasteryCertificate",
+        "10047": "MasteryCertificate",
+        "10053": "MasteryCertificate",
+        "10054": "MasteryCertificate",
+        "10057": "MasteryCertificate",
+        "10062": "MasteryCertificate",
+        "10073": "MasteryCertificate",
+        "10087": "MasteryCertificate",
+        "10091": "MasteryCertificate",
+        "10092": "MasteryCertificate",
+        "10101": "MasteryCertificate",
+        "10102": "MasteryCertificate",
+        "10105": "MasteryCertificate",
+        "10106": "MasteryCertificate",
+        "10110": "MasteryCertificate",
+        "10112": "MasteryCertificate",
+        "10117": "MasteryCertificate",
+        "10118": "MasteryCertificate",
+        "10123": "MasteryCertificate",
+        "10124": "MasteryCertificate",
+        "10129": "MasteryCertificate",
+        "20004": "MasteryCertificate",
+        "20022": "MasteryCertificate",
+        "20024": "MasteryCertificate",
+        "20028": "MasteryCertificate",
+        "20033": "MasteryCertificate",
+        "20051": "MasteryCertificate",
         "10033": {
             "currency": "MasteryCertificate",
             "amount": 5,
@@ -502,43 +577,175 @@
             "cost": 2400,
             "times": 2
         },
-        "10046": "MasteryCertificate",
-        "10047": "MasteryCertificate",
-        "10053": "MasteryCertificate",
-        "10054": "MasteryCertificate",
         "10059": {
             "currency": "MasteryCertificate",
             "amount": 5,
             "cost": 2400,
             "times": 2
         },
-        "13000": "RaidToken",
+        "10074": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 2400,
+            "times": 2
+        },
+        "10086": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 2400,
+            "times": 2
+        },
+        "10098": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 2400,
+            "times": 2
+        },
+        "10100": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 2400,
+            "times": 2
+        },
+        "10111": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 2400,
+            "times": 2
+        },
+        "10122": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 2400,
+            "times": 2
+        },
+        "10134": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 2400,
+            "times": 2
+        },
+        "10135": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 2400,
+            "times": 2
+        },
+        "20041": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 2400,
+            "times": 2
+        },
+        "20048": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 2400,
+            "times": 2
+        },
         "13004": {
             "currency": "MasteryCertificate",
             "amount": 5,
             "cost": 1800,
             "times": 6
         },
-        "13011": "RaidToken",
         "16005": {
             "currency": "MasteryCertificate",
             "amount": 5,
             "cost": 1800,
             "times": 6
         },
-        "20002": "ArenaCoin",
-        "20003": "ArenaCoin",
-        "20004": "MasteryCertificate",
-        "20022": "MasteryCertificate",
-        "20030": "MasteryCertificate",
-        "23001": "ArenaCoin",
-        "23002": "RaidToken",
-        "23004": "ArenaCoin",
-        "23006": "ArenaCoin",
-        "23007": "RaidToken",
-        "26000": "RaidToken",
-        "26001": "RaidToken",
+        "16006": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "16007": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "16008": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "16009": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "16010": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "16011": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "16012": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "16013": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "16015": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "16019": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "16020": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
         "26006": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "26007": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "26008": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "26009": {
+            "currency": "MasteryCertificate",
+            "amount": 5,
+            "cost": 1800,
+            "times": 6
+        },
+        "26010": {
             "currency": "MasteryCertificate",
             "amount": 5,
             "cost": 1800,
@@ -555,6 +762,16 @@
             "amount": 5,
             "cost": 50,
             "times": 5
+        },
+        "EliminationRaidToken": {
+            "amount": 5,
+            "cost": 50,
+            "times": 20
+        },
+        "RareEliminationRaidToken": {
+            "amount": 5,
+            "cost": 50,
+            "times": 10
         },
         "ArenaCoin": {
             "amount": 5,

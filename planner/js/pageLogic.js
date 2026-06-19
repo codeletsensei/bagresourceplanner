@@ -4,7 +4,7 @@ var curID = 0;
 var modalCharID = 0;
 var modalStars = { "star": 0, "star_target": 0, "ue": 0, "ue_target": 0 };
 const ueStarCap = 4;
-const globalMaxWorld = 29;
+const globalMaxWorld = 30;
 const cnMaxWorld = 17;
 
 var requiredMatDict = {};
@@ -1533,6 +1533,15 @@ async function openModal(e) {
                 currencyDescriptorText.innerText = GetLanguageString("label-minraids");
                 charShopCurrencyText.innerText = GetLanguageString("label-rareraidtokens");
             }
+            if (shopCurrency == "EliminationRaidToken") {
+                currencyDescriptorText.innerText = GetLanguageString("label-minraids");
+                charShopCurrencyText.innerText = GetLanguageString("label-eliminationraidtokens");
+            }
+            else if (shopCurrency == "RareEliminationRaidToken") {
+                currencyDescriptorText.innerText = GetLanguageString("label-minraids");
+                charShopCurrencyText.innerText = GetLanguageString("label-rareeliminationraidtokens");
+            }
+
             else if (shopCurrency == "ArenaCoin") {
                 currencyDescriptorText.innerText = GetLanguageString("label-shopresets");
                 charShopCurrencyText.innerText = GetLanguageString("label-arenacoins");;
@@ -4740,6 +4749,8 @@ function openResourceModal() {
 function hideResourceDisplays() {
     let raidTokenDisplay = document.getElementById("RaidTokenCost");
     let rareRaidTokenDisplay = document.getElementById("RareRaidTokenCost");
+    let eliminationRaidTokenDisplay = document.getElementById("EliminationRaidTokenCost");
+    let rareEliminationRaidTokenDisplay = document.getElementById("RareEliminationRaidTokenCost");
     let eligmaDisplay = document.getElementById("Eligma");
     let arenaCoinDisplay = document.getElementById("ArenaCoinCost");
     let jeCoinDisplay = document.getElementById("JECoinCost");
@@ -4747,6 +4758,8 @@ function hideResourceDisplays() {
 
     raidTokenDisplay.parentElement.style.display = ""
     rareRaidTokenDisplay.parentElement.style.display = "";
+    eliminationRaidTokenDisplay.parentElement.style.display = ""
+    rareEliminationRaidTokenDisplay.parentElement.style.display = "";
     eligmaDisplay.parentElement.style.display = "";
     arenaCoinDisplay.parentElement.style.display = "";
     jeCoinDisplay.parentElement.style.display = "";
@@ -4757,6 +4770,12 @@ function hideResourceDisplays() {
     }
     if (rareRaidTokenDisplay.innerText == "0") {
         rareRaidTokenDisplay.parentElement.style.display = "none";
+    }
+    if (eliminationRaidTokenDisplay.innerText == "0") {
+        eliminationRaidTokenDisplay.parentElement.style.display = "none";
+    }
+    if (rareEliminationRaidTokenDisplay.innerText == "0") {
+        rareEliminationRaidTokenDisplay.parentElement.style.display = "none";
     }
     if (eligmaDisplay.innerText == "0") {
         eligmaDisplay.parentElement.style.display = "none";
@@ -6302,7 +6321,7 @@ function calculateCharResources(charData, output) {
     }
 
     if ((charData.eleph?.unlocked === false) &&
-        (["RaidToken", "RareRaidToken", "ArenaCoin", "JECoin"].includes(currency) || misc_data.hard_modes[charId])) {
+        (["RaidToken", "RareRaidToken", "EliminationRaidToken", "RareEliminationRaidToken", "ArenaCoin", "JECoin"].includes(currency) || misc_data.hard_modes[charId])) {
 
         if (!charMatDict["Eleph"]) {
             charMatDict["Eleph"] = 0;
@@ -6813,6 +6832,8 @@ function switchResourceDisplay(displayType) {
     let displayText = document.getElementById("current-resource-display");
     var raidTokenDisplay = document.getElementById("raid-token-display-wrapper");
     let rareRaidTokenDisplay = document.getElementById("rare-raid-token-display-wrapper");
+    let eliminationRaidTokenDisplay = document.getElementById("elimination-raid-token-display-wrapper");
+    let rareEliminationRaidTokenDisplay = document.getElementById("rare-elimination-raid-token-display-wrapper");
     let eligmaDisplay = document.getElementById("eligma-display-wrapper");
     let arenaCoinDisplay = document.getElementById("arena-coin-display-wrapper");
     let jeCoinDisplay = document.getElementById("je-coin-display-wrapper");
@@ -6823,6 +6844,8 @@ function switchResourceDisplay(displayType) {
 
     raidTokenDisplay.style.display = "none";
     rareRaidTokenDisplay.style.display = "none";
+    eliminationRaidTokenDisplay.style.display = "none";
+    rareEliminationRaidTokenDisplay.style.display = "none";
     eligmaDisplay.style.display = "none";
     arenaCoinDisplay.style.display = "none";
     jeCoinDisplay.style.display = "none";
@@ -7475,7 +7498,8 @@ async function getImportData() {
         };
 
         let alertData = {
-            title: "Are you sure you want to IMPORT this?<br>It will REPLACE your current data!",
+            title: "IMPORT data?",
+            html: "<a style='color:red;background-color:yellow;font-weight:bold;font-size:20px'>It will REPLACE your current data.<br>Download a backup of your current data before pressing OK.</a>",
             color: alertColour,
             showCancelButton: true
         }
