@@ -2471,6 +2471,11 @@ async function addNewGroup() {
         updateAddTeamButtons();
         if (!data.groups) data.groups = {};
         data.groups[groupName] = [];
+        if (!data.group_order) data.group_order = [
+            ...Object.keys(data.groups).slice(0, -1).map(k => ({ key: k, isLba: false })),
+            ...Object.keys(data.lba_groups ?? {}).map(k => ({ key: k, isLba: true }))
+        ];
+        data.group_order.push({ key: groupName, isLba: false });
         addNewTeam([null, null, null, null, null, null], false);
         borrowed = false;
 
@@ -2511,6 +2516,11 @@ async function addNewLbaGroup() {
         updateAddTeamButtons();
         if (!data.lba_groups) data.lba_groups = {};
         data.lba_groups[groupName] = [];
+        if (!data.group_order) data.group_order = [
+            ...Object.keys(data.groups ?? {}).map(k => ({ key: k, isLba: false })),
+            ...Object.keys(data.lba_groups).slice(0, -1).map(k => ({ key: k, isLba: true }))
+        ];
+        data.group_order.push({ key: groupName, isLba: true });
         addNewTeam([null,null,null,null,null,null,null,null,null,null], true);
         borrowed = false;
 
@@ -2928,6 +2938,10 @@ function deleteGroup() {
             if (delStore[currentGroup]) {
 
                 delete (delStore[currentGroup]);
+                if (data.group_order) {
+                    data.group_order = data.group_order.filter(
+                        g => !(g.key === currentGroup && g.isLba === currentGroupIsLba));
+                }
                 saveTime = Date.now() + (1000 * 5);
             }
 
@@ -2995,13 +3009,15 @@ async function renameGroup() {
 
                 renameStore[groupName] = renameStore[currentGroup];
                 delete (renameStore[currentGroup]);
+                if (data.group_order) {
+                    const go = data.group_order.find(
+                        g => g.key === currentGroup && g.isLba === currentGroupIsLba);
+                    if (go) go.key = groupName;
+                }
 
                 currentGroup = groupName;
 
-                if (curGroupPos) {
-                    SetGroupOrder(curGroupPos);
-                }
-
+                // group_order key already updated above; just rebuild without re-ordering
                 rebuildGroups();
 
                 currentGroup = groupName;
@@ -3063,26 +3079,36 @@ async function MoveGroup() {
 function SetGroupOrder(newPos) {
 
     if (newPos) {
-        const store = currentGroupIsLba ? data.lba_groups : data.groups;
-        let curGroup = 1;
-        let newGroupObject = {};
-        let groups = Object.keys(store);
+        // Build a unified ordered list from group_order (the single source of truth),
+        // falling back to groups-then-lba for saves that predate group_order.
+        const combined = data.group_order
+            ? data.group_order.map(g => ({ key: g.key, isLba: g.isLba }))
+            : [
+                ...Object.keys(data.groups     ?? {}).map(key => ({ key, isLba: false })),
+                ...Object.keys(data.lba_groups ?? {}).map(key => ({ key, isLba: true  }))
+              ];
 
-        for (let i = 0; i < groups.length; i++) {
-            if (newPos == curGroup) {
-                newGroupObject[currentGroup] = store[currentGroup];
-            }
-            if (groups[i] != currentGroup) {
-                newGroupObject[groups[i]] = store[groups[i]];
-                curGroup++;
-            }
-        }
-        if (newGroupObject[currentGroup] == undefined) {
-            newGroupObject[currentGroup] = store[currentGroup];
+        // Snapshot values before wiping
+        const origGroups    = Object.assign({}, data.groups     ?? {});
+        const origLbaGroups = Object.assign({}, data.lba_groups ?? {});
+
+        // Remove the moving group and reinsert at the requested 1-based position
+        const movingIdx = combined.findIndex(g => g.key === currentGroup && g.isLba === currentGroupIsLba);
+        if (movingIdx === -1) return;
+        const [moving] = combined.splice(movingIdx, 1);
+        combined.splice(parseInt(newPos) - 1, 0, moving);
+
+        // Write back to both stores in the new combined order,
+        // and persist the combined order so rebuildGroups/rebuildFilters can interleave them.
+        data.groups      = {};
+        data.lba_groups  = {};
+        data.group_order = [];
+        for (const g of combined) {
+            if (g.isLba) data.lba_groups[g.key] = origLbaGroups[g.key];
+            else         data.groups[g.key]      = origGroups[g.key];
+            data.group_order.push({ key: g.key, isLba: g.isLba });
         }
 
-        if (currentGroupIsLba) data.lba_groups = newGroupObject;
-        else data.groups = newGroupObject;
         rebuildGroups();
     }
 }
@@ -3102,18 +3128,17 @@ function rebuildGroups() {
     // }
     let curGroup = 1;
 
-    if (data.groups) {
-        for (key in data.groups) {
-            addOption(selectElement, curGroup + ". " + key, key);
-            curGroup++;
-        }
-    }
-
-    if (data.lba_groups) {
-        for (key in data.lba_groups) {
-            addOption(selectElement, curGroup + ". [LBA] " + key, key);
-            curGroup++;
-        }
+    // Use data.group_order (set by SetGroupOrder) to interleave groups and lba_groups.
+    // Fall back to groups-then-lba_groups for saves that predate group_order.
+    const combinedOrder = data.group_order
+        ?? [
+            ...Object.keys(data.groups     ?? {}).map(key => ({ key, isLba: false })),
+            ...Object.keys(data.lba_groups ?? {}).map(key => ({ key, isLba: true  }))
+          ];
+    for (const g of combinedOrder) {
+        const label = g.isLba ? (curGroup + ". [LBA] " + g.key) : (curGroup + ". " + g.key);
+        addOption(selectElement, label, g.key);
+        curGroup++;
     }
 
     selectElement.value = "blankselect";
@@ -3134,16 +3159,14 @@ function rebuildFilters() {
 
     addOption(filterGroups, GetLanguageString("label-all"), "All");
 
-    if (data.groups) {
-        for (key in data.groups) {
-            addOption(filterGroups, key, key);
-        }
-    }
-
-    if (data.lba_groups) {
-        for (key in data.lba_groups) {
-            addOption(filterGroups, "[LBA] " + key, key);
-        }
+    const combinedOrderF = data.group_order
+        ?? [
+            ...Object.keys(data.groups     ?? {}).map(key => ({ key, isLba: false })),
+            ...Object.keys(data.lba_groups ?? {}).map(key => ({ key, isLba: true  }))
+          ];
+    for (const g of combinedOrderF) {
+        const label = g.isLba ? ("[LBA] " + g.key) : g.key;
+        addOption(filterGroups, label, g.key);
     }
 
 }
@@ -3182,29 +3205,24 @@ function filterChanged(filterType) {
             filtered = "All";
         }
         else if (groupName) {
-            let groupsNames = Object.keys(data.groups)
-            let groupType = ""
-            if (!groupsNames.includes(groupName)) {
-                groupType = "lba_"
-                groupsNames = Object.keys(data.lba_groups)
-            }
+            const isLba = !Object.keys(data.groups ?? {}).includes(groupName);
+            const groupType = isLba ? "lba_" : "";
             if (GroupFilterMode == "OnlyGroup") {
                 filtered = charsFromGroup(groupName, groupType);
             }
             else if (GroupFilterMode == "UpToGroup") {
-                let groups = groupsNames;
-                for (let i = 0; i < groups.length; i++) {
-                    let additionalMembers = charsFromGroup(groups[i], groupType);
-
-                    for (let m = 0; m < additionalMembers.length; m++) {
-                        if (!filtered.includes(additionalMembers[m])) {
-                            filtered.push(additionalMembers[m]);
-                        }
+                // Use the combined order so lba and non-lba groups are interleaved correctly
+                const combinedOrder = data.group_order
+                    ?? [
+                        ...Object.keys(data.groups     ?? {}).map(k => ({ key: k, isLba: false })),
+                        ...Object.keys(data.lba_groups ?? {}).map(k => ({ key: k, isLba: true  }))
+                      ];
+                for (const g of combinedOrder) {
+                    const additionalMembers = charsFromGroup(g.key, g.isLba ? "lba_" : "");
+                    for (const m of additionalMembers) {
+                        if (!filtered.includes(m)) filtered.push(m);
                     }
-
-                    if (groups[i] == groupName) {
-                        break;
-                    }
+                    if (g.key === groupName && g.isLba === isLba) break;
                 }
             }
         }
@@ -5591,7 +5609,12 @@ function DisplayUeMatUsers(type) {
     let matUsers = [];
 
     for (let key in charMatDicts) {
-        if (!disabledChars.includes(key) && charMatDicts[key][xpKey] > 0) {
+        let filtered = 0;
+        if (mainDisplay == "Teams") filtered = !document.getElementById("char_teams_" + key);
+        else filtered = document.getElementById("char_" + key).classList.contains("filtered-out")
+            || isFilteredByWhitelist(key);
+
+        if (!disabledChars.includes(key) && charMatDicts[key][xpKey] > 0 && !filtered) {
             matUsers.push({ charId: key, matCount: charMatDicts[key][xpKey] });
         }
     }
