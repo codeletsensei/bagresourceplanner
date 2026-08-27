@@ -144,6 +144,10 @@ const matLookup = new TwoWayMap({
     3101: "BD_2_Wildhunt",
     3102: "BD_3_Wildhunt",
     3103: "BD_4_Wildhunt",
+    3120: "BD_1_Odyssey",
+    3121: "BD_2_Odyssey",
+    3122: "BD_3_Odyssey",
+    3123: "BD_4_Odyssey",
 
     4000: "TN_1_Hyakkiyako",
     4001: "TN_2_Hyakkiyako",
@@ -189,6 +193,10 @@ const matLookup = new TwoWayMap({
     4101: "TN_2_Wildhunt",
     4102: "TN_3_Wildhunt",
     4103: "TN_4_Wildhunt",
+    4120: "TN_1_Odyssey",
+    4121: "TN_2_Odyssey",
+    4122: "TN_3_Odyssey",
+    4123: "TN_4_Odyssey",
 
     5000: "favor_0_3",
     5001: "favor_1_3",
@@ -262,7 +270,7 @@ const gearLookup = ["UBP_Hat", "UBP_Gloves", "UBP_Shoes", "UBP_Bag", "UBP_Badge"
 
 var rowColours = {
     "Abydos": "#9ce4fc66", "Gehenna": "#ec7d7966", "Millennium": "#9ebdfa66", "Trinity": "#fcd19c66", "Hyakkiyako": "#f0a8c466", "Arius": "#dbdad85e",
-    "Shanhaijing": "#b4feca66", "Red Winter": "#d98c9e66", "Valkyrie": "#a1a9e166", "Highlander": "#5A5770", "Wildhunt": "#5A5A46", "Nebra": "#99919466", "Phaistos": "#fdf7e766", "Wolfsegg": "#93a5f266",
+    "Shanhaijing": "#b4feca66", "Red Winter": "#d98c9e66", "Valkyrie": "#a1a9e166", "Highlander": "#5A5770", "Wildhunt": "#5A5A46", "Odyssey": "#9ce4fc66", "Nebra": "#99919466", "Phaistos": "#fdf7e766", "Wolfsegg": "#93a5f266",
     "Nimrud": "#67e4ef66", "Mandragora": "#a1ede566", "Rohonc": "#c9ab9366", "Aether": "#ca96e066", "Antikythera": "#f7e28866",
     "Voynich": "#84b28066", "Haniwa": "#e7bef466", "Baghdad": "#d179a066", "Totem": "#b77e6166", "Fleece": "#fdf76966", "Okiku": "#ff88294a", "Atlantis": "#ecff2933",
     "Colgante": "#c2cdfe70", "Mystery": "#305c894a", "RomanDice": "#71bec566", "Quimbaya": "#e3df7466", "Rocket": "#c0f2f366", "Workbook": "#c2cdfe70", "favor": "#fdf7e766",
@@ -274,7 +282,7 @@ const propertyColours = {
     "LightArmor": "#ec242487", "HeavyArmor": "#fff10099", "CompositeArmor": "#0A6E5F", "Unarmed": "#1070a5c2", "ElasticArmor": "#c246d79e",
     "Striker": "#cc1a2587", "Special": "#006aff87",
     "Abydos": "#9ce4fc66", "Gehenna": "#ec7d7966", "Millennium": "#9ebdfa66", "Trinity": "#fcd19c66", "Hyakkiyako": "#f0a8c466",
-    "Arius": "#dbdad85e", "Shanhaijing": "#b4feca66", "RedWinter": "#d98c9e66", "Valkyrie": "#a1a9e166", "Highlander": "#5A5770", "Wildhunt": "#5A5A46"
+    "Arius": "#dbdad85e", "Shanhaijing": "#b4feca66", "RedWinter": "#d98c9e66", "Valkyrie": "#a1a9e166", "Highlander": "#5A5770", "Wildhunt": "#5A5A46", "Odyssey": "#9ce4fc66"
 }
 
 const exportDataVersion = 2;
@@ -1351,1644 +1359,265 @@ const inputValidation = {
         "Left": "bulk-input_gear2_target",
         "Down": "bulk-input_ue_level_current"
     },
-    "BD_1_Abydos": {
-        "id": "input-BD_1_Abydos",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-BD_4_Gehenna"
-    },
-    "BD_1_Gehenna": {
-        "id": "input-BD_1_Gehenna",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-BD_4_Trinity"
-    },
-    "BD_1_Millennium": {
-        "id": "input-BD_1_Millennium",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-BD_4_Abydos"
-    },
-    "BD_1_Trinity": {
-        "id": "input-BD_1_Trinity",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-BD_4_RedWinter"
-    },
-    "BD_1_Hyakkiyako": {
-        "id": "input-BD_1_Hyakkiyako",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_1_Shanhaijing": {
-        "id": "input-BD_1_Shanhaijing",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-BD_4_Arius"
-    },
-    "BD_1_Arius": {
-        "id": "input-BD_1_Arius",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-BD_4_Millennium"
-    },
-    "BD_1_RedWinter": {
-        "id": "input-BD_1_RedWinter",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-BD_4_Hyakkiyako"
-    },
-    "BD_1_Valkyrie": {
-        "id": "input-BD_1_Valkyrie",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-BD_4_Shanhaijing"
-    },
-    "BD_1_Highlander": {
-        "id": "input-BD_1_Highlander",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_2_Highlander"
-    },
-    "BD_1_Wildhunt": {
-        "id": "input-BD_1_Wildhunt",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_2_Wildhunt"
-    },
-    "BD_2_Abydos": {
-        "id": "input-BD_2_Abydos",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_2_Gehenna": {
-        "id": "input-BD_2_Gehenna",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_2_Millennium": {
-        "id": "input-BD_2_Millennium",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_2_Trinity": {
-        "id": "input-BD_2_Trinity",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_2_Hyakkiyako": {
-        "id": "input-BD_2_Hyakkiyako",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Up": "input-BD_3_Wildhunt"
-    },
-    "BD_2_Shanhaijing": {
-        "id": "input-BD_2_Shanhaijing",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_2_Arius": {
-        "id": "input-BD_2_Arius",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_2_RedWinter": {
-        "id": "input-BD_2_RedWinter",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_2_Valkyrie": {
-        "id": "input-BD_2_Valkyrie",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-    },
-    "BD_2_Highlander": {
-        "id": "input-BD_2_Highlander",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_3_Highlander",
-    },
-    "BD_2_Wildhunt": {
-        "id": "input-BD_2_Wildhunt",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_3_Wildhunt",
-    },
-    "BD_3_Abydos": {
-        "id": "input-BD_3_Abydos",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_3_Gehenna": {
-        "id": "input-BD_3_Gehenna",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_3_Millennium": {
-        "id": "input-BD_3_Millennium",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_3_Trinity": {
-        "id": "input-BD_3_Trinity",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_3_Hyakkiyako": {
-        "id": "input-BD_3_Hyakkiyako",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Up": "input-BD_4_Wildhunt"
-    },
-    "BD_3_Shanhaijing": {
-        "id": "input-BD_3_Shanhaijing",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_3_Arius": {
-        "id": "input-BD_3_Arius",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_3_RedWinter": {
-        "id": "input-BD_3_RedWinter",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "BD_3_Valkyrie": {
-        "id": "input-BD_3_Valkyrie",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-    },
-    "BD_3_Highlander": {
-        "id": "input-BD_3_Highlander",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_4_Highlander"
-    },
-    "BD_3_Wildhunt": {
-        "id": "input-BD_3_Wildhunt",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_4_Wildhunt"
-    },
-    "BD_4_Abydos": {
-        "id": "input-BD_4_Abydos",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_Millennium"
-    },
-    "BD_4_Gehenna": {
-        "id": "input-BD_4_Gehenna",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_Abydos"
-    },
-    "BD_4_Millennium": {
-        "id": "input-BD_4_Millennium",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_Arius"
-    },
-    "BD_4_Trinity": {
-        "id": "input-BD_4_Trinity",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_Gehenna"
-    },
-    "BD_4_Hyakkiyako": {
-        "id": "input-BD_4_Hyakkiyako",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_RedWinter",
-        "Up": "input-BD_3_Valkyrie"
-    },
-    "BD_4_Shanhaijing": {
-        "id": "input-BD_4_Shanhaijing",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_Valkyrie"
-    },
-    "BD_4_Arius": {
-        "id": "input-BD_4_Arius",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_Shanhaijing"
-    },
-    "BD_4_RedWinter": {
-        "id": "input-BD_4_RedWinter",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_Trinity"
-    },
-    "BD_4_Valkyrie": {
-        "id": "input-BD_4_Valkyrie",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_Highlander"
-    },
-    "BD_4_Highlander": {
-        "id": "input-BD_4_Highlander",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_Wildhunt",
-    },
-    "BD_4_Wildhunt": {
-        "id": "input-BD_4_Wildhunt",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-BD_4_Highlander",
-        "Right": "input-TN_1_Hyakkiyako",
-        "Down": "input-TN_1_Hyakkiyako"
-    },
-    "TN_1_Abydos": {
-        "id": "input-TN_1_Abydos",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-TN_4_Gehenna"
-    },
-    "TN_1_Gehenna": {
-        "id": "input-TN_1_Gehenna",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-TN_4_Trinity"
-    },
-    "TN_1_Millennium": {
-        "id": "input-TN_1_Millennium",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-TN_4_Abydos"
-    },
-    "TN_1_Trinity": {
-        "id": "input-TN_1_Trinity",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-TN_4_RedWinter"
-    },
-    "TN_1_Hyakkiyako": {
-        "id": "input-TN_1_Hyakkiyako",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-BD_4_Wildhunt",
-        "Up": "input-BD_4_Wildhunt"
-    },
-    "TN_1_Shanhaijing": {
-        "id": "input-TN_1_Shanhaijing",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-TN_4_Arius"
-    },
-    "TN_1_Arius": {
-        "id": "input-TN_1_Arius",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-TN_4_Millennium"
-    },
-    "TN_1_RedWinter": {
-        "id": "input-TN_1_RedWinter",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-TN_4_Hyakkiyako"
-    },
-    "TN_1_Valkyrie": {
-        "id": "input-TN_1_Valkyrie",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-TN_4_Shanhaijing",
-    },
-    "TN_1_Highlander": {
-        "id": "input-TN_1_Highlander",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-TN_4_Valkyrie",
-        "Right": "input-TN_2_Highlander"
-    },
-    "TN_1_Wildhunt": {
-        "id": "input-TN_1_Wildhunt",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-TN_4_Highlander",
-        "Right": "input-TN_2_Wildhunt"
-    },
-    "TN_2_Abydos": {
-        "id": "input-TN_2_Abydos",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_2_Gehenna": {
-        "id": "input-TN_2_Gehenna",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_2_Millennium": {
-        "id": "input-TN_2_Millennium",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_2_Trinity": {
-        "id": "input-TN_2_Trinity",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_2_Hyakkiyako": {
-        "id": "input-TN_2_Hyakkiyako",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Up": "input-TN_3_Wildhunt"
-    },
-    "TN_2_Shanhaijing": {
-        "id": "input-TN_2_Shanhaijing",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_2_Arius": {
-        "id": "input-TN_2_Arius",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_2_RedWinter": {
-        "id": "input-TN_2_RedWinter",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_2_Valkyrie": {
-        "id": "input-TN_2_Valkyrie",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-    },
-    "TN_2_Highlander": {
-        "id": "input-TN_2_Highlander",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_3_Highlander"
-    },
-    "TN_2_Wildhunt": {
-        "id": "input-TN_2_Wildhunt",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_3_Wildhunt"
-    },
-    "TN_3_Abydos": {
-        "id": "input-TN_3_Abydos",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_3_Gehenna": {
-        "id": "input-TN_3_Gehenna",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_3_Millennium": {
-        "id": "input-TN_3_Millennium",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_3_Trinity": {
-        "id": "input-TN_3_Trinity",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_3_Hyakkiyako": {
-        "id": "input-TN_3_Hyakkiyako",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Up": "input-TN_4_Wildhunt"
-    },
-    "TN_3_Shanhaijing": {
-        "id": "input-TN_3_Shanhaijing",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_3_Arius": {
-        "id": "input-TN_3_Arius",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_3_RedWinter": {
-        "id": "input-TN_3_RedWinter",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "TN_3_Valkyrie": {
-        "id": "input-TN_3_Valkyrie",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Down": "input-TN_2_Highlander"
-    },
-    "TN_3_Highlander": {
-        "id": "input-TN_3_Highlander",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_4_Highlander",
-    },
-    "TN_3_Wildhunt": {
-        "id": "input-TN_3_Wildhunt",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_4_Wildhunt",
-    },
-    "TN_4_Abydos": {
-        "id": "input-TN_4_Abydos",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_1_Millennium"
-    },
-    "TN_4_Gehenna": {
-        "id": "input-TN_4_Gehenna",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_1_Abydos"
-    },
-    "TN_4_Millennium": {
-        "id": "input-TN_4_Millennium",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_1_Arius"
-    },
-    "TN_4_Trinity": {
-        "id": "input-TN_4_Trinity",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_1_Gehenna"
-    },
-    "TN_4_Hyakkiyako": {
-        "id": "input-TN_4_Hyakkiyako",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_1_RedWinter",
-        "Up": "input-TN_3_Wildhunt"
-    },
-    "TN_4_Shanhaijing": {
-        "id": "input-TN_4_Shanhaijing",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_1_Valkyrie"
-    },
-    "TN_4_Arius": {
-        "id": "input-TN_4_Arius",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_1_Shanhaijing"
-    },
-    "TN_4_RedWinter": {
-        "id": "input-TN_4_RedWinter",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_1_Trinity"
-    },
-    "TN_4_Valkyrie": {
-        "id": "input-TN_4_Valkyrie",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_1_Highlander",
-    },
-    "TN_4_Highlander": {
-        "id": "input-TN_4_Highlander",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-TN_1_Wildhunt",
-    },
-    "TN_4_Wildhunt": {
-        "id": "input-TN_4_Wildhunt",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Nebra_1",
-        "Down": "input-Nebra_1"
-    },
-    "Nebra_1": {
-        "id": "input-Nebra_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Up": "input-TN_4_Wildhunt"
-    },
-    "Nebra_2": {
-        "id": "input-Nebra_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Up": "input-Haniwa_1"
-    },
-    "Nebra_3": {
-        "id": "input-Nebra_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Up": "input-Haniwa_2"
-    },
-    "Nebra_4": {
-        "id": "input-Nebra_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Phaistos_1"
-    },
-    "Phaistos_1": {
-        "id": "input-Phaistos_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Nebra_4",
-        "Right": "input-Phaistos_2"
-    },
-    "Phaistos_2": {
-        "id": "input-Phaistos_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Phaistos_3"
-    },
-    "Phaistos_3": {
-        "id": "input-Phaistos_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Phaistos_4"
-    },
-    "Phaistos_4": {
-        "id": "input-Phaistos_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Wolfsegg_1"
-    },
-    "Wolfsegg_1": {
-        "id": "input-Wolfsegg_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Phaistos_4"
-    },
-    "Wolfsegg_2": {
-        "id": "input-Wolfsegg_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Wolfsegg_3": {
-        "id": "input-Wolfsegg_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Wolfsegg_4": {
-        "id": "input-Wolfsegg_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Nimrud_1"
-    },
-    "Nimrud_1": {
-        "id": "input-Nimrud_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Wolfsegg_4"
-    },
-    "Nimrud_2": {
-        "id": "input-Nimrud_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Nimrud_3": {
-        "id": "input-Nimrud_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Nimrud_4": {
-        "id": "input-Nimrud_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Mandragora_1"
-    },
-    "Mandragora_1": {
-        "id": "input-Mandragora_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Nimrud_4"
-    },
-    "Mandragora_2": {
-        "id": "input-Mandragora_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Mandragora_3": {
-        "id": "input-Mandragora_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Mandragora_4": {
-        "id": "input-Mandragora_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Rohonc_1"
-    },
-    "Rohonc_1": {
-        "id": "input-Rohonc_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Mandragora_4"
-    },
-    "Rohonc_2": {
-        "id": "input-Rohonc_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Rohonc_3": {
-        "id": "input-Rohonc_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Rohonc_4": {
-        "id": "input-Rohonc_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Aether_1"
-    },
-    "Aether_1": {
-        "id": "input-Aether_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Rohonc_4"
-    },
-    "Aether_2": {
-        "id": "input-Aether_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Aether_3": {
-        "id": "input-Aether_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Aether_4": {
-        "id": "input-Aether_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Antikythera_1"
-    },
-    "Antikythera_1": {
-        "id": "input-Antikythera_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Aether_4"
-    },
-    "Antikythera_2": {
-        "id": "input-Antikythera_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-    },
-    "Antikythera_3": {
-        "id": "input-Antikythera_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-    },
-    "Antikythera_4": {
-        "id": "input-Antikythera_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Voynich_1"
-    },
-    "Voynich_1": {
-        "id": "input-Voynich_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Antikythera_4"
-    },
-    "Voynich_2": {
-        "id": "input-Voynich_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Voynich_3": {
-        "id": "input-Voynich_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Voynich_4": {
-        "id": "input-Voynich_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Haniwa_1"
-    },
-    "Haniwa_1": {
-        "id": "input-Haniwa_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Voynich_4",
-        "Down": "input-Nebra_2"
-    },
-    "Haniwa_2": {
-        "id": "input-Haniwa_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Down": "input-Nebra_3"
-    },
-    "Haniwa_3": {
-        "id": "input-Haniwa_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Down": "input-Nebra_4"
-    },
-    "Haniwa_4": {
-        "id": "input-Haniwa_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Down": "input-Totem_1",
-        "Right": "input-Totem_1"
-    },
-    "Totem_1": {
-        "id": "input-Totem_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Haniwa_4",
-        "Up": "input-Haniwa_4"
-    },
-    "Totem_2": {
-        "id": "input-Totem_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Up": "input-Mystery_1"
-    },
-    "Totem_3": {
-        "id": "input-Totem_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Up": "input-Mystery_2"
-    },
-    "Totem_4": {
-        "id": "input-Totem_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Baghdad_1",
-        "Up": "input-Mystery_3"
-    },
-    "Baghdad_1": {
-        "id": "input-Baghdad_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Totem_4"
-    },
-    "Baghdad_2": {
-        "id": "input-Baghdad_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Baghdad_3": {
-        "id": "input-Baghdad_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Baghdad_4": {
-        "id": "input-Baghdad_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Fleece_1"
-    },
-    "Fleece_1": {
-        "id": "input-Fleece_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Baghdad_4"
-    },
-    "Fleece_2": {
-        "id": "input-Fleece_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Fleece_3": {
-        "id": "input-Fleece_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Fleece_4": {
-        "id": "input-Fleece_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Okiku_1"
-    },
-    "Okiku_1": {
-        "id": "input-Okiku_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Fleece_4"
-    },
-    "Okiku_2": {
-        "id": "input-Okiku_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Okiku_3": {
-        "id": "input-Okiku_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Okiku_4": {
-        "id": "input-Okiku_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Colgante_1"
-    },
-    "Colgante_1": {
-        "id": "input-Colgante_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Okiku_4"
-    },
-    "Colgante_2": {
-        "id": "input-Colgante_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Colgante_3": {
-        "id": "input-Colgante_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Colgante_4": {
-        "id": "input-Colgante_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Atlantis_1"
-    },
-    "Atlantis_1": {
-        "id": "input-Atlantis_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Colgante_4"
-    },
-    "Atlantis_2": {
-        "id": "input-Atlantis_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Atlantis_3": {
-        "id": "input-Atlantis_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Atlantis_4": {
-        "id": "input-Atlantis_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-RomanDice_1"
-    },
-    "RomanDice_1": {
-        "id": "input-RomanDice_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Atlantis_4"
-    },
-    "RomanDice_2": {
-        "id": "input-RomanDice_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "RomanDice_3": {
-        "id": "input-RomanDice_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "RomanDice_4": {
-        "id": "input-RomanDice_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Quimbaya_1"
-    },
-    "Quimbaya_1": {
-        "id": "input-Quimbaya_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-RomanDice_4"
-    },
-    "Quimbaya_2": {
-        "id": "input-Quimbaya_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Down": "input-Totem_1"
-    },
-    "Quimbaya_3": {
-        "id": "input-Quimbaya_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Down": "input-Totem_2"
-    },
-    "Quimbaya_4": {
-        "id": "input-Quimbaya_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Rocket_1"
-    },
-    "Rocket_1": {
-        "id": "input-Rocket_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Quimbaya_4"
-    },
-    "Rocket_2": {
-        "id": "input-Rocket_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Rocket_3": {
-        "id": "input-Rocket_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Rocket_4": {
-        "id": "input-Rocket_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Mystery_1"
-    },
-    "Mystery_1": {
-        "id": "input-Mystery_1",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Rocket_4",
-        "Down": "input-Totem_2"
-    },
-    "Mystery_2": {
-        "id": "input-Mystery_2",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Mystery_3": {
-        "id": "input-Mystery_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable"
-    },
-    "Mystery_4": {
-        "id": "input-Mystery_4",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-Workbook_potentialmaxhp_3"
-    },
-    "Workbook_potentialhealpower_3": {
-        "id": "input-Workbook_potentialhealpower_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Workbook_potentialattack_3",
-        "Right": "input-favor_0_3"
-    },
-    "Workbook_potentialattack_3": {
-        "id": "input-Workbook_potentialattack_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Workbook_potentialmaxhp_3",
-        "Right": "input-Workbook_potentialhealpower_3"
-    },
-    "Workbook_potentialmaxhp_3": {
-        "id": "input-Workbook_potentialmaxhp_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Left": "input-Mystery_4",
-        "Right": "input-Workbook_potentialattack_3"
-    },
-    "favor_0_3": {
-        "id": "input-favor_0_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_1_3",
-        "Left": "input-Mystery_4"
-    },
-    "favor_1_3": {
-        "id": "input-favor_1_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_2_3",
-        "Left": "input-favor_0_3"
-    },
-    "favor_2_3": {
-        "id": "input-favor_2_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_3_3",
-        "Left": "input-favor_1_3"
-    },
-    "favor_3_3": {
-        "id": "input-favor_3_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_4_3",
-        "Left": "input-favor_2_3"
-    },
-    "favor_4_3": {
-        "id": "input-favor_4_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_5_3",
-        "Left": "input-favor_3_3"
-    },
-    "favor_5_3": {
-        "id": "input-favor_5_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_6_3",
-        "Left": "input-favor_4_3"
-    },
-    "favor_6_3": {
-        "id": "input-favor_6_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_7_3",
-        "Left": "input-favor_5_3"
-    },
-    "favor_7_3": {
-        "id": "input-favor_7_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_8_3",
-        "Left": "input-favor_6_3"
-    },
-    "favor_8_3": {
-        "id": "input-favor_8_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_9_3",
-        "Left": "input-favor_7_3"
-    },
-    "favor_9_3": {
-        "id": "input-favor_9_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_10_3",
-        "Left": "input-favor_8_3"
-    },
-    "favor_10_3": {
-        "id": "input-favor_10_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_11_3",
-        "Left": "input-favor_9_3"
-    },
-    "favor_11_3": {
-        "id": "input-favor_11_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_12_3",
-        "Left": "input-favor_10_3"
-    },
-    "favor_12_3": {
-        "id": "input-favor_12_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_13_3",
-        "Left": "input-favor_11_3"
-    },
-    "favor_13_3": {
-        "id": "input-favor_13_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_14_3",
-        "Left": "input-favor_12_3"
-    },
-    "favor_14_3": {
-        "id": "input-favor_14_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_15_3",
-        "Left": "input-favor_13_3"
-    },
-    "favor_15_3": {
-        "id": "input-favor_15_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_16_3",
-        "Left": "input-favor_14_3"
-    },
-    "favor_16_3": {
-        "id": "input-favor_16_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_17_3",
-        "Left": "input-favor_15_3"
-    },
-    "favor_17_3": {
-        "id": "input-favor_17_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_18_3",
-        "Left": "input-favor_16_3"
-    },
-    "favor_18_3": {
-        "id": "input-favor_18_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_19_3",
-        "Left": "input-favor_17_3"
-    },
-    "favor_19_3": {
-        "id": "input-favor_19_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_20_3",
-        "Left": "input-favor_18_3"
-    },
-    "favor_20_3": {
-        "id": "input-favor_20_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_21_3",
-        "Left": "input-favor_19_3"
-    },
-    "favor_21_3": {
-        "id": "input-favor_21_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_22_3",
-        "Left": "input-favor_20_3"
-    },
-    "favor_22_3": {
-        "id": "input-favor_22_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_23_3",
-        "Left": "input-favor_21_3"
-    },
-    "favor_23_3": {
-        "id": "input-favor_23_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_24_3",
-        "Left": "input-favor_22_3"
-    },
-    "favor_24_3": {
-        "id": "input-favor_24_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_25_3",
-        "Left": "input-favor_23_3"
-    },
-    "favor_25_3": {
-        "id": "input-favor_25_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_26_3",
-        "Left": "input-favor_24_3"
-    },
-    "favor_26_3": {
-        "id": "input-favor_26_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_27_3",
-        "Left": "input-favor_25_3"
-    },
-    "favor_27_3": {
-        "id": "input-favor_27_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_28_3",
-        "Left": "input-favor_26_3"
-    },
-    "favor_28_3": {
-        "id": "input-favor_28_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_29_3",
-        "Left": "input-favor_27_3"
-    },
-    "favor_29_3": {
-        "id": "input-favor_29_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_30_3",
-        "Left": "input-favor_28_3"
-    },
-    "favor_30_3": {
-        "id": "input-favor_30_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_31_3",
-        "Left": "input-favor_29_3"
-    },
-    "favor_31_3": {
-        "id": "input-favor_31_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_32_3",
-        "Left": "input-favor_30_3"
-    },
-    "favor_32_3": {
-        "id": "input-favor_32_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_33_3",
-        "Left": "input-favor_31_3"
-    },
-    "favor_33_3": {
-        "id": "input-favor_33_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-favor_34_3",
-        "Left": "input-favor_32_3"
-    },
-    "favor_34_3": {
-        "id": "input-favor_34_3",
-        "location": "resourceModal",
-        "min": "0",
-        "max": "99999",
-        "navigation": "resourceTable",
-        "Right": "input-BD_1_Hyakkiyako",
-        "Left": "input-favor_33_3"
-    },
+    ...Object.fromEntries(
+        [
+            "BD_1_Hyakkiyako",
+            "BD_2_Hyakkiyako",
+            "BD_3_Hyakkiyako",
+            "BD_4_Hyakkiyako",
+
+            "BD_1_RedWinter",
+            "BD_2_RedWinter",
+            "BD_3_RedWinter",
+            "BD_4_RedWinter",
+
+            "BD_1_Trinity",
+            "BD_2_Trinity",
+            "BD_3_Trinity",
+            "BD_4_Trinity",
+
+            "BD_1_Gehenna",
+            "BD_2_Gehenna",
+            "BD_3_Gehenna",
+            "BD_4_Gehenna",
+
+            "BD_1_Abydos",
+            "BD_2_Abydos",
+            "BD_3_Abydos",
+            "BD_4_Abydos",
+
+            "BD_1_Millennium",
+            "BD_2_Millennium",
+            "BD_3_Millennium",
+            "BD_4_Millennium",
+
+            "BD_1_Arius",
+            "BD_2_Arius",
+            "BD_3_Arius",
+            "BD_4_Arius",
+
+            "BD_1_Shanhaijing",
+            "BD_2_Shanhaijing",
+            "BD_3_Shanhaijing",
+            "BD_4_Shanhaijing",
+
+            "BD_1_Valkyrie",
+            "BD_2_Valkyrie",
+            "BD_3_Valkyrie",
+            "BD_4_Valkyrie",
+
+            "BD_1_Highlander",
+            "BD_2_Highlander",
+            "BD_3_Highlander",
+            "BD_4_Highlander",
+
+            "BD_1_Wildhunt",
+            "BD_2_Wildhunt",
+            "BD_3_Wildhunt",
+            "BD_4_Wildhunt",
+
+            "BD_1_Odyssey",
+            "BD_2_Odyssey",
+            "BD_3_Odyssey",
+            "BD_4_Odyssey",
+
+            "TN_1_Hyakkiyako",
+            "TN_2_Hyakkiyako",
+            "TN_3_Hyakkiyako",
+            "TN_4_Hyakkiyako",
+
+            "TN_1_RedWinter",
+            "TN_2_RedWinter",
+            "TN_3_RedWinter",
+            "TN_4_RedWinter",
+
+            "TN_1_Trinity",
+            "TN_2_Trinity",
+            "TN_3_Trinity",
+            "TN_4_Trinity",
+
+            "TN_1_Gehenna",
+            "TN_2_Gehenna",
+            "TN_3_Gehenna",
+            "TN_4_Gehenna",
+
+            "TN_1_Abydos",
+            "TN_2_Abydos",
+            "TN_3_Abydos",
+            "TN_4_Abydos",
+
+            "TN_1_Millennium",
+            "TN_2_Millennium",
+            "TN_3_Millennium",
+            "TN_4_Millennium",
+
+            "TN_1_Arius",
+            "TN_2_Arius",
+            "TN_3_Arius",
+            "TN_4_Arius",
+
+            "TN_1_Shanhaijing",
+            "TN_2_Shanhaijing",
+            "TN_3_Shanhaijing",
+            "TN_4_Shanhaijing",
+
+            "TN_1_Valkyrie",
+            "TN_2_Valkyrie",
+            "TN_3_Valkyrie",
+            "TN_4_Valkyrie",
+
+            "TN_1_Highlander",
+            "TN_2_Highlander",
+            "TN_3_Highlander",
+            "TN_4_Highlander",
+
+            "TN_1_Wildhunt",
+            "TN_2_Wildhunt",
+            "TN_3_Wildhunt",
+            "TN_4_Wildhunt",
+
+            "TN_1_Odyssey",
+            "TN_2_Odyssey",
+            "TN_3_Odyssey",
+            "TN_4_Odyssey",
+
+            "Nebra_1",
+            "Nebra_2",
+            "Nebra_3",
+            "Nebra_4",
+            "Phaistos_1",
+            "Phaistos_2",
+            "Phaistos_3",
+            "Phaistos_4",
+            "Wolfsegg_1",
+            "Wolfsegg_2",
+            "Wolfsegg_3",
+            "Wolfsegg_4",
+            "Nimrud_1",
+            "Nimrud_2",
+            "Nimrud_3",
+            "Nimrud_4",
+            "Mandragora_1",
+            "Mandragora_2",
+            "Mandragora_3",
+            "Mandragora_4",
+            "Rohonc_1",
+            "Rohonc_2",
+            "Rohonc_3",
+            "Rohonc_4",
+            "Aether_1",
+            "Aether_2",
+            "Aether_3",
+            "Aether_4",
+            "Antikythera_1",
+            "Antikythera_2",
+            "Antikythera_3",
+            "Antikythera_4",
+            "Voynich_1",
+            "Voynich_2",
+            "Voynich_3",
+            "Voynich_4",
+            "Haniwa_1",
+            "Haniwa_2",
+            "Haniwa_3",
+            "Haniwa_4",
+            "Totem_1",
+            "Totem_2",
+            "Totem_3",
+            "Totem_4",
+            "Baghdad_1",
+            "Baghdad_2",
+            "Baghdad_3",
+            "Baghdad_4",
+            "Fleece_1",
+            "Fleece_2",
+            "Fleece_3",
+            "Fleece_4",
+            "Okiku_1",
+            "Okiku_2",
+            "Okiku_3",
+            "Okiku_4",
+            "Colgante_1",
+            "Colgante_2",
+            "Colgante_3",
+            "Colgante_4",
+            "Atlantis_1",
+            "Atlantis_2",
+            "Atlantis_3",
+            "Atlantis_4",
+            "RomanDice_1",
+            "RomanDice_2",
+            "RomanDice_3",
+            "RomanDice_4",
+            "Quimbaya_1",
+            "Quimbaya_2",
+            "Quimbaya_3",
+            "Quimbaya_4",
+            "Rocket_1",
+            "Rocket_2",
+            "Rocket_3",
+            "Rocket_4",
+            "Mystery_1",
+            "Mystery_2",
+            "Mystery_3",
+            "Mystery_4",
+
+            "Workbook_potentialmaxhp_3",
+            "Workbook_potentialattack_3",
+            "Workbook_potentialhealpower_3",
+
+            "favor_0_3",
+            "favor_1_3",
+            "favor_2_3",
+            "favor_3_3",
+            "favor_4_3",
+            "favor_5_3",
+            "favor_6_3",
+            "favor_7_3",
+            "favor_8_3",
+            "favor_9_3",
+            "favor_10_3",
+            "favor_11_3",
+            "favor_12_3",
+            "favor_13_3",
+            "favor_14_3",
+            "favor_15_3",
+            "favor_16_3",
+            "favor_17_3",
+            "favor_18_3",
+            "favor_19_3",
+            "favor_20_3",
+            "favor_21_3",
+            "favor_22_3",
+            "favor_23_3",
+            "favor_24_3",
+            "favor_25_3",
+            "favor_26_3",
+            "favor_27_3",
+            "favor_28_3",
+            "favor_29_3",
+            "favor_30_3",
+            "favor_31_3",
+            "favor_32_3",
+            "favor_33_3",
+            "favor_34_3",
+        ].map((name, index, order) => [
+            name,
+            {
+                id: `input-${name}`,
+                location: "resourceModal",
+                min: "0",
+                max: "99999",
+                navigation: "resourceTable",
+                ...(index > 0
+                    ? { Left: `input-${order[index - 1]}` }
+                    : { Left: "input-favor_34_3" }),
+                ...(index < order.length - 1
+                    ? { Right: `input-${order[index + 1]}` }
+                    : { Right: "input-BD_1_Hyakkiyako" })
+            }
+        ])
+    ),
     "Credit": {
         "id": "input-Credit",
         "location": "resourceModal",
