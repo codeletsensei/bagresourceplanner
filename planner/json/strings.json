@@ -835,6 +835,22 @@
         "JP": "その他",
         "CN": "其他"
     },
+    "school-tokiwadai": {
+        "EN": "Tokiwadai",
+        "KR": "Tokiwadai",
+        "TH": "Tokiwadai",
+        "ID": "Tokiwadai",
+        "JP": "Tokiwadai",
+        "CN": "Tokiwadai"
+    },
+    "school-sakugawa": {
+        "EN": "Sakugawa",
+        "KR": "Sakugawa",
+        "TH": "Sakugawa",
+        "ID": "Sakugawa",
+        "JP": "Sakugawa",
+        "CN": "Sakugawa"
+    },
     "artifact-nebra": {
         "EN": "Nebra",
         "KR": "디스크",

@@ -179,7 +179,7 @@ function buildFilterList() {
             const char = charlist[i];
             filterTypes.filter_atk.options.push(char.BulletType);
             filterTypes.filter_def.options.push(char.ArmorType);
-            filterTypes.filter_school.options.push(char.School);
+            filterTypes.filter_school.options.push(char.School.toLowerCase().replaceAll(" ", ""));
             filterTypes.filter_type.options.push(GetOldTypeFromSquadType(char.SquadType));
             filterTypes.filter_weapon.options.push(char.WeaponType);
             filterTypes.filter_star.options.push(char.StarGrade.toString());
@@ -252,7 +252,7 @@ function assignClassFilters() {
             "filter_atk_"+charInfo.BulletType.toLowerCase().replaceAll(" ", "_"),
             "filter_def_"+charInfo.ArmorType.toLowerCase().replaceAll(" ", "_"),
             "filter_star_"+charInfo.StarGrade,
-            "filter_school_"+charInfo.School.toLowerCase().replaceAll(" ", "_"),
+            "filter_school_"+charInfo.School.toLowerCase().replaceAll(" ", ""),
             "filter_type_"+GetOldTypeFromSquadType(charInfo.SquadType).toLowerCase().replaceAll(" ", "_"),
             "filter_weapon_"+charInfo.WeaponType.toLowerCase().replaceAll(" ", "_"),
         ]

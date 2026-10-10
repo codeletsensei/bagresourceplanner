@@ -33,7 +33,7 @@
     <script src="js/config.js?q=35" defer></script>
     <script src="js/common.js?q=19" defer></script>
     <script src="js/pageLogic.js?q=169" defer></script>
-    <script src="js/filters.js?q=8" defer></script>
+    <script src="js/filters.js?q=9" defer></script>
     <script src="js/lzma_worker.js?q=1" defer></script>
     <!--<script src="js/cloudAPI.js?q=6" defer></script>-->
     <style id="toggleViewStyle" class="modifyable"></style>
@@ -1286,43 +1286,43 @@
                 onclick="ControlPanelSize('Shrink')">-</div>
         </div>
         <div id="control-panel-buttons">
-            <div id="control-edit" class="control-panel-button-wrapper">
+            <div id="control-edit" class="control-panel-button-wrapper" title="Edit">
                 <img class="control-panel-button selected" id="control-button-edit"
                     onclick="ControlPanelClicked('Edit')" src="icons/UI/pencil-solid.svg">
                 <div class="control-panel-button-label">1</div>
             </div>
-            <div id="control-move" class="control-panel-button-wrapper">
+            <div id="control-move" class="control-panel-button-wrapper" title="Move">
                 <img class="control-panel-button" id="control-button-move" onclick="ControlPanelClicked('Move')"
                     src="icons/UI/arrows-up-down-left-right-solid.svg">
                 <div class="control-panel-button-label">2</div>
             </div>
-            <div id="control-disable" class="control-panel-button-wrapper">
+            <div id="control-disable" class="control-panel-button-wrapper" title="Disable/Enable">
                 <img class="control-panel-button" id="control-button-disable" onclick="ControlPanelClicked('Disable')"
                     src="icons/UI/eye-slash-solid.svg">
                 <div class="control-panel-button-label">3</div>
             </div>
-            <div id="control-addstudent" class="control-panel-button-wrapper">
+            <div id="control-addstudent" class="control-panel-button-wrapper" title="Add Student">
                 <img class="control-panel-button" id="control-button-add-student"
                     onclick="ControlPanelClicked('AddStudent')" src="icons/UI/plus-solid.svg">
                 <div class="control-panel-button-label">4</div>
             </div>
-            <div id="control-filter" class="control-panel-button-wrapper">
+            <div id="control-filter" class="control-panel-button-wrapper" title="Filters">
                 <img class="control-panel-button" id="control-button-filter" onclick="ControlPanelClicked('Filter')"
                     src="icons/UI/filter-solid.svg">
                 <div class="control-panel-button-label">5</div>
             </div>
-            <div id="control-bulk" class="control-panel-button-wrapper">
+            <div id="control-bulk" class="control-panel-button-wrapper" title="Bulk Edit">
                 <img class="control-panel-button" id="control-button-bulk" onclick="ControlPanelClicked('Bulk')"
                     src="icons/UI/users-viewfinder-solid.svg">
                 <div class="control-panel-button-label">6</div>
             </div>
-            <div id="control-sort" class="control-panel-button-wrapper">
+            <div id="control-sort" class="control-panel-button-wrapper" title="Sort">
                 <img class="control-panel-button" id="control-button-sort" onclick="ControlPanelClicked('Sort')"
                     src="icons/UI/arrow-down-short-wide-solid.svg">
                 <div class="control-panel-button-label">7</div>
             </div>
             <img id="control-dock" class="control-panel-button" id="control-button-dock"
-                onclick="ControlPanelClicked('Dock')" src="icons/UI/window-dock-undock.svg">
+                onclick="ControlPanelClicked('Dock')" src="icons/UI/window-dock-undock.svg" title="Dock/Undock (This)">
         </div>
         <div id="control-panel-shortcut-info">SHIFT + n</div>
     </div>
